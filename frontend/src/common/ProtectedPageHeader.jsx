@@ -64,7 +64,7 @@ function ProtectedPageHeader(props) {
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            {islg ? (
+            {ismd ? (
               <Typography variant="h4" className="mr-8">Logo</Typography>
             ) : (
               <IconButton
@@ -83,7 +83,7 @@ function ProtectedPageHeader(props) {
                 />
               </IconButton>
             )}
-            <SearchTextField size="small" className="hidden lg:flex w-[20rem]" />
+            <SearchTextField size="small" className="hidden md:flex w-[20rem]" />
             <div className="flex-1" />
             <IconButton
               variant="soft"
