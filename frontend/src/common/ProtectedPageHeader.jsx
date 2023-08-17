@@ -94,7 +94,6 @@ function ProtectedPageHeader(props) {
               <IconButton
                 variant="soft"
                 size="medium"
-                onClick={infoPopover.togglePopover}
               >
                 <WbSunnyOutlinedIcon style={{ color: "black" }} />
               </IconButton>
@@ -122,7 +121,7 @@ function ProtectedPageHeader(props) {
                 </Avatar>
                 {ismd && (
                   <div>
-                    <Typography variant="subtitle2" className="font-semibold text-black">
+                    <Typography variant="subtitle1" className="font-semibold text-black">
                       {/* {authUser?.fullName} */}
                       Logan Xavier
                     </Typography>
