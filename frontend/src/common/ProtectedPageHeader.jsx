@@ -26,8 +26,7 @@ import "./ProtectedPageHeader.css";
 import SearchTextField from "./SearchTextField";
 import { resolvedTailwindConfig } from "constants/Global";
 import { Iconly } from "react-iconly";
-import LightModeIcon from "@mui/icons-material/LightMode";
-
+import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 /**
  *
  * @param {PublicPageHeaderProps} props
@@ -62,8 +61,8 @@ function ProtectedPageHeader(props) {
         // }}
         {...rest}
       >
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
+        <Container maxWidth="false">
+          <Toolbar >
             {ismd ? (
               <Typography variant="h5" className="mr-4">
                 Steex
@@ -111,7 +110,7 @@ function ProtectedPageHeader(props) {
                 //   resolvedTailwindConfig.theme.colors.primary.main
                 // }
               /> */}
-                <LightModeIcon />
+                <WbSunnyOutlinedIcon />
               </IconButton>
               <IconButton
                 variant="soft"
