@@ -33,7 +33,7 @@ function App() {
       > */}
         <Suspense>
           {/* {authUser?.base64EncodedAuthenticationKey ? ( */}
-          {false ? (
+          {true ? (
             <AppProtected />
           ) : (
             <AppPublic />
