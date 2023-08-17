@@ -65,7 +65,7 @@ function ProtectedPageHeader(props) {
         <Container maxWidth="false">
           <Toolbar>
             {ismd ? (
-              <Typography variant="h5" className="mr-4 text-mui-secondary-main font-bold">
+              <Typography variant="h5" className="mr-16 text-mui-secondary-main font-bold">
                 Steex
               </Typography>
             ) : (
@@ -84,7 +84,7 @@ function ProtectedPageHeader(props) {
             )}
             <SearchTextField
               size="small"
-              className="hidden md:flex w-[20rem]"
+              className="hidden md:flex w-[15rem] border-mui-secondary-contrastText"
             />
             <div className="flex-1" />
             <div className="flex items-center gap-4">
