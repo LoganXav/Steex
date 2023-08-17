@@ -26,7 +26,7 @@ import "./ProtectedPageHeader.css";
 import SearchTextField from "./SearchTextField";
 import { resolvedTailwindConfig } from "constants/Global";
 import { Iconly } from "react-iconly";
-import LightModeIcon from '@mui/icons-material/LightMode';
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 /**
  *
@@ -51,7 +51,7 @@ function ProtectedPageHeader(props) {
   }
 
   return (
-    <div className="border-b p-4">
+    <div className="border-b">
       <AppBar
         className={clsx("ProtectedPageHeader", className)}
         position={position}
@@ -65,12 +65,11 @@ function ProtectedPageHeader(props) {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             {ismd ? (
-              <Typography variant="h4" className="mr-8">Logo</Typography>
+              <Typography variant="h5" className="mr-4">
+                Steex
+              </Typography>
             ) : (
-              <IconButton
-                variant="soft"
-                size="medium"
-              >
+              <IconButton variant="soft" size="medium">
                 <Iconly
                   size="medium"
                   name="ArrowRight"
@@ -83,27 +82,28 @@ function ProtectedPageHeader(props) {
                 />
               </IconButton>
             )}
-            <SearchTextField size="small" className="hidden md:flex w-[20rem]" />
+            <SearchTextField
+              size="small"
+              className="hidden md:flex w-[20rem]"
+            />
             <div className="flex-1" />
-            <IconButton
-              variant="soft"
-              size="medium"
-            >
-              <Iconly
+            <div className="flex items-center gap-4">
+              <IconButton variant="soft" size="medium">
+                <Iconly
+                  size="medium"
+                  name="Edit"
+                  // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
+                  // secondaryColor={
+                  //   resolvedTailwindConfig.theme.colors.primary.main
+                  // }
+                />
+              </IconButton>
+              <IconButton
+                // variant="soft"
                 size="medium"
-                name="Edit"
-                // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
-                // secondaryColor={
-                //   resolvedTailwindConfig.theme.colors.primary.main
-                // }
-              />
-            </IconButton>
-            <IconButton
-              // variant="soft"
-              size="medium"
-              onClick={infoPopover.togglePopover}
-            >
-              {/* <Iconly
+                onClick={infoPopover.togglePopover}
+              >
+                {/* <Iconly
                 size="medium"
                 name="Setting"
                 // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
@@ -111,43 +111,44 @@ function ProtectedPageHeader(props) {
                 //   resolvedTailwindConfig.theme.colors.primary.main
                 // }
               /> */}
-              <LightModeIcon />
-            </IconButton>
-            <IconButton
-              variant="soft"
-              size="medium"
-              onClick={infoPopover.togglePopover}
-            >
-              <Iconly
+                <LightModeIcon />
+              </IconButton>
+              <IconButton
+                variant="soft"
                 size="medium"
-                name="Notification"
-                // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
-                // secondaryColor={
-                //   resolvedTailwindConfig.theme.colors.primary.main
-                // }
-              />
-            </IconButton>
-            <ButtonBase
-              className="flex text-start items-center"
-              onClick={infoPopover.togglePopover}
-            >
-              <Avatar className="md:mr-4" src="">
-                {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
-                {/* {authUser?.fullName?.[0]} */}
-              </Avatar>
-              {ismd && (
-                <div>
-                  <Typography className="font-semibold">
-                    {/* {authUser?.fullName} */}
-                    Logan Xavier
-                  </Typography>
-                  <Typography variant="body2" className="whitespace-nowrap">
-                    {/* {authUser?.accountType} */}
-                    Student
-                  </Typography>
-                </div>
-              )}
-            </ButtonBase>
+                onClick={infoPopover.togglePopover}
+              >
+                <Iconly
+                  size="medium"
+                  name="Notification"
+                  // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
+                  // secondaryColor={
+                  //   resolvedTailwindConfig.theme.colors.primary.main
+                  // }
+                />
+              </IconButton>
+              <ButtonBase
+                className="flex text-start items-center"
+                onClick={infoPopover.togglePopover}
+              >
+                <Avatar className="md:mr-4 w-7 h-7" src="">
+                  {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
+                  {/* {authUser?.fullName?.[0]} */}
+                </Avatar>
+                {ismd && (
+                  <div>
+                    <Typography variant="subtitle2" className="font-semibold">
+                      {/* {authUser?.fullName} */}
+                      Logan Xavier
+                    </Typography>
+                    <Typography variant="body2" className="whitespace-nowrap font-light">
+                      {/* {authUser?.accountType} */}
+                      Student
+                    </Typography>
+                  </div>
+                )}
+              </ButtonBase>
+            </div>
             <Popover
               open={infoPopover.isOpen}
               anchorEl={infoPopover.anchorEl}
