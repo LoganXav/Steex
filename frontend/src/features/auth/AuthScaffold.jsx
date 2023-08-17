@@ -6,7 +6,7 @@ import { clsx } from "clsx";
 function AuthScaffold(props) {
   return (
     <div className="min-h-screen flex bg-mui-primary-lightAlt">
-      <div className="w-[90%] md:w-[80%] lg:w-[80%] min-h-[90vh] sm:min-h-[95vh] my-10 sm:my-12 flex sm:flex-col xl:flex-row mx-auto overflow-hidden rounded-sm" >
+      <div className="w-[90%] md:w-[80%] lg:w-[80%]  sm:min-h-[95vh] my-10 sm:my-12 flex sm:flex-col xl:flex-row mx-auto overflow-hidden rounded-sm" >
         <div className="xl:w-[45%] hidden sm:flex flex-1">
           <div className="w-full flex flex-col items-center justify-between text-center p-10 bg-mui-secondary-main rounded-sm">
             <div>
