@@ -19,7 +19,7 @@ export const lightTheme = responsiveFontSizes(
       secondary: {
         lightAlt: "#FFFAF5",
         main: "#341C34",
-        contrastText: "#FFFFFF",
+        contrastText: "#7C7F7B",
       },
       success: {
         ...defaultTheme.palette.success,

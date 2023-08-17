@@ -65,9 +65,9 @@ function ProtectedPageHeader(props) {
         <Container maxWidth="false">
           <Toolbar>
             {ismd ? (
-              <h3 className="text-xl text-mui-secondary-main mr-4 font-bold">
+              <Typography variant="h5" className="mr-4 text-mui-secondary-main font-bold">
                 Steex
-              </h3>
+              </Typography>
             ) : (
               <IconButton variant="soft" size="medium">
                 <Iconly
@@ -122,9 +122,17 @@ function ProtectedPageHeader(props) {
                 </Avatar>
                 {ismd && (
                   <div>
-                    <h6> Logan Xavier</h6>
-                    <small>Student</small>
-                  
+                    <Typography variant="subtitle2" className="font-semibold text-black">
+                      {/* {authUser?.fullName} */}
+                      Logan Xavier
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      className="font-light text-mui-secondary-contrastText"
+                    >
+                      {/* {authUser?.accountType} */}
+                      Student
+                    </Typography>
                   </div>
                  )} 
               </ButtonBase>
