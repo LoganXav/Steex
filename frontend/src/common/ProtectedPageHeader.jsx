@@ -28,7 +28,8 @@ import { resolvedTailwindConfig } from "constants/Global";
 import { Iconly } from "react-iconly";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import FullscreenExitOutlinedIcon from '@mui/icons-material/FullscreenExitOutlined';/**
+import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined";
+/**
  *
  * @param {PublicPageHeaderProps} props
  */
@@ -65,7 +66,10 @@ function ProtectedPageHeader(props) {
         <Container maxWidth="false">
           <Toolbar>
             {ismd ? (
-              <Typography variant="h5" className="mr-16 text-mui-secondary-main font-bold">
+              <Typography
+                variant="h5"
+                className="mr-16 text-mui-secondary-main font-bold"
+              >
                 Steex
               </Typography>
             ) : (
@@ -84,17 +88,14 @@ function ProtectedPageHeader(props) {
             )}
             <SearchTextField
               size="small"
-              className="hidden md:flex w-[15rem] border-mui-secondary-contrastText"
+              className="hidden md:flex w-[15rem]"
             />
             <div className="flex-1" />
             <div className="flex items-center gap-4">
               <IconButton variant="soft" size="medium">
                 <FullscreenExitOutlinedIcon style={{ color: "black" }} />
               </IconButton>
-              <IconButton
-                variant="soft"
-                size="medium"
-              >
+              <IconButton variant="soft" size="medium">
                 <WbSunnyOutlinedIcon style={{ color: "black" }} />
               </IconButton>
               <IconButton
@@ -108,8 +109,7 @@ function ProtectedPageHeader(props) {
                   primaryColor="black"
                   secondaryColor="black"
                 />
-              {/* <NotificationsOutlinedIcon style={{ color: "black" }}/> */}
-
+                {/* <NotificationsOutlinedIcon style={{ color: "black" }}/> */}
               </IconButton>
               <ButtonBase
                 className="flex text-start items-center"
@@ -121,7 +121,10 @@ function ProtectedPageHeader(props) {
                 </Avatar>
                 {ismd && (
                   <div>
-                    <Typography variant="subtitle1" className="font-semibold text-black">
+                    <Typography
+                      variant="subtitle1"
+                      className="font-semibold text-black"
+                    >
                       {/* {authUser?.fullName} */}
                       Logan Xavier
                     </Typography>
@@ -133,7 +136,7 @@ function ProtectedPageHeader(props) {
                       Student
                     </Typography>
                   </div>
-                 )} 
+                )}
               </ButtonBase>
             </div>
             <Popover
@@ -142,52 +145,50 @@ function ProtectedPageHeader(props) {
               onClose={infoPopover.togglePopover}
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               transformOrigin={{ vertical: "top", horizontal: "right" }}
-              PaperProps={{ className: "w-56" }}
+              PaperProps={{ className: "w-40 mt-3" }}
+              elevation="2"
             >
-              <div className="p-4 flex flex-col items-center">
-                <div className="w-20 h-20 mb-2" />
-                <Typography className="text-center font-semibold">
+              <div className="p-3 flex flex-col">
+                <Typography variant="subtitle2" className="font-semibold mb-1">
                   {/* {authUser?.firstname} {authUser?.lastname}
                     {authUser?.username} */}
-                  Logan Xavier Logan Xavier Logan Xavier
+                  Welcome Logan!
                 </Typography>
-                <Typography
-                  variant="body2"
-                  className="text-center whitespace-nowrap"
-                >
-                  {/* {authUser.type} */}
-                  Student
-                </Typography>
-              </div>
-              <div className="py-2">
+              
+              <div className="">
                 {[
                   {
-                    icon: "person",
-                    children: "Profile",
+                    icon: "User",
+                    children: "User",
                     component: Link,
                     to: RouteEnum.DASHBOARD,
                   },
                   {
-                    icon: "settings",
-                    children: "Settings",
+                    icon: "Message",
+                    children: "Messages",
                     component: Link,
                     to: RouteEnum.DASHBOARD,
                   },
-                  { icon: "logout", children: "Logout", onClick: handleLogout },
+                  { icon: "Logout", children: "Logout", onClick: handleLogout },
                 ].map(({ icon, children, onClick, ...rest }, index) => (
                   <ListItemButton
                     key={index}
                     className=""
+                    disableGutters
+                    dense="false"
                     onClick={() => {
                       infoPopover.togglePopover();
                       onClick?.();
                     }}
                     {...rest}
                   >
-                    <Icon>{icon}</Icon>
-                    <Typography className="ml-4">{children}</Typography>
+                    <IconButton variant="soft" size="small">
+                      <Iconly size="small" name={icon} />
+                    </IconButton>
+                    <Typography variant="body2" className="text-mui-secondary-contrastText">{children}</Typography>
                   </ListItemButton>
                 ))}
+              </div>
               </div>
             </Popover>
           </Toolbar>
