@@ -128,14 +128,14 @@ function ProtectedPageHeader(props) {
               />
             </IconButton>
             <ButtonBase
-              className="flex text-start items-center lg:p-2"
+              className="flex text-start items-center"
               onClick={infoPopover.togglePopover}
             >
-              <Avatar className="lg:mr-4" src="">
+              <Avatar className="md:mr-4" src="">
                 {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
                 {/* {authUser?.fullName?.[0]} */}
               </Avatar>
-              {islg && (
+              {ismd && (
                 <div>
                   <Typography className="font-semibold">
                     {/* {authUser?.fullName} */}
