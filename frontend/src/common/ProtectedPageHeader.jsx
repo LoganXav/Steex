@@ -26,8 +26,9 @@ import "./ProtectedPageHeader.css";
 import SearchTextField from "./SearchTextField";
 import { resolvedTailwindConfig } from "constants/Global";
 import { Iconly } from "react-iconly";
-import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
-/**
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import FullscreenExitOutlinedIcon from '@mui/icons-material/FullscreenExitOutlined';/**
  *
  * @param {PublicPageHeaderProps} props
  */
@@ -62,7 +63,7 @@ function ProtectedPageHeader(props) {
         {...rest}
       >
         <Container maxWidth="false">
-          <Toolbar >
+          <Toolbar>
             {ismd ? (
               <Typography variant="h5" className="mr-4">
                 Steex
@@ -88,43 +89,30 @@ function ProtectedPageHeader(props) {
             <div className="flex-1" />
             <div className="flex items-center gap-4">
               <IconButton variant="soft" size="medium">
-                <Iconly
-                  size="medium"
-                  name="Edit"
-                  // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
-                  // secondaryColor={
-                  //   resolvedTailwindConfig.theme.colors.primary.main
-                  // }
-                />
-              </IconButton>
-              <IconButton
-                // variant="soft"
-                size="medium"
-                onClick={infoPopover.togglePopover}
-              >
-                {/* <Iconly
-                size="medium"
-                name="Setting"
-                // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
-                // secondaryColor={
-                //   resolvedTailwindConfig.theme.colors.primary.main
-                // }
-              /> */}
-                <WbSunnyOutlinedIcon />
+                <FullscreenExitOutlinedIcon style={{ color: "black" }} />
               </IconButton>
               <IconButton
                 variant="soft"
                 size="medium"
                 onClick={infoPopover.togglePopover}
               >
-                <Iconly
+                <WbSunnyOutlinedIcon style={{ color: "black" }} />
+              </IconButton>
+              <IconButton
+                variant="soft"
+                size="medium"
+                onClick={infoPopover.togglePopover}
+              >
+                {/* <Iconly
                   size="medium"
                   name="Notification"
                   // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
                   // secondaryColor={
                   //   resolvedTailwindConfig.theme.colors.primary.main
                   // }
-                />
+                /> */}
+              <NotificationsOutlinedIcon style={{ color: "black" }}/>
+
               </IconButton>
               <ButtonBase
                 className="flex text-start items-center"
@@ -134,18 +122,21 @@ function ProtectedPageHeader(props) {
                   {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
                   {/* {authUser?.fullName?.[0]} */}
                 </Avatar>
-                {ismd && (
+                {/* {ismd && ( */}
                   <div>
                     <Typography variant="subtitle2" className="font-semibold">
                       {/* {authUser?.fullName} */}
                       Logan Xavier
                     </Typography>
-                    <Typography variant="body2" className="whitespace-nowrap font-light">
+                    <Typography
+                      variant="body2"
+                      className="whitespace-nowrap font-light"
+                    >
                       {/* {authUser?.accountType} */}
                       Student
                     </Typography>
                   </div>
-                )}
+                {/* )} */}
               </ButtonBase>
             </div>
             <Popover
