@@ -65,9 +65,9 @@ function ProtectedPageHeader(props) {
         <Container maxWidth="false">
           <Toolbar>
             {ismd ? (
-              <Typography variant="h5" className="mr-4">
+              <h3 className="text-xl text-mui-secondary-main mr-4 font-bold">
                 Steex
-              </Typography>
+              </h3>
             ) : (
               <IconButton variant="soft" size="medium">
                 <Iconly
@@ -103,15 +103,13 @@ function ProtectedPageHeader(props) {
                 size="medium"
                 onClick={infoPopover.togglePopover}
               >
-                {/* <Iconly
+                <Iconly
                   size="medium"
                   name="Notification"
-                  // primaryColor={resolvedTailwindConfig.theme.colors.primary.main}
-                  // secondaryColor={
-                  //   resolvedTailwindConfig.theme.colors.primary.main
-                  // }
-                /> */}
-              <NotificationsOutlinedIcon style={{ color: "black" }}/>
+                  primaryColor="black"
+                  secondaryColor="black"
+                />
+              {/* <NotificationsOutlinedIcon style={{ color: "black" }}/> */}
 
               </IconButton>
               <ButtonBase
@@ -122,21 +120,13 @@ function ProtectedPageHeader(props) {
                   {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
                   {/* {authUser?.fullName?.[0]} */}
                 </Avatar>
-                {/* {ismd && ( */}
+                {ismd && (
                   <div>
-                    <Typography variant="subtitle2" className="font-semibold">
-                      {/* {authUser?.fullName} */}
-                      Logan Xavier
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      className="whitespace-nowrap font-light"
-                    >
-                      {/* {authUser?.accountType} */}
-                      Student
-                    </Typography>
+                    <h6> Logan Xavier</h6>
+                    <small>Student</small>
+                  
                   </div>
-                {/* )} */}
+                 )} 
               </ButtonBase>
             </div>
             <Popover
