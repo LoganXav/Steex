@@ -4,7 +4,7 @@ function AuthTitle(props) {
   return (
     <Typography
       variant="h5"
-      className="!font-medium"
+      className="!font-medium mb-2"
       {...props}
     >
       {props.children}
