@@ -88,9 +88,9 @@ export default AppProtectedSideNavigation;
 
 const LINKS = [
   { name: "Dashboard", to: RouteEnum.DASHBOARD, icon: "Chart" },
-  { name: "Courses", to: RouteEnum.TRANSACTIONS, icon: "Work" },
-  { name: "Subscriptions", to: RouteEnum.CONTACT_US, icon: "Calendar" },
-  { name: "Instructors", to: RouteEnum.CONTACT_US, icon: "People" },
+  { name: "Courses", to: RouteEnum.COURSES, icon: "Work" },
+  { name: "Subscriptions", to: RouteEnum.SUBSCRIPTIONS, icon: "Calendar" },
+  { name: "Instructors", to: RouteEnum.INSTRUCTORS, icon: "People" },
   { name: "Profile", to: RouteEnum.PROFILE, icon: "User" },
-  { name: "FAQs", to: RouteEnum.SETTINGS, icon: "Discovery" },
+  { name: "FAQs", to: RouteEnum.CONTACT_US_FAQS, icon: "Discovery" },
 ];

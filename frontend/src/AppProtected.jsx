@@ -111,17 +111,25 @@ const getRoutes = function getRoutes({ authUser, redirectTo }) {
       path: RouteEnum.DASHBOARD,
       element: lazy(() => import("pages/dashboard/Dashboard")),
     },
-    // {
-    //   path: RouteEnum.TRANSACTIONS.concat("/*"),
-    //   element: lazy(() => import("pages/transaction/Transaction")),
-    // },
-    // {
-    //   path: RouteEnum.CONTACT_US.concat("/*"),
-    //   element: lazy(() => import("pages/contact/Contact")),
-    // },
-    // {
-    //   path: RouteEnum.PROFILE.concat("/*"),
-    //   element: lazy(() => import("pages/profile/Profile")),
-    // },
+    {
+      path: RouteEnum.COURSES.concat("/*"),
+      element: lazy(() => import("pages/courses/Courses")),
+    },
+    {
+      path: RouteEnum.SUBSCRIPTIONS.concat("/*"),
+      element: lazy(() => import("pages/subscriptions/Subscriptions")),
+    },
+    {
+      path: RouteEnum.INSTRUCTORS.concat("/*"),
+      element: lazy(() => import("pages/instructors/Instructors")),
+    },
+    {
+      path: RouteEnum.PROFILE.concat("/*"),
+      element: lazy(() => import("pages/profile/Profile")),
+    },
+    {
+      path: RouteEnum.CONTACT_US_FAQS.concat("/*"),
+      element: lazy(() => import("pages/contact-us/Faqs")),
+    },
   ]);
 };
