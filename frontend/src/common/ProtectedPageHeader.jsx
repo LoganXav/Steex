@@ -207,26 +207,20 @@ function ProtectedPageHeader(props) {
               <div className="p-2 pl-3">
                 {[
                   {
-                    icon: "User",
-                    children: "User",
+                    icon: "Ticket",
+                    children: "Balance",
                     component: Link,
                     to: RouteEnum.DASHBOARD,
                   },
                   {
-                    icon: "Message",
-                    children: "Messages",
+                    icon: "Setting",
+                    children: "Settings",
                     component: Link,
                     to: RouteEnum.DASHBOARD,
                   },
                   {
-                    icon: "Calendar",
-                    children: "Taskboard",
-                    component: Link,
-                    to: RouteEnum.DASHBOARD,
-                  },
-                  {
-                    icon: "InfoSquare",
-                    children: "Help",
+                    icon: "Lock",
+                    children: "Lock screen",
                     component: Link,
                     to: RouteEnum.DASHBOARD,
                   },
