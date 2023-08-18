@@ -156,7 +156,7 @@ function ProtectedPageHeader(props) {
                   Welcome Logan!
                 </Typography>
               
-              <div className="p-2 pl-3">
+              <div className="">
                 {[
                   {
                     icon: "User",
@@ -186,7 +186,7 @@ function ProtectedPageHeader(props) {
                   <>
                   <ListItemButton
                     key={index}
-                    className=""
+                    className="p-2 pl-3"
                     disableGutters
                     dense="false"
                     onClick={() => {
@@ -204,7 +204,7 @@ function ProtectedPageHeader(props) {
                 ))}
               </div>
                   <Divider></Divider>
-              <div className="p-2 pl-3">
+              <div className="">
                 {[
                   {
                     icon: "Ticket",
@@ -229,7 +229,7 @@ function ProtectedPageHeader(props) {
                   <>
                   <ListItemButton
                     key={index}
-                    className=""
+                    className="p-2 pl-3"
                     disableGutters
                     dense="false"
                     onClick={() => {
