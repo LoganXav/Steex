@@ -16,7 +16,7 @@ function AuthScaffold(props) {
             <Typography variant="subtitle1" className="text-mui-secondary-contrastText" >2023 Steex. Crafted with love by Logan</Typography>
           </div>
         </div>
-        <Paper className="w-full xl:w-[55%] flex flex-col items-center justify-center text-center  sm:py-12 xl:p-0">
+        <Paper className="w-full xl:w-[55%] flex flex-col items-center justify-center text-center p-2 sm:py-12 xl:p-0">
             <div className="w-full sm:max-w-3xl xl:max-w-md">{props.children}</div>
         </Paper>
       </div>
