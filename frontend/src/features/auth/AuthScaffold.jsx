@@ -5,8 +5,8 @@ import { clsx } from "clsx";
 
 function AuthScaffold(props) {
   return (
-    <div className="min-h-screen flex bg-mui-primary-lightAlt">
-      <div className="w-[95%] md:w-[80%] my-24 sm:my-12 flex sm:flex-col xl:flex-row mx-auto overflow-hidden rounded-sm">
+    <div className="min-h-screen flex justify-center items-center bg-mui-primary-lightAlt">
+      <div className="w-[95%] md:w-[80%] max-w-fit xl:max-h-[50rem] my-24 sm:my-12 flex sm:flex-col xl:flex-row mx-auto overflow-hidden rounded-sm">
         <div className="xl:w-[42%] hidden sm:flex flex-1">
           <div className="w-full flex flex-col items-center justify-between gap-12 text-center p-10 bg-mui-secondary-main rounded-sm">
             <div>
@@ -22,7 +22,7 @@ function AuthScaffold(props) {
                 more
               </Typography>
             </div>
-            <div>
+            <div className="px-20">
               <div className="w-[444px] h-[444px] lg:w-[396px] lg:h-[396px] rounded-full border border-[#e1ffe11a] my-5 relative flex items-center justify-center mx-auto">
                 <div className="w-[396px] h-[396px] lg:w-[348px] lg:h-[348px] rounded-full border border-[#e1ffe11a] relative flex items-center justify-center mx-auto">
                   <div className="w-[348px] h-[348px] lg:w-[300px] lg:h-[300px] rounded-full border border-[#e1ffe11a] relative flex items-center justify-center mx-auto">
