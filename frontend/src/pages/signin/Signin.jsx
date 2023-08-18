@@ -104,7 +104,6 @@ function Signin(props) {
           // loading={selfAuthenticationLoginMutationResult.isLoading}
           loadingPosition="start"
           type="submit"
-          // className="my-6"
           fullWidth
           size="large"
           borderRadius="circular"

@@ -7,17 +7,17 @@ export const lightTheme = responsiveFontSizes(
   customizeTheme({
     palette: {
       primary: {
-        lighter: "#CEDAEC",
-        lightAlt: "#F7F7F7",
-        light: "#A7BBDC",
-        tertiary: "#6082B9",
-        dark: "#3258D3",
         main: "#3762EA",
-        darkAlt: "#193F7C",
-        darker: "#0F274D",
+        dark: "#3258D3",
+        // darker: "#0F274D",
+        // darkAlt: "#193F7C",
+        light: "#97979A",
+        lighter: "#EEF0F7",
+        lightAlt: "#F7F7F7",
+        // tertiary: "#6082B9",
       },
       secondary: {
-        lightAlt: "#878a99",
+        lightAlt: "#222328",
         main: "#1E1A22",
         dark: "#181A20",
         contrastText: "#7C7F7B",

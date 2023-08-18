@@ -6,6 +6,7 @@ import {
   IconButton,
   List,
   Toolbar,
+  Typography,
   useMediaQuery,
 } from "@mui/material";
 import AppProtectedSideNavigationItem from "./AppProtectedSideNavigationItem";
@@ -15,7 +16,7 @@ import {
   MediaQueryBreakpointEnum,
 } from "constants/Global";
 import { RouteEnum } from "constants/RouterConstants";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import { Iconly } from "react-iconly";
 
 // import useAuthUser from "hooks/useAuthUser";
 // import useSideNavigationToggle from "hooks/useSideNavigationToggle";
@@ -31,29 +32,51 @@ function AppProtectedSideNavigation() {
       variant={islg ? "permanent" : "temporary"}
       PaperProps={{
         style: { width: APP_SIDE_MENU_WIDTH },
-        className: "flex flex-col bg-mui-secondary-dark",
+        className:
+          "flex flex-col bg-mui-secondary-dark px-3 text-mui-primary-light",
       }}
       // onClose={() => toggleSideNavigation()}
     >
-      <Toolbar className="p-4 flex items-center justify-between">
+      <Toolbar className="p-4 flex items-center justify-center">
         {/* <LogoSvg /> */}
+        <Typography
+          color="white"
+          variant="h5"
+          className="font-bold text-center"
+        >
+          steex
+        </Typography>
+
         {!islg && (
           <IconButton color="primary">
             <Icon>chevron_left</Icon>
           </IconButton>
         )}
       </Toolbar>
-      <List className="p-4 flex-1 min-h-0">
+      <Typography variant="caption">MENU</Typography>
+      <List className="flex-1 min-h-0">
         {LINKS.map((item, key) => {
-          return (
-            <AppProtectedSideNavigationItem
-              {...{ ...item, key,  }}
-            />
-          );
+          return <AppProtectedSideNavigationItem {...{ ...item, key }} />;
         })}
       </List>
       <Toolbar className="p-4 flex items-center justify-between">
-        <Button variant="text" color="error" startIcon={<Icon>logout</Icon>}>
+        <Button
+
+          fullWidth
+          variant="text"
+          color="error"
+          startIcon={
+            <IconButton variant="soft" color="error" size="small">
+              <Iconly
+                size="small"
+                name= "Logout"
+                
+                // primaryColor="black"
+                // secondaryColor="black"
+              />
+            </IconButton>
+          }
+        >
           Logout
         </Button>
       </Toolbar>
@@ -64,10 +87,10 @@ function AppProtectedSideNavigation() {
 export default AppProtectedSideNavigation;
 
 const LINKS = [
-  { name: "Dashboard", to: RouteEnum.DASHBOARD, icon: <NotificationsOutlinedIcon /> },
-  { name: "Courses", to: RouteEnum.TRANSACTIONS, icon: "description" },
-  { name: "Subscriptions", to: RouteEnum.CONTACT_US, icon: "group" },
-  { name: "Instructors", to: RouteEnum.CONTACT_US, icon: "group" },
-  { name: "Profile", to: RouteEnum.PROFILE, icon: "person" },
-  { name: "FAQs", to: RouteEnum.SETTINGS, icon: "settings" },
+  { name: "Dashboard", to: RouteEnum.DASHBOARD, icon: "Chart" },
+  { name: "Courses", to: RouteEnum.TRANSACTIONS, icon: "Work" },
+  { name: "Subscriptions", to: RouteEnum.CONTACT_US, icon: "Calendar" },
+  { name: "Instructors", to: RouteEnum.CONTACT_US, icon: "People" },
+  { name: "Profile", to: RouteEnum.PROFILE, icon: "User" },
+  { name: "FAQs", to: RouteEnum.SETTINGS, icon: "Discovery" },
 ];
