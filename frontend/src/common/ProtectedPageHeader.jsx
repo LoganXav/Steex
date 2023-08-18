@@ -146,21 +146,21 @@ function ProtectedPageHeader(props) {
               onClose={infoPopover.togglePopover}
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               transformOrigin={{ vertical: "top", horizontal: "right" }}
-              PaperProps={{ className: "w-44 mt-1" }}
+              PaperProps={{ className: "w-[12rem] mt-1" }}
               elevation="3"
             >
               <div className="flex flex-col">
-                <Typography variant="subtitle2" className="font-semibold pt-3 pl-4">
+                <Typography variant="subtitle2" className="font-semibold pt-4 pl-4">
                   {/* {authUser?.firstname} {authUser?.lastname}
                     {authUser?.username} */}
                   Welcome Logan!
                 </Typography>
               
-              <div className="">
+              <div className="py-2">
                 {[
                   {
                     icon: "User",
-                    children: "User",
+                    children: "Profile",
                     component: Link,
                     to: RouteEnum.DASHBOARD,
                   },
@@ -186,7 +186,7 @@ function ProtectedPageHeader(props) {
                   <>
                   <ListItemButton
                     key={index}
-                    className="p-2 pl-3"
+                    className="pl-3"
                     disableGutters
                     dense="false"
                     onClick={() => {
@@ -204,7 +204,7 @@ function ProtectedPageHeader(props) {
                 ))}
               </div>
                   <Divider></Divider>
-              <div className="">
+              <div className="py-2">
                 {[
                   {
                     icon: "Ticket",
@@ -229,7 +229,7 @@ function ProtectedPageHeader(props) {
                   <>
                   <ListItemButton
                     key={index}
-                    className="p-2 pl-3"
+                    className="pl-3"
                     disableGutters
                     dense="false"
                     onClick={() => {
