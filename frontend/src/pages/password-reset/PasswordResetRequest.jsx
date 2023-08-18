@@ -54,9 +54,9 @@ const PasswordResetRequest = () => {
         >
           Send Reset Link
         </LoadingButton>
-        <Typography variant="body2" className="text-center !my-4">
+        <Typography variant="body2" className="text-center mt-14">
         Wait, I remember my password... {" "}
-          <MuiRouterLink to={RouteEnum.SIGNIN}>Click here</MuiRouterLink>
+          <MuiRouterLink className="font-medium" to={RouteEnum.SIGNIN}>Click here</MuiRouterLink>
         </Typography>
       </form>
     </AuthScaffold>

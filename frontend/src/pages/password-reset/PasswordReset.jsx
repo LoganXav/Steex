@@ -104,7 +104,6 @@ function Signin(props) {
           // loading={selfAuthenticationLoginMutationResult.isLoading}
           loadingPosition="start"
           type="submit"
-          //   className="!my-2"
           fullWidth
           size="large"
           borderRadius="circular"
@@ -113,9 +112,9 @@ function Signin(props) {
           Reset Password
         </LoadingButton>
 
-        <Typography variant="body2" className="text-center !mt-8">
+        <Typography variant="body2" className="text-center mt-14">
           Wait, I remember my password... {" "}
-          <MuiRouterLink to={RouteEnum.SIGNUP}>Click here</MuiRouterLink>
+          <MuiRouterLink to={RouteEnum.SIGNIN} className="font-medium">Click here</MuiRouterLink>
         </Typography>
       </form>
     </AuthScaffold>

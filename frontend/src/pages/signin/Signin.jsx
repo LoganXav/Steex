@@ -96,7 +96,7 @@ function Signin(props) {
             <Checkbox /> Remember me
           </Typography>
           <Typography variant="body2">
-            <MuiRouterLink to={RouteEnum.FORGOT_PASSWORD}>
+            <MuiRouterLink className="text-mui-secondary-lightAlt no-underline" to={RouteEnum.FORGOT_PASSWORD}>
               Forgot Password?
             </MuiRouterLink>
           </Typography>
@@ -118,10 +118,9 @@ function Signin(props) {
 
         <Divider>Sign in with</Divider>
         </div>
-        <div className="text-mui-primary-lightAlt">
           <Button
             color="inherit"
-            className="text-mui-text-primary my-6 font-bold"
+            className="font-bold"
             fullWidth
             size="large"
             borderRadius="square"
@@ -129,10 +128,9 @@ function Signin(props) {
           >
             Continue with Google
           </Button>
-        </div>
-        <Typography variant="body2" className="text-center !mt-8">
+        <Typography variant="body2" className="text-center mt-14">
           Don't have an Account?{" "}
-          <MuiRouterLink to={RouteEnum.SIGNUP}>Sign Up</MuiRouterLink>
+          <MuiRouterLink className="font-medium" to={RouteEnum.SIGNUP}>Sign Up</MuiRouterLink>
         </Typography>
       </form>
     </AuthScaffold>
