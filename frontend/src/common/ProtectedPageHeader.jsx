@@ -3,6 +3,7 @@ import {
   Avatar,
   ButtonBase,
   Container,
+  Divider,
   Icon,
   IconButton,
   ListItemButton,
@@ -145,17 +146,17 @@ function ProtectedPageHeader(props) {
               onClose={infoPopover.togglePopover}
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               transformOrigin={{ vertical: "top", horizontal: "right" }}
-              PaperProps={{ className: "w-40 mt-3" }}
-              elevation="2"
+              PaperProps={{ className: "w-40 mt-1" }}
+              elevation="4"
             >
-              <div className="p-3 flex flex-col">
-                <Typography variant="subtitle2" className="font-semibold mb-1">
+              <div className="flex flex-col">
+                <Typography variant="subtitle2" className="font-semibold pt-3 pl-3">
                   {/* {authUser?.firstname} {authUser?.lastname}
                     {authUser?.username} */}
                   Welcome Logan!
                 </Typography>
               
-              <div className="">
+              <div className="p-2">
                 {[
                   {
                     icon: "User",
@@ -169,8 +170,20 @@ function ProtectedPageHeader(props) {
                     component: Link,
                     to: RouteEnum.DASHBOARD,
                   },
-                  { icon: "Logout", children: "Logout", onClick: handleLogout },
+                  {
+                    icon: "Calendar",
+                    children: "Taskboard",
+                    component: Link,
+                    to: RouteEnum.DASHBOARD,
+                  },
+                  {
+                    icon: "InfoSquare",
+                    children: "Help",
+                    component: Link,
+                    to: RouteEnum.DASHBOARD,
+                  },
                 ].map(({ icon, children, onClick, ...rest }, index) => (
+                  <>
                   <ListItemButton
                     key={index}
                     className=""
@@ -187,6 +200,56 @@ function ProtectedPageHeader(props) {
                     </IconButton>
                     <Typography variant="body2" className="text-mui-secondary-contrastText">{children}</Typography>
                   </ListItemButton>
+                  </>
+                ))}
+              </div>
+                  <Divider></Divider>
+              <div className="p-2">
+                {[
+                  {
+                    icon: "User",
+                    children: "User",
+                    component: Link,
+                    to: RouteEnum.DASHBOARD,
+                  },
+                  {
+                    icon: "Message",
+                    children: "Messages",
+                    component: Link,
+                    to: RouteEnum.DASHBOARD,
+                  },
+                  {
+                    icon: "Calendar",
+                    children: "Taskboard",
+                    component: Link,
+                    to: RouteEnum.DASHBOARD,
+                  },
+                  {
+                    icon: "InfoSquare",
+                    children: "Help",
+                    component: Link,
+                    to: RouteEnum.DASHBOARD,
+                  },
+                  { icon: "Logout", children: "Logout", onClick: handleLogout },
+                ].map(({ icon, children, onClick, ...rest }, index) => (
+                  <>
+                  <ListItemButton
+                    key={index}
+                    className=""
+                    disableGutters
+                    dense="false"
+                    onClick={() => {
+                      infoPopover.togglePopover();
+                      onClick?.();
+                    }}
+                    {...rest}
+                  >
+                    <IconButton variant="soft" size="small">
+                      <Iconly size="small" name={icon} />
+                    </IconButton>
+                    <Typography variant="body2" className="text-mui-secondary-contrastText">{children}</Typography>
+                  </ListItemButton>
+                  </>
                 ))}
               </div>
               </div>
