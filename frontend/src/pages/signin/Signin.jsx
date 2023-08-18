@@ -92,14 +92,12 @@ function Signin(props) {
           // {...getTextFieldFormikProps(formik, "password")}
         />
         <div class="flex justify-between items-center mb-4">
-          <Typography variant="body2">
+          <Typography>
             <Checkbox /> Remember me
           </Typography>
-          <Typography variant="body2">
             <MuiRouterLink className="text-mui-secondary-lightAlt no-underline" to={RouteEnum.FORGOT_PASSWORD}>
               Forgot Password?
             </MuiRouterLink>
-          </Typography>
         </div>
 
         <LoadingButton
@@ -128,7 +126,7 @@ function Signin(props) {
           >
             Continue with Google
           </Button>
-        <Typography variant="body2" className="text-center mt-14">
+        <Typography className="text-center mt-14">
           Don't have an Account?{" "}
           <MuiRouterLink className="font-medium" to={RouteEnum.SIGNUP}>Sign Up</MuiRouterLink>
         </Typography>

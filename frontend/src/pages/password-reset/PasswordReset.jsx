@@ -81,7 +81,7 @@ function Signin(props) {
           // {...getTextFieldFormikProps(formik, "username")}
         />
         <div class="mb-2 text-left">
-          <Typography variant="body2">
+          <Typography className="text-mui-secondary-lightAlt">
             Your password must be 8-20 characters long.
           </Typography>
         </div>
@@ -95,7 +95,7 @@ function Signin(props) {
           // {...getTextFieldFormikProps(formik, "password")}
         />
         <div class="mb-4 text-left">
-          <Typography variant="body2">
+          <Typography>
             <Checkbox /> Remember me
           </Typography>
         </div>
@@ -112,7 +112,7 @@ function Signin(props) {
           Reset Password
         </LoadingButton>
 
-        <Typography variant="body2" className="text-center mt-14">
+        <Typography className="text-center mt-14">
           Wait, I remember my password... {" "}
           <MuiRouterLink to={RouteEnum.SIGNIN} className="font-medium">Click here</MuiRouterLink>
         </Typography>

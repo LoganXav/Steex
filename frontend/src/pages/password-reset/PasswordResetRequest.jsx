@@ -54,7 +54,7 @@ const PasswordResetRequest = () => {
         >
           Send Reset Link
         </LoadingButton>
-        <Typography variant="body2" className="text-center mt-14">
+        <Typography className="text-center mt-14">
         Wait, I remember my password... {" "}
           <MuiRouterLink className="font-medium" to={RouteEnum.SIGNIN}>Click here</MuiRouterLink>
         </Typography>

@@ -5,8 +5,8 @@ import { clsx } from "clsx";
 
 function AuthScaffold(props) {
   return (
-    <div className="min-h-screen h-screen sm:h-full overflow-hidden sm:overflow-visible flex justify-center items-center bg-mui-primary-lightAlt">
-      <div className="w-[95%] md:w-[80%] max-w-fit xl:max-h-[50rem] my-24 sm:my-12 flex sm:flex-col xl:flex-row mx-auto overflow-hidden rounded-sm">
+    <div className="min-h-screen flex justify-center items-center bg-mui-primary-lightAlt">
+      <div className="w-[95%] md:w-[85%] max-w-fit xl:max-h-[50rem] my-24 sm:my-12 flex sm:flex-col xl:flex-row mx-auto overflow-hidden rounded-sm">
         <div className="xl:w-[42%] hidden sm:flex">
           <div className="w-full flex flex-col items-center justify-between gap-12 text-center p-10 bg-mui-secondary-main rounded-sm">
             <div>
@@ -38,7 +38,7 @@ function AuthScaffold(props) {
             </Typography>
           </div>
         </div>
-        <Paper className="w-full xl:w-[58%] min-h-[33rem] flex flex-col items-center justify-center text-center px-3 sm:py-12 xl:p-0">
+        <Paper className="w-full xl:w-[58%] min-h-[33rem] flex flex-col items-center justify-center text-center px-2 sm:px-4 sm:py-12 xl:p-0">
           <div className="w-full sm:max-w-3xl xl:max-w-md py-6">
             {props.children}
           </div>

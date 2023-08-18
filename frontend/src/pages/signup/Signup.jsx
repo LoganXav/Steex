@@ -58,7 +58,7 @@ const Signup = () => {
           // {...getTextFieldFormikProps(formik, "password")}
         />
         <div class="my-4 text-left">
-          <Typography variant="body2" className="italic">
+          <Typography className="italic">
             By registering you agree to the Steex {" "}
             <MuiRouterLink className="not-italic" to={RouteEnum.SIGNIN}>Terms of Use</MuiRouterLink>
           </Typography>
@@ -91,7 +91,7 @@ const Signup = () => {
             Continue with Google
           </Button>
         </div>
-        <Typography variant="body2" className="text-center mt-14">
+        <Typography className="text-center mt-14">
           Already have an Account?{" "}
           <MuiRouterLink  className="font-medium" to={RouteEnum.SIGNIN}>Sign In</MuiRouterLink>
         </Typography>
