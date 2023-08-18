@@ -10,7 +10,7 @@ import { configureRoutes } from "./utils/RouterUtils";
 import { RouteEnum } from "./constants/RouterConstants";
 import ProtectedPageHeader from "./common/ProtectedPageHeader";
 // import useAuthUser from "hooks/useAuthUser";
-// import AppProtectedSideNavigation from "./AppProtectedSideNavigation";
+import AppProtectedSideNavigation from "./AppProtectedSideNavigation";
 // import useAuthUser from "./hooks/useAuthUser";
 // import LoadingContent from "common/LoadingContent";
 // import { SelfUserApi } from "apis/SelfUserApi";
@@ -74,7 +74,7 @@ function AppProtected(props) {
     //   {() => (
         <>
           <ProtectedPageHeader elevation={0} position="sticky" />
-          {/* <AppProtectedSideNavigation /> */}
+          <AppProtectedSideNavigation />
           <div
             style={{
               marginLeft: islg ? APP_SIDE_MENU_WIDTH : 0,

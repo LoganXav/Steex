@@ -57,22 +57,29 @@ function ProtectedPageHeader(props) {
       <AppBar
         className={clsx("ProtectedPageHeader", className)}
         position={position}
-        // style={{
-        //   left: islg ? APP_SIDE_MENU_WIDTH : 0,
-        //   width: islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
-        //   ...rest,
-        // }}
+        style={{
+          left: islg ? APP_SIDE_MENU_WIDTH : 0,
+          width: islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
+          ...rest,
+        }}
         {...rest}
       >
         <Container maxWidth="false">
           <Toolbar>
             {ismd ? (
-              <Typography
-                variant="h5"
-                className="mr-16 text-mui-secondary-main font-bold"
-              >
-                Steex
-              </Typography>
+              // <IconButton variant="soft" size="medium">
+              //   <Iconly
+              //     size="medium"
+              //     name="Show"
+              //     // primaryColor={
+              //     //   resolvedTailwindConfig.theme.colors.primary.main
+              //     // }
+              //     // secondaryColor={
+              //     //   resolvedTailwindConfig.theme.colors.primary.main
+              //     // }
+              //   />
+              // </IconButton>
+              <div></div>
             ) : (
               <IconButton variant="soft" size="medium">
                 <Iconly
