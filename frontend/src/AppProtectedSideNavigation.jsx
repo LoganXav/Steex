@@ -15,6 +15,8 @@ import {
   MediaQueryBreakpointEnum,
 } from "constants/Global";
 import { RouteEnum } from "constants/RouterConstants";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+
 // import useAuthUser from "hooks/useAuthUser";
 // import useSideNavigationToggle from "hooks/useSideNavigationToggle";
 
@@ -29,7 +31,7 @@ function AppProtectedSideNavigation() {
       variant={islg ? "permanent" : "temporary"}
       PaperProps={{
         style: { width: APP_SIDE_MENU_WIDTH },
-        className: "flex flex-col",
+        className: "flex flex-col bg-mui-secondary-main",
       }}
       // onClose={() => toggleSideNavigation()}
     >
@@ -62,9 +64,10 @@ function AppProtectedSideNavigation() {
 export default AppProtectedSideNavigation;
 
 const LINKS = [
-  { name: "Overview", to: RouteEnum.DASHBOARD, icon: "speed" },
-  { name: "Transactions", to: RouteEnum.TRANSACTIONS, icon: "description" },
-  { name: "Contact Us", to: RouteEnum.CONTACT_US, icon: "group" },
+  { name: "Dashboard", to: RouteEnum.DASHBOARD, icon: <NotificationsOutlinedIcon /> },
+  { name: "Courses", to: RouteEnum.TRANSACTIONS, icon: "description" },
+  { name: "Subscriptions", to: RouteEnum.CONTACT_US, icon: "group" },
+  { name: "Instructors", to: RouteEnum.CONTACT_US, icon: "group" },
   { name: "Profile", to: RouteEnum.PROFILE, icon: "person" },
-  { name: "Settings", to: RouteEnum.SETTINGS, icon: "settings" },
+  { name: "FAQs", to: RouteEnum.SETTINGS, icon: "settings" },
 ];

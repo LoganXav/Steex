@@ -1,4 +1,4 @@
-import { Icon, ListItemButton, Typography } from "@mui/material";
+import { Icon, ListItemButton, Typography, IconButton } from "@mui/material";
 import clsx from "clsx";
 import { NavLink, useMatch } from "react-router-dom";
 
@@ -12,14 +12,16 @@ function AppProtectedSideNavigationItem(props) {
       component={NavLink}
       to={to}
       className={clsx(
-        "rounded p-4",
+        "rounded px-3 py-2",
         !!match
-          ? "bg-mui-primary-lightAlt text-mui-primary-main font-bold"
+          ? "bg-mui-primary-light text-mui-secondary-contrastText font-bold"
           : "text-mui-text-secondary"
       )}
       {...restProps}
     >
-      <Icon className="material-symbols-outlined-fill-1">{icon}</Icon>
+       <IconButton size="small">
+    {icon}
+              </IconButton>
       <Typography className={clsx("ml-2", !!match && "font-bold")}>
         {name}
       </Typography>

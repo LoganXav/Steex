@@ -123,7 +123,7 @@ function ProtectedPageHeader(props) {
                 className="flex text-start items-center"
                 onClick={infoPopover.togglePopover}
               >
-                <Avatar className="md:mr-4 w-7 h-7" src="">
+                <Avatar className="md:mr-2 w-7 h-7" src="">
                   {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
                   {/* {authUser?.fullName?.[0]} */}
                 </Avatar>
