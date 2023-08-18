@@ -13,10 +13,10 @@ function AppProtectedSideNavigationItem(props) {
       component={NavLink}
       to={to}
       className={clsx(
-        "rounded px-0 py-1",
+        "rounded px-0 py-2",
         !!match
           ? "bg-mui-secondary-lightAlt text-mui-primary-lighter"
-          : "text-mui-primary-light"
+          : "text-mui-primary-light hover:text-mui-primary-lighter transition ease duration-150 "
       )}
       {...restProps}
     >
@@ -31,7 +31,7 @@ function AppProtectedSideNavigationItem(props) {
       </IconButton>
       <Typography
         className={clsx(
-          "ml-2 hover:text-mui-primary-lighter transition ease duration-150 ",
+          "ml-2",
           !!match && "font-semibold text-mui-primary-lighter"
         )}
       >

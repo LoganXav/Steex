@@ -53,7 +53,7 @@ function ProtectedPageHeader(props) {
   }
 
   return (
-    <div className="border-b">
+    <div className="border-b py-1">
       <AppBar
         className={clsx("ProtectedPageHeader", className)}
         position={position}

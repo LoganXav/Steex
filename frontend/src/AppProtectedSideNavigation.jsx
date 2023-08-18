@@ -37,11 +37,11 @@ function AppProtectedSideNavigation() {
       }}
       // onClose={() => toggleSideNavigation()}
     >
-      <Toolbar className="p-4 flex items-center justify-center">
+      <Toolbar className="p-4 flex items-center justify-center mb-1">
         {/* <LogoSvg /> */}
         <Typography
           color="white"
-          variant="h5"
+          variant="h4"
           className="font-bold text-center"
         >
           steex
@@ -54,7 +54,7 @@ function AppProtectedSideNavigation() {
         )}
       </Toolbar>
       <Typography variant="caption">MENU</Typography>
-      <List className="flex-1 min-h-0">
+      <List className="flex-1 min-h-0 mt-3">
         {LINKS.map((item, key) => {
           return <AppProtectedSideNavigationItem {...{ ...item, key }} />;
         })}
