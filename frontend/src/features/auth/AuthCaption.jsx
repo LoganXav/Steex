@@ -6,7 +6,7 @@ function AuthCaption(props) {
     <Typography
       {...props}
       gutterBottom
-      className={clsx("text-mui-text-secondary", props?.className)}
+      className={clsx("text-mui-secondary-lightAlt", props?.className)}
     >
       {props.children}
     </Typography>
