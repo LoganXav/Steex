@@ -120,7 +120,7 @@ function ProtectedPageHeader(props) {
                 {/* <NotificationsOutlinedIcon style={{ color: "black" }}/> */}
               </IconButton>
               <ButtonBase
-                className="flex text-start items-center"
+                className="flex text-start items-center px-3 rounded-md"
                 onClick={infoPopover.togglePopover}
               >
                 <Avatar className="md:mr-2 w-7 h-7" src="">
