@@ -8,7 +8,7 @@ export const lightTheme = responsiveFontSizes(
     palette: {
       primary: {
         lighter: "#CEDAEC",
-        lightAlt: "#F2F5FA",
+        lightAlt: "#F7F7F7",
         light: "#A7BBDC",
         tertiary: "#6082B9",
         dark: "#0474BC",
@@ -18,7 +18,12 @@ export const lightTheme = responsiveFontSizes(
       },
       secondary: {
         lightAlt: "#FFFAF5",
-        main: "#130A1A",
+        main: "#2B1F33",
+        // dark: "#0F1114",
+        dark: "#181A20",
+        // dark: "#22232B",
+        // dark: "#EEFOF7",
+        // dark: "#97979A",
         contrastText: "#7C7F7B",
       },
       success: {

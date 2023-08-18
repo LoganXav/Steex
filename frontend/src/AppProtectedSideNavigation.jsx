@@ -31,7 +31,7 @@ function AppProtectedSideNavigation() {
       variant={islg ? "permanent" : "temporary"}
       PaperProps={{
         style: { width: APP_SIDE_MENU_WIDTH },
-        className: "flex flex-col bg-mui-secondary-main",
+        className: "flex flex-col bg-mui-secondary-dark",
       }}
       // onClose={() => toggleSideNavigation()}
     >
