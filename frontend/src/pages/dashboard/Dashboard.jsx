@@ -59,7 +59,7 @@ const Dashboard = () => {
                   View All
                 </Typography>
               </div>
-              <div className="flex flex-col sm:flex-row items-center justify-around">
+              <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row items-center justify-around">
                 {[
                   {
                     logo: <img src={ShopifyLogo} />,
@@ -79,7 +79,7 @@ const Dashboard = () => {
                   {
                     logo: <img src={ReactLogo} />,
                     category: "React Development",
-                    type: "Gain",
+                    type: "Primary",
                   },
                 ].map(({ logo, category, type }) => (
                   <div className="flex flex-col gap-3 items-center text-center pb-2">

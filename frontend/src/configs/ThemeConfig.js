@@ -203,7 +203,7 @@ export function customizeTheme(theme) {
       },
       MuiPaper: {
         defaultProps: {
-          elevation: 1,
+          elevation: 0,
           borderRadius: "circular",
         },
         // styleOverrides: {
