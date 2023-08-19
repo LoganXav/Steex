@@ -23,6 +23,7 @@ import { Iconly } from "react-iconly";
 
 function AppProtectedSideNavigation() {
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
+  const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
   // const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
   // const authUser = useAuthUser();
 

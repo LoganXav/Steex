@@ -195,7 +195,7 @@ export function customizeTheme(theme) {
               backgroundColor: alpha(
                 theme.palette[ownerState.color]?.main ||
                   theme.palette.grey[500],
-                0.2
+                0.1
               ),
             };
           },

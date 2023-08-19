@@ -15,10 +15,10 @@ import ReactLogo from "../../assets/react.png";
 
 const Dashboard = () => {
   return (
-    <div className="flex gap-4 mt-20">
-      <div className="w-3/4">
-        <div className="flex gap-4 mb-4">
-          <div className="grid grid-cols-2 grid-rows-2 gap-4 flex-1">
+    <div className="flex flex-col lg:flex-row gap-5 mt-20">
+      <div className="w-full lg:w-3/4">
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-5 flex-1">
             {[
               {
                 title: "Total Students",
@@ -36,7 +36,6 @@ const Dashboard = () => {
               <Paper className="flex flex-col gap-4 p-4">
                 <div className="flex justify-between items-center">
                   <Typography
-                    variant="body2"
                     className="text-mui-primary-tertiary"
                   >
                     {title}
@@ -48,19 +47,19 @@ const Dashboard = () => {
                     className="!rounded-md h-4"
                   />
                 </div>
-                <Typography variant="h5" className="font-semibold">
+                <Typography variant="h5" className="font-bold">
                   {amount}
                 </Typography>
               </Paper>
             ))}
-            <Paper className="col-span-2 p-4">
-              <div className="flex justify-between items-center mb-4">
+            <Paper className="col-span-1 md:col-span-2 p-4">
+              <div className="flex justify-between items-center mb-5">
                 <Typography variant="h6" className="font-semibold">Features Course Categories</Typography>
                 <Typography className="text-mui-primary-main">
                   View All
                 </Typography>
               </div>
-              <div className="flex items-center justify-around">
+              <div className="flex flex-col sm:flex-row items-center justify-around">
                 {[
                   {
                     logo: <img src={ShopifyLogo} />,
@@ -83,7 +82,7 @@ const Dashboard = () => {
                     type: "Gain",
                   },
                 ].map(({ logo, category, type }) => (
-                  <div className="flex flex-col gap-3 items-center text-center">
+                  <div className="flex flex-col gap-3 items-center text-center pb-2">
                     <DashboardChip size="medium" status={type} label={logo} className="w-12 h-12 !rounded-md"/>
                     <Typography variant="body2" className="font-semibold">{category}</Typography>
                   </div>
@@ -93,15 +92,15 @@ const Dashboard = () => {
           </div>
           <Paper className="w-1/4"></Paper>
         </div>
-        <div className="flex gap-4 h-[30rem] mb-4">
-          <Paper className="flex-1"></Paper>
-          <Paper className="w-1/3"></Paper>
+        <div className="flex flex-col md:flex-row gap-5 h-[30rem] mb-4">
+          <Paper className="w-full h-full md:w-2/3"></Paper>
+          <Paper className="w-full md:w-1/3"></Paper>
         </div>
         <div className="h-[30rem]">
           <Paper className="w-full h-full"></Paper>
         </div>
       </div>
-      <Paper className="w-1/4"></Paper>
+      <Paper className="w-full lg:w-1/4"></Paper>
     </div>
   );
 };
