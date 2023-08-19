@@ -1,4 +1,4 @@
-import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes, alpha } from "@mui/material/styles";
 import { DateFormatEnum } from "constants/DateContants";
 
 export const defaultTheme = customizeTheme();
@@ -22,9 +22,25 @@ export const lightTheme = responsiveFontSizes(
         dark: "#181A20",
         contrastText: "#7C7F7B",
       },
+      // success: {
+      //   ...defaultTheme.palette.success,
+      //   lighter: "#5FD25533",
+      // },
       success: {
         ...defaultTheme.palette.success,
-        lighter: "#5FD25533",
+        lighter: alpha(defaultTheme.palette.success.main, 0.2),
+      },
+      warning: {
+        ...defaultTheme.palette.warning,
+        lighter: alpha(defaultTheme.palette.warning.main, 0.2),
+      },
+      error: {
+        ...defaultTheme.palette.error,
+        lighter: alpha(defaultTheme.palette.error.main, 0.2),
+      },
+      info: {
+        ...defaultTheme.palette.info,
+        lighter: alpha(defaultTheme.palette.info.main, 0.2),
       },
       background: {
         ...defaultTheme.palette.background,
@@ -71,6 +87,22 @@ export function customizeTheme(theme) {
       ].join(),
       fontSize: 12,
       color: "#000051",
+      body1: {
+        fontWeight: 600,
+      },
+      body2: {
+        fontWeight: 600,
+      },
+      button: {
+        textTransform: "none",
+        fontWeight: 600,
+      },
+      caption: {
+        fontWeight: 600,
+      },
+      overline: {
+        fontWeight: 600,
+      },
       button: {
         textTransform: "none",
         // width: "8rem",
@@ -150,6 +182,49 @@ export function customizeTheme(theme) {
         defaultProps: {
           maxWidth: "xs",
         },
+      },
+      MuiChip: {
+        defaultProps: { variant: "soft" },
+        styleOverrides: {
+          root: ({ theme, ownerState }) => {
+            if (ownerState.variant !== "soft") return {};
+            return {
+              color:
+                theme.palette[ownerState.color]?.main ||
+                theme.palette.grey[500],
+              backgroundColor: alpha(
+                theme.palette[ownerState.color]?.main ||
+                  theme.palette.grey[500],
+                0.2
+              ),
+            };
+          },
+        },
+      },
+      MuiPaper: {
+        defaultProps: {
+          elevation: 1,
+          borderRadius: "circular",
+        },
+        // styleOverrides: {
+        //   root: {
+        //     padding: "16px",
+        //   },
+        // },
+        variants: [
+          {
+            props: { borderRadius: "default" },
+            style: () => ({}),
+          },
+          {
+            props: { borderRadius: "square" },
+            style: () => ({ borderRadius: 0 }),
+          },
+          {
+            props: { borderRadius: "circular" },
+            style: () => ({ borderRadius: 2 }),
+          },
+        ],
       },
     },
   });
