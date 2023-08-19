@@ -17,6 +17,7 @@ import {
 } from "constants/Global";
 import { RouteEnum } from "constants/RouterConstants";
 import { Iconly } from "react-iconly";
+import SteexLogo from "./assets/steex.png"
 
 // import useAuthUser from "hooks/useAuthUser";
 // import useSideNavigationToggle from "hooks/useSideNavigationToggle";
@@ -38,15 +39,11 @@ function AppProtectedSideNavigation() {
       }}
       // onClose={() => toggleSideNavigation()}
     >
-      <Toolbar className="p-4 flex items-center justify-center mb-1">
-        {/* <LogoSvg /> */}
-        <Typography
-          color="white"
-          variant="h4"
-          className="font-bold text-center"
-        >
-          steex
-        </Typography>
+      <Toolbar className="flex items-center justify-center mb-1">
+        <div className="mx-auto w-28">
+        <img src={SteexLogo} />
+
+        </div>
 
         {!islg && (
           <IconButton color="primary">

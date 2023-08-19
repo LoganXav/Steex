@@ -68,7 +68,7 @@ function ProtectedPageFooter(props) {
           <Toolbar>
           <Typography>2023 @ Steex</Typography>  
           <div className="flex-1"/>
-          <Typography>Design & Develop by Themesbrand</Typography>  
+          <Typography>Design & Develop by LOGAN</Typography>  
           </Toolbar>
         </Container>
       </AppBar>
