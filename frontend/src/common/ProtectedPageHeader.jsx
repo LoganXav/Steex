@@ -64,7 +64,7 @@ function ProtectedPageHeader(props) {
         }}
         {...rest}
       >
-        <Container maxWidth="false" className="py-1">
+        <Container maxWidth="false" className="py-1 bg-white">
           <Toolbar>
             {ismd ? (
               // <IconButton variant="soft" size="medium">
