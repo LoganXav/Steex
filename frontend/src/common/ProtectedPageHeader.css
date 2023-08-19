@@ -1,4 +1,7 @@
 .ProtectedPageHeader {
   background-color: white;
   color: black;
+  /* top: 0; */
+  /* position: fixed; */
+  /* border-bottom: 1px solid lightgray; */
 }

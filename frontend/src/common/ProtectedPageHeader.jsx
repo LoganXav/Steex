@@ -1,3 +1,4 @@
+import React from "react"
 import {
   AppBar,
   Avatar,
@@ -8,6 +9,7 @@ import {
   IconButton,
   ListItemButton,
   Popover,
+  Slide,
   Toolbar,
   Typography,
   useMediaQuery,
@@ -52,11 +54,12 @@ function ProtectedPageHeader(props) {
     alert("Logout successful");
   }
 
+
   return (
-    <div className="border-b">
+    <div>
       <AppBar
         className={clsx("ProtectedPageHeader", className)}
-        position={position}
+        // position={position}
         style={{
           left: islg ? APP_SIDE_MENU_WIDTH : 0,
           width: islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
@@ -64,7 +67,7 @@ function ProtectedPageHeader(props) {
         }}
         {...rest}
       >
-        <Container maxWidth="false" className="py-1 bg-white">
+        <Container maxWidth="false" className="py-1 bg-white border-b">
           <Toolbar>
             {ismd ? (
               // <IconButton variant="soft" size="medium">
@@ -111,13 +114,13 @@ function ProtectedPageHeader(props) {
                 size="medium"
                 onClick={infoPopover.togglePopover}
               >
-                <Iconly
+                {/* <Iconly
                   size="medium"
                   name="Notification"
                   primaryColor="black"
                   secondaryColor="black"
-                />
-                {/* <NotificationsOutlinedIcon style={{ color: "black" }}/> */}
+                /> */}
+                <NotificationsOutlinedIcon style={{ color: "black" }}/>
               </IconButton>
               <ButtonBase
                 className="flex text-start items-center px-3 rounded-md"

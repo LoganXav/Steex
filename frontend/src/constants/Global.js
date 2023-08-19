@@ -17,7 +17,7 @@ export const MediaQueryBreakpointEnum = {
 //   AES_ENCRYPTION_KEY: import.meta.env.VITE_AES_ENCRYPTION_KEY,
 // };
 
-export const APP_SIDE_MENU_WIDTH = 270;
+export const APP_SIDE_MENU_WIDTH = 250;
 
 export const PaginationParamsDefault = {
   offset: 0,
