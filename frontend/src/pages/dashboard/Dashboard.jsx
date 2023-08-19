@@ -33,7 +33,7 @@ const Dashboard = () => {
                 amount: "754",
               },
             ].map(({ title, amount, label, type }) => (
-              <Paper className="flex flex-col gap-4 p-4">
+              <Paper variant="outlined" className="flex flex-col gap-4 p-4">
                 <div className="flex justify-between items-center">
                   <Typography
                     className="text-mui-primary-tertiary"
@@ -52,7 +52,7 @@ const Dashboard = () => {
                 </Typography>
               </Paper>
             ))}
-            <Paper className="col-span-1 md:col-span-2 p-4">
+            <Paper variant="outlined" className="col-span-1 md:col-span-2 p-4">
               <div className="flex justify-between items-center mb-5">
                 <Typography variant="h6" className="font-semibold">Features Course Categories</Typography>
                 <Typography className="text-mui-primary-main">
@@ -84,23 +84,23 @@ const Dashboard = () => {
                 ].map(({ logo, category, type }) => (
                   <div className="flex flex-col gap-3 items-center text-center pb-2">
                     <DashboardChip size="medium" status={type} label={logo} className="w-12 h-12 !rounded-md"/>
-                    <Typography variant="body2" className="font-semibold">{category}</Typography>
+                    <Typography className="font-semibold">{category}</Typography>
                   </div>
                 ))}
               </div>
             </Paper>
           </div>
-          <Paper className="w-1/4"></Paper>
+          <Paper variant="outlined" className="w-1/4"></Paper>
         </div>
         <div className="flex flex-col md:flex-row gap-5 h-[30rem] mb-4">
-          <Paper className="w-full h-full md:w-2/3"></Paper>
-          <Paper className="w-full md:w-1/3"></Paper>
+          <Paper variant="outlined" className="w-full h-full md:w-2/3"></Paper>
+          <Paper variant="outlined" className="w-full md:w-1/3"></Paper>
         </div>
         <div className="h-[30rem]">
-          <Paper className="w-full h-full"></Paper>
+          <Paper variant="outlined" className="w-full h-full"></Paper>
         </div>
       </div>
-      <Paper className="w-full lg:w-1/4"></Paper>
+      <Paper variant="outlined" className="w-full lg:w-1/4"></Paper>
     </div>
   );
 };

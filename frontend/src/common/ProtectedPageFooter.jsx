@@ -53,7 +53,7 @@ function ProtectedPageFooter(props) {
   }
 
   return (
-    <div className="border">
+    <div className="border-t">
       <AppBar
         className={clsx("ProtectedPageFooter", className)}
         position={position}
