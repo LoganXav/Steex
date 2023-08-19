@@ -9,6 +9,7 @@ import Suspense from "./common/Suspense";
 import { configureRoutes } from "./utils/RouterUtils";
 import { RouteEnum } from "./constants/RouterConstants";
 import ProtectedPageHeader from "./common/ProtectedPageHeader";
+import ProtectedPageFooter from "./common/ProtectedPageFooter";
 // import useAuthUser from "hooks/useAuthUser";
 import AppProtectedSideNavigation from "./AppProtectedSideNavigation";
 // import useAuthUser from "./hooks/useAuthUser";
@@ -84,6 +85,7 @@ function AppProtected(props) {
               <Suspense>{routes}</Suspense>
             </Container>
           </div>
+          <ProtectedPageFooter elevation={0} position="sticky" />
           {/* <Suspense>
             <ProfileChangePasswordDialog
               open={authUser.firstTimeLoginRemaining}

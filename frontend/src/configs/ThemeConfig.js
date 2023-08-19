@@ -14,7 +14,7 @@ export const lightTheme = responsiveFontSizes(
         light: "#97979A",
         lighter: "#EEF0F7",
         lightAlt: "#F7F7F7",
-        // tertiary: "#6082B9",
+        tertiary: "#98A6Ad",
       },
       secondary: {
         lightAlt: "#222328",
@@ -25,6 +25,10 @@ export const lightTheme = responsiveFontSizes(
       success: {
         ...defaultTheme.palette.success,
         lighter: "#5FD25533",
+      },
+      background: {
+        ...defaultTheme.palette.background,
+        default: "#F7F7F7",
       },
     },
   })

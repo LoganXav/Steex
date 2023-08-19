@@ -53,7 +53,7 @@ function ProtectedPageHeader(props) {
   }
 
   return (
-    <div className="border-b py-1">
+    <div className="border-b">
       <AppBar
         className={clsx("ProtectedPageHeader", className)}
         position={position}
@@ -64,7 +64,7 @@ function ProtectedPageHeader(props) {
         }}
         {...rest}
       >
-        <Container maxWidth="false">
+        <Container maxWidth="false" className="py-1">
           <Toolbar>
             {ismd ? (
               // <IconButton variant="soft" size="medium">
@@ -130,15 +130,13 @@ function ProtectedPageHeader(props) {
                 {ismd && (
                   <div>
                     <Typography
-                      variant="subtitle1"
                       className="font-semibold text-black"
                     >
                       {/* {authUser?.fullName} */}
                       Logan Xavier
                     </Typography>
                     <Typography
-                      variant="body2"
-                      className="font-light text-mui-secondary-contrastText"
+                      className="text-mui-primary-tertiary"
                     >
                       {/* {authUser?.accountType} */}
                       Student
