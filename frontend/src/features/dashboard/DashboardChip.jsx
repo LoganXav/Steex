@@ -14,7 +14,8 @@ function DashboardChip(props) {
           Loss: "error",
           Rating: "warning",
           Open: "primary",
-          Close: "error",
+          Close: "info",
+          Close2: "secondary",
         }[status]
       }
       {...restProps}
