@@ -61,13 +61,13 @@ function ProtectedPageHeader(props) {
         className={clsx("ProtectedPageHeader", className)}
         // position={position}
         style={{
-          left: islg ? APP_SIDE_MENU_WIDTH : 0,
-          width: islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
+          // left: islg ? APP_SIDE_MENU_WIDTH : 0,
+          // width: islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
           ...rest,
         }}
         {...rest}
       >
-        <Container maxWidth="false" className="py-1 bg-white border-b">
+        <Container maxWidth="false" className="py-1 bg-inherit border-b rounded-none">
           <Toolbar>
             {!islg && (
               // <IconButton variant="soft" size="medium">
@@ -106,10 +106,10 @@ function ProtectedPageHeader(props) {
             <div className="flex-1" />
             <div className="flex items-center gap-4">
               <IconButton variant="soft" size="medium">
-                <FullscreenExitOutlinedIcon style={{ color: "black" }} />
+                <FullscreenExitOutlinedIcon style={{ color: "#F7F7F7" }} />
               </IconButton>
               <IconButton variant="soft" size="medium">
-                <WbSunnyOutlinedIcon style={{ color: "black" }} />
+                <WbSunnyOutlinedIcon style={{ color: "#F7F7F7" }} />
               </IconButton>
               <IconButton
                 variant="soft"
@@ -119,10 +119,10 @@ function ProtectedPageHeader(props) {
                 {/* <Iconly
                   size="medium"
                   name="Notification"
-                  primaryColor="black"
-                  secondaryColor="black"
+                  primaryColor="#F7F7F7"
+                  secondaryColor="#F7F7F7"
                 /> */}
-                <NotificationsOutlinedIcon style={{ color: "black" }} />
+                <NotificationsOutlinedIcon style={{ color: "#F7F7F7" }} />
               </IconButton>
               <ButtonBase
                 className="flex text-start items-center px-3 rounded-md"
@@ -134,7 +134,7 @@ function ProtectedPageHeader(props) {
                 </Avatar>
                 {ismd && (
                   <div>
-                    <Typography className="font-semibold text-black">
+                    <Typography className="font-semibold text-mui-primary-lightAlt">
                       {/* {authUser?.fullName} */}
                       Logan Xavier
                     </Typography>

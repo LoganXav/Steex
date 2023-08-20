@@ -18,6 +18,7 @@ import AppProtectedSideNavigation from "./AppProtectedSideNavigation";
 // import { SelfClientApi } from "apis/SelfClientApi";
 
 function AppProtected(props) {
+  const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl);
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
 
 //   const authUser = useAuthUser();
@@ -78,7 +79,7 @@ function AppProtected(props) {
           <AppProtectedSideNavigation />
           <div
             style={{
-              marginLeft: islg ? APP_SIDE_MENU_WIDTH : 0,
+              marginLeft: isxl ? APP_SIDE_MENU_WIDTH + 50 : islg ? APP_SIDE_MENU_WIDTH : 0,
             }}
           >
             <Container maxWidth="2xl" className="p-4">
