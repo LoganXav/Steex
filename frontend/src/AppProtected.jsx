@@ -79,7 +79,7 @@ function AppProtected(props) {
           <AppProtectedSideNavigation />
           <div
             style={{
-              marginLeft: isxl ? APP_SIDE_MENU_WIDTH + 50 : islg ? APP_SIDE_MENU_WIDTH : 0,
+              marginLeft: isxl ? APP_SIDE_MENU_WIDTH + 30 : islg ? APP_SIDE_MENU_WIDTH : 0,
             }}
           >
             <Container maxWidth="2xl" className="p-4">

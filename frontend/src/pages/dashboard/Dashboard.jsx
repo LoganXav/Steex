@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Avatar,
   Button,
   Checkbox,
   Divider,
@@ -141,7 +142,7 @@ const Dashboard = () => {
                     size="small"
                     status={type}
                     label={filter}
-                    className="w-9 h-7 !rounded-sm cursor-pointer"
+                    className="w-9 h-7 !rounded-sm cursor-pointer hover:bg-black hover:text-white"
                   />
                 ))}
               </div>
@@ -212,16 +213,38 @@ const Dashboard = () => {
         </div>
       </div>
       <Paper className="w-full lg:w-1/4 p-4">
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full flex justify-between items-center mb-5">
           <Typography variant="h6" className="font-semibold">
-            Learning Overview
+            Overview
           </Typography>
           <DashboardChip
             size="small"
             status=""
             label="S"
-            className="w-9 h-9 !rounded-sm cursor-pointer"
+            className="w-9 h-9 !rounded-sm cursor-pointer hover:bg-black"
           />
+        </div>
+        <div className="flex flex-col text-center items-center gap-1 mb-6">
+          <Avatar className="w-20 h-20 mb-2" src=""></Avatar>
+          <Typography className="font-semibold">Logan Xavier</Typography>
+          <Typography className="text-mui-primary-tertiary">
+            Software Engineer
+          </Typography>
+        </div>
+        <div className="flex items-center justify-between w-1/3 md:w-full xl:w-2/3 mx-auto">
+          <div className="text-center">
+            <Typography className="font-semibold">1549</Typography>
+            <Typography className="text-mui-primary-tertiary">
+              Students
+            </Typography>
+          </div>
+          <hr className="w-1/4  border-dashed rotate-90"/>
+          <div className="text-center">
+            <Typography className="font-semibold">1549</Typography>
+            <Typography className="text-mui-primary-tertiary">
+              Students
+            </Typography>
+          </div>
         </div>
       </Paper>
     </div>
