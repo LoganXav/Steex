@@ -222,7 +222,7 @@ export function customizeTheme(theme) {
           },
           {
             props: { borderRadius: "circular" },
-            style: () => ({ borderRadius: 2 }),
+            style: () => ({ borderRadius: 8 }),
           },
         ],
       },

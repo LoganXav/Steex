@@ -81,7 +81,7 @@ function AppProtected(props) {
               marginLeft: islg ? APP_SIDE_MENU_WIDTH : 0,
             }}
           >
-            <Container maxWidth="xl" className="p-4">
+            <Container maxWidth="2xl" className="p-4">
               <Suspense>{routes}</Suspense>
             </Container>
           </div>

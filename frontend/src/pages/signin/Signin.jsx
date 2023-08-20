@@ -95,7 +95,7 @@ function Signin(props) {
           <Typography>
             <Checkbox /> Remember me
           </Typography>
-            <MuiRouterLink className="text-mui-secondary-lightAlt no-underline" to={RouteEnum.FORGOT_PASSWORD}>
+            <MuiRouterLink className="text-mui-primary-tertiary no-underline" to={RouteEnum.FORGOT_PASSWORD}>
               Forgot Password?
             </MuiRouterLink>
         </div>

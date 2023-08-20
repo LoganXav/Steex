@@ -8,7 +8,7 @@ function AuthScaffold(props) {
     <div className="min-h-screen flex justify-center items-center bg-mui-primary-lightAlt">
       <div className="w-[95%] md:w-[85%] max-w-fit xl:max-h-[50rem] my-24 sm:my-12 flex sm:flex-col xl:flex-row mx-auto overflow-hidden rounded-sm">
         <div className="xl:w-[42%] hidden sm:flex">
-          <div className="w-full flex flex-col items-center justify-between gap-12 text-center p-10 bg-mui-secondary-main rounded-sm">
+          <div className="w-full flex flex-col items-center justify-between gap-12 text-center p-9 bg-mui-secondary-main xl:rounded-s-lg">
             <div>
               <Typography
                 color="white"
