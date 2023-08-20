@@ -35,7 +35,7 @@ function AppProtectedSideNavigation() {
         PaperProps={{
           style: { width: APP_SIDE_MENU_WIDTH },
           className:
-            "flex flex-col bg-mui-secondary-dark !bg-opacity-0 px-3 text-mui-primary-light rounded-md h-[85vh] mt-[12vh] absolute xl:left-10",
+            "flex flex-col bg-mui-secondary-dark !bg-opacity-0 px-3 text-mui-primary-light rounded-md h-[85%] translate-x-10 translate-y-24 max-h-full",
         }}
         // onClose={() => toggleSideNavigation()}
       >
