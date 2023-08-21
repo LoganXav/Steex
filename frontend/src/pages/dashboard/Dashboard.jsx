@@ -209,7 +209,16 @@ const Dashboard = () => {
           </Paper>
         </div>
         <div className="h-[30rem]">
-          <Paper className="w-full h-full"></Paper>
+          <Paper className="w-full h-full">
+          <div className="w-full flex justify-between items-center p-4">
+                <Typography variant="h6" className="font-semibold">
+                  Recent Courses
+                </Typography>
+                <Typography className="flex items-center">
+                  SORT BY: <span className="text-mui-primary-tertiary ml-1">Course Name</span>
+                </Typography>
+              </div>
+          </Paper>
         </div>
       </div>
       <Paper className="w-full lg:w-1/4 p-4">
@@ -231,20 +240,73 @@ const Dashboard = () => {
             Software Engineer
           </Typography>
         </div>
-        <div className="flex items-center justify-between w-1/3 md:w-full xl:w-2/3 mx-auto">
+        <div className="flex items-center justify-center gap-2 mb-6">
           <div className="text-center">
             <Typography className="font-semibold">1549</Typography>
             <Typography className="text-mui-primary-tertiary">
               Students
             </Typography>
           </div>
-          <hr className="w-1/4  border-dashed rotate-90"/>
+          <hr className="w-8 border-dashed rotate-90" />
           <div className="text-center">
             <Typography className="font-semibold">1549</Typography>
             <Typography className="text-mui-primary-tertiary">
               Students
             </Typography>
           </div>
+        </div>
+        <Typography variant="h6" className="font-semibold mb-6">
+          Upcoming Schedule
+        </Typography>
+        <div className="grid grid-cols-1 gap-4">
+          {[
+            {
+              title: "Advanced React and Redux",
+              date: "04 April, 2023",
+              time: "02:18 PM",
+            },
+            {
+              title: "Advanced React and Redux",
+              date: "04 April, 2023",
+              time: "02:18 PM",
+            },
+            {
+              title: "Advanced React and Redux",
+              date: "04 April, 2023",
+              time: "02:18 PM",
+            },
+            {
+              title: "Advanced React and Redux",
+              date: "04 April, 2023",
+              time: "02:18 PM",
+            },
+            {
+              title: "Advanced React and Redux",
+              date: "04 April, 2023",
+              time: "02:18 PM",
+            },
+            {
+              title: "Advanced React and Redux",
+              date: "04 April, 2023",
+              time: "02:18 PM",
+            },
+            {
+              title: "Advanced React and Redux",
+              date: "04 April, 2023",
+              time: "02:18 PM",
+            },
+          ].map(({ title, date, time }, index) => (
+            <Paper elevation={1} key={index} className="p-4 flex lg:flex-col lg:gap-2 xl:gap-0 xl:flex-row items-center justify-between border-l-4 border-[#3762EA]">
+              <div className="">
+                <Typography className="">{title}</Typography>
+                <div className="flex lg:flex-col xl:flex-row items-center gap-2 text-mui-primary-tertiary">
+                  <Typography className="">{date}</Typography>
+                  <Typography className="">{time}</Typography>
+                </div>
+              </div>
+              <Button size="small" className="px-0" color="primary">A</Button>
+            </Paper>
+          ))}
         </div>
       </Paper>
     </div>
