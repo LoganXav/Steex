@@ -48,7 +48,7 @@ const CoursesListCard = ({}) => {
         </Typography>
         <div></div>
       </CardContent>
-      <CardActions className="p-3">
+      <CardActions className="flex justify-between items-center p-3 border-t">
         <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
