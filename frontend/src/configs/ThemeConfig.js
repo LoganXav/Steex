@@ -12,7 +12,9 @@ export const lightTheme = responsiveFontSizes(
         // darker: "#0F274D",
         // darkAlt: "#193F7C",
         light: "#97979A",
+
         lighter: "#EEF0F7",
+
         lightAlt: "#F7F7F7",
         tertiary: "#98A6Ad",
       },
@@ -198,6 +200,24 @@ export function customizeTheme(theme) {
                 0.1
               ),
             };
+          },
+        },
+      },
+      MuiContainer: {
+        // defaultProps: { variant: "soft" },
+        styleOverrides: {
+          root: ({ theme, ownerState }) => {
+            if (ownerState.variant == "soft")
+              return {
+                color:
+                  theme.palette[ownerState.color]?.main ||
+                  theme.palette.grey[500],
+                backgroundColor: alpha(
+                  theme.palette[ownerState.color]?.main ||
+                    theme.palette.grey[500],
+                  0.2
+                ),
+              };
           },
         },
       },

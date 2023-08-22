@@ -10,11 +10,16 @@ export const RouteEnum = {
   ABOUT: "/about",
   CONTACT: "/contact",
   DASHBOARD: "/",
-  COURSES: "/courses",
   CONTACT_US: "/contact-us",
   INSTRUCTORS: "/instructors",
   SUBSCRIPTIONS: "/subscriptions",
   CONTACT_US_FAQS: "/contact-us/faqs",
   PROFILE: "/profile",
   SETTINGS: "/settings",
+
+
+  // Courses
+  COURSES: "/courses",
+  COURSES_DETAILS: "/courses/:id",
+  COURSES_CATEGORIES: "/courses/categories",
 };

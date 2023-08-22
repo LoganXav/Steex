@@ -1,6 +1,6 @@
 import { Chip } from "../../libs/mui/Chip";
 
-function DashboardChip(props) {
+function CourseListChip(props) {
   const { label, status, variant, ...restProps } = props;
 
   return (
@@ -23,4 +23,4 @@ function DashboardChip(props) {
   );
 }
 
-export default DashboardChip;
+export default CourseListChip;

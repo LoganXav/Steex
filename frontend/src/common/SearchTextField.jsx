@@ -9,12 +9,12 @@ const SearchTextField = forwardRef(
    * @param {any} ref
    */
   function SearchTextField(props, ref) {
-    const { InputProps, ...rest } = props;
+    const { InputProps, label, ...rest } = props;
 
     return (
       <TextField
         ref={ref}
-        placeholder="Search"
+        placeholder={ label ? label : "Search"}
         InputProps={{
           ...InputProps,
           ...(!InputProps?.startAdornment && {
