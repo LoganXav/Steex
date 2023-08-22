@@ -31,13 +31,13 @@ function getRoutes() {
       {
         path: RouteEnum.COURSES_CATEGORIES.concat("/*"),
         element: lazy(() =>
-          import("pages/course-category/CourseCategories")
+          import("../course-categories/CourseCategories")
         ),
       },
       {
         path: RouteEnum.COURSES_DETAILS.concat("/*"),
         element: lazy(() =>
-          import("pages/course-details/CourseDetails")
+          import("../course-details/CourseDetails")
         ),
       },
     ],
