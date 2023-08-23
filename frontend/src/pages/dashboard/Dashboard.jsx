@@ -17,7 +17,7 @@ import DashboardInstructorCard from "../../features/dashboard/DashboardInstructo
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col lg:flex-row gap-5 mt-20">
+    <div className="flex flex-col lg:flex-row gap-5 mt-4">
       <div className="w-full lg:w-3/4">
         <div className="flex flex-col md:flex-row gap-4 mb-4">
           <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-5 flex-1">

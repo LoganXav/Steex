@@ -18,21 +18,21 @@ function getRoutes() {
     [
       {
         path: "*",
-        element: <Navigate to={RouteEnum.COURSES} replace />,
+        element: <Navigate to={RouteEnum.COURSES_CATEGORIES} replace />,
       },
       {
         index: true,
-        element: lazy(() => import("./CoursesList")),
+        element: lazy(() => import("../course-categories/CourseCategories")),
+      },
+      {
+        path: RouteEnum.COURSES_CATEGORIES,
+        element: lazy(() =>
+          import("../course-categories/CourseCategories")
+        ),
       },
       {
         path: RouteEnum.COURSES,
         element: lazy(() => import("./CoursesList")),
-      },
-      {
-        path: RouteEnum.COURSES_CATEGORIES.concat("/*"),
-        element: lazy(() =>
-          import("../course-categories/CourseCategories")
-        ),
       },
       {
         path: RouteEnum.COURSES_DETAILS.concat("/*"),
@@ -42,7 +42,7 @@ function getRoutes() {
       },
     ],
     {
-      parentPath: RouteEnum.COURSES,
+      parentPath: RouteEnum.COURSES_CATEGORIES,
     }
   );
 }

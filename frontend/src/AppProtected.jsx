@@ -82,7 +82,7 @@ function AppProtected(props) {
               marginLeft: isxl ? APP_SIDE_MENU_WIDTH + 30 : islg ? APP_SIDE_MENU_WIDTH : 0,
             }}
           >
-            <Container maxWidth="2xl" className="p-4">
+            <Container maxWidth="2xl" className="p-4 mt-16">
               <Suspense>{routes}</Suspense>
             </Container>
           </div>
@@ -115,8 +115,8 @@ const getRoutes = function getRoutes({ authUser, redirectTo }) {
       element: lazy(() => import("pages/dashboard/Dashboard")),
     },
     {
-      path: RouteEnum.COURSES.concat("/*"),
-      element: lazy(() => import("pages/courses/Courses")),
+      path: RouteEnum.COURSES_CATEGORIES.concat("/*"),
+      element: lazy(() => import("pages/course-categories/CourseCategories")),
     },
     {
       path: RouteEnum.SUBSCRIPTIONS.concat("/*"),

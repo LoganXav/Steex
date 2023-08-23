@@ -13,15 +13,26 @@ import {
 import ReactLogo from "../../assets/react.png";
 import CourseListChip from "./CourseListChip";
 
-const CoursesListCard = ({}) => {
+const CoursesListCard = ({
+  title,
+  logo,
+  difficulty,
+  category,
+  duration,
+  students,
+  lessons,
+  instructor,
+  color,
+  rating
+}) => {
   return (
     <Card>
-      <Container variant="soft" color="primary">
+      <Container variant="soft" color={color}>
         <div className="relative p-5">
-          <img className="w-40 mx-auto opacity-20" src={ReactLogo} />
+          <img className="w-40 mx-auto opacity-20" src={logo} />
           <img
             className="w-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-            src={ReactLogo}
+            src={logo}
           />
         </div>
       </Container>
@@ -29,53 +40,55 @@ const CoursesListCard = ({}) => {
         <div className="flex items-center justify-between mb-2">
           <CourseListChip
             size="small"
-            status="Loss"
-            label="Intermediate"
+            color={difficulty}
+            label={difficulty}
             className="!rounded-sm h-4"
           />
           <CourseListChip
             size="small"
-            status="Rating"
+            rating={rating}
+            color="Yellow"
             label="S"
             className="!rounded-sm p-1"
-            variant=""
           />
         </div>
-        <Typography noWrap className="font-semibold lg:w-44 xl:w-full">Advanced React and Redux Advanced React and Redux</Typography>
+        <Typography noWrap className="font-semibold lg:w-44 xl:w-full">
+         {title}
+        </Typography>
         <Typography
           gutterBottom
           variant="body2"
           className="text-mui-primary-tertiary"
         >
-          React Development
+         {category}
         </Typography>
         <div className="flex items-center gap-2 text-mui-primary-tertiary">
-          <Typography variant="body2">6 Months</Typography>
-          <Typography variant="body2">256</Typography>
-          <Typography variant="body2">15 Lessons</Typography>
+          <Typography variant="body2">{duration}</Typography>
+          <Typography variant="body2">{students}</Typography>
+          <Typography variant="body2">{lessons} Lessons</Typography>
         </div>
       </CardContent>
       <CardActions className="flex justify-between items-center p-4 border-t">
         {/* <Button size="small">Share</Button> */}
         <div className="flex items-center justify-between">
-          <ButtonBase className="flex items-center gap-2">
+          <ButtonBase className="w-full flex items-center gap-2">
             <Avatar className="w-9 h-9" src="">
               {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
               {/* {authUser?.fullName?.[0]} */}
             </Avatar>
-            <Typography className="">
+            <Typography noWrap>
               {/* {authUser?.fullName} */}
-              Logan Xavier
+             {instructor}
             </Typography>
           </ButtonBase>
         </div>
         <CourseListChip
-            size="small"
-            // color="black"
-            label="..."
-            className="!rounded-sm p-1"
-            variant=""
-          />
+          size="small"
+          color="Black"
+          label="..."
+          className="!rounded-sm p-1"
+          variant=""
+        />
       </CardActions>
     </Card>
   );

@@ -221,6 +221,21 @@ export function customizeTheme(theme) {
           },
         },
       },
+      MuiCard: {
+        styleOverrides: {
+          root: ({ theme, ownerState }) => {
+            const mainColor =
+              theme.palette[ownerState.color]?.main || theme.palette.grey[500];
+
+            return {
+              color: mainColor,
+              backgroundColor: alpha(mainColor, 0.1),
+              border: `1px solid ${alpha(mainColor, 0.3)}`, // Border color with alpha
+              borderRadius: theme.shape.borderRadius, // Use the theme's border radius
+            };
+          },
+        },
+      },
       MuiPaper: {
         defaultProps: {
           elevation: 0,

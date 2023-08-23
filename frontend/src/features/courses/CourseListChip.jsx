@@ -1,22 +1,22 @@
 import { Chip } from "../../libs/mui/Chip";
 
 function CourseListChip(props) {
-  const { label, status, variant, ...restProps } = props;
+  const { label, rating, color, ...restProps } = props;
 
   return (
     <Chip
     
       label={label}
-      variant={variant ? variant : "soft"}
+      variant={rating ? "" : "soft"}
       color={
         {
-          Gain: "success",
-          Loss: "error",
-          Rating: "warning",
-          Open: "primary",
-          Close: "info",
-          Close2: "secondary",
-        }[status]
+          Beginner: "success",
+          Advance: "error",
+          Intermediate: "primary",
+          Yellow: "warning",
+          Black: "secondary",
+          // Blue: "info",
+        }[color]
       }
       {...restProps}
     />
