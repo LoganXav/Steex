@@ -26,7 +26,7 @@ const CoursesListCard = ({
   rating
 }) => {
   return (
-    <Card className="bg-white">
+    <Card className="bg-white border-none">
       <Container variant="soft" color={color}>
         <div className="relative p-5">
           <img className="w-40 mx-auto opacity-20" src={logo} />
