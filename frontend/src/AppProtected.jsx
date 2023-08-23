@@ -44,7 +44,7 @@ function AppProtected(props) {
 //   );
 
   const routes = useRoutes(
-    useMemo(() => getRoutes({ authUser, redirectTo: RouteEnum.DASHBOARD }), [])
+    useMemo(() => getRoutes({ redirectTo: RouteEnum.DASHBOARD }), [])
   );
 
   return (
@@ -104,7 +104,7 @@ export default AppProtected;
 //   import("features/profile/ProfileChangePasswordDialog")
 // );
 
-const getRoutes = function getRoutes({ authUser, redirectTo }) {
+const getRoutes = function getRoutes({ redirectTo }) {
   return configureRoutes([
     {
       path: "*",
@@ -115,8 +115,8 @@ const getRoutes = function getRoutes({ authUser, redirectTo }) {
       element: lazy(() => import("pages/dashboard/Dashboard")),
     },
     {
-      path: RouteEnum.COURSES_CATEGORIES.concat("/*"),
-      element: lazy(() => import("pages/course-categories/CourseCategories")),
+      path: RouteEnum.COURSES.concat("/*"),
+      element: lazy(() => import("pages/courses/Courses")),
     },
     {
       path: RouteEnum.SUBSCRIPTIONS.concat("/*"),

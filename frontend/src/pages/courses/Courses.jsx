@@ -18,31 +18,27 @@ function getRoutes() {
     [
       {
         path: "*",
-        element: <Navigate to={RouteEnum.COURSES_CATEGORIES} replace />,
+        element: <Navigate to={RouteEnum.COURSES} replace />,
       },
       {
         index: true,
-        element: lazy(() => import("../course-categories/CourseCategories")),
+        element: lazy(() => import("./CoursesList")),
       },
       {
         path: RouteEnum.COURSES_CATEGORIES,
-        element: lazy(() =>
-          import("../course-categories/CourseCategories")
-        ),
+        element: lazy(() => import("../course-categories/CourseCategories")),
       },
       {
-        path: RouteEnum.COURSES,
+        path: RouteEnum.COURSES.concat("/*"),
         element: lazy(() => import("./CoursesList")),
       },
       {
         path: RouteEnum.COURSES_DETAILS.concat("/*"),
-        element: lazy(() =>
-          import("../course-details/CourseDetails")
-        ),
+        element: lazy(() => import("../course-details/CourseDetails")),
       },
     ],
     {
-      parentPath: RouteEnum.COURSES_CATEGORIES,
+      parentPath: RouteEnum.COURSES,
     }
   );
 }

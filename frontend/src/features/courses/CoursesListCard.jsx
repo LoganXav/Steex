@@ -76,7 +76,7 @@ const CoursesListCard = ({
               {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
               {/* {authUser?.fullName?.[0]} */}
             </Avatar>
-            <Typography noWrap>
+            <Typography noWrap className="max-w-10">
               {/* {authUser?.fullName} */}
              {instructor}
             </Typography>

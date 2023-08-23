@@ -11,7 +11,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import SearchTextField from "../../common/SearchTextField";
-import MuiRouterLink from "../../common/MuiRouterLink";
+import { Link } from "react-router-dom";
 import { RouteEnum } from "../../constants/RouterConstants";
 import ReactLogo from "../../assets/react.png";
 import ShopifyLogo from "../../assets/shopify.png";
@@ -149,23 +149,23 @@ const CourseCategories = () => {
             color: "error",
           },
         ].map(({ category, logo, courses, color }, index) => (
-          <MuiRouterLink key={index} to={RouteEnum.COURSES}>
-            <Card
-              variant="soft"
-              color={color}
-              className="flex flex-col gap-2 items-center py-8 rounded text-center"
-            >
-              <Paper>
-                <img className="w-16 h-16 p-2" src={logo} />
-              </Paper>
-              <Typography className="font-semibold text-black">
-                {category}
-              </Typography>
-              <Typography className="font-semibold text-mui-primary-tertiary">
-                {courses}+ Courses Available
-              </Typography>
-            </Card>
-          </MuiRouterLink>
+          <Card
+            component={Link}
+            to={RouteEnum.COURSES}
+            variant="soft"
+            color={color}
+            className="flex flex-col gap-2 items-center py-8 rounded text-center"
+          >
+            <Paper>
+              <img className="w-16 h-16 p-2" src={logo} />
+            </Paper>
+            <Typography className="font-semibold text-black">
+              {category}
+            </Typography>
+            <Typography className="font-semibold text-mui-primary-tertiary">
+              {courses}+ Courses Available
+            </Typography>
+          </Card>
         ))}
       </div>
     </>
