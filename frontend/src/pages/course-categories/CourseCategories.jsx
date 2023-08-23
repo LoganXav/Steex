@@ -150,19 +150,20 @@ const CourseCategories = () => {
           },
         ].map(({ category, logo, courses, color }, index) => (
           <Card
+          key={index}
             component={Link}
             to={RouteEnum.COURSES}
             variant="soft"
             color={color}
-            className="flex flex-col gap-2 items-center py-8 rounded text-center"
+            className="flex flex-col gap-2 items-center py-8 rounded-md text-center transition duration-500 hover:-translate-y-3 ease"
           >
-            <Paper>
+            <Paper className="rounded-md">
               <img className="w-16 h-16 p-2" src={logo} />
             </Paper>
             <Typography className="font-semibold text-black">
               {category}
             </Typography>
-            <Typography className="font-semibold text-mui-primary-tertiary">
+            <Typography variant="body2" className="text-mui-primary-tertiary">
               {courses}+ Courses Available
             </Typography>
           </Card>
