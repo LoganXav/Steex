@@ -12,6 +12,8 @@ import {
 } from "@mui/material";
 import ReactLogo from "../../assets/react.png";
 import CourseListChip from "./CourseListChip";
+import { Link } from "react-router-dom";
+import { RouteEnum } from "../../constants/RouterConstants";
 
 const CoursesListCard = ({
   title,
@@ -27,7 +29,7 @@ const CoursesListCard = ({
 }) => {
   return (
     <Card className="bg-white border-none">
-      <Container variant="soft" color={color}>
+      <Container variant="soft" color={color} component={Link} to={RouteEnum.COURSES_DETAILS}>
         <div className="relative p-5">
           <img className="w-40 mx-auto opacity-20" src={logo} />
           <img
@@ -36,7 +38,7 @@ const CoursesListCard = ({
           />
         </div>
       </Container>
-      <CardContent className="p-5">
+      <CardContent className="p-5 text-black">
         <div className="flex items-center justify-between mb-2">
           <CourseListChip
             size="small"
@@ -68,7 +70,7 @@ const CoursesListCard = ({
           <Typography variant="body2">{lessons} Lessons</Typography>
         </div>
       </CardContent>
-      <CardActions className="flex justify-between items-center p-4 border-t">
+      <CardActions className="flex justify-between items-center p-4 border-t text-black">
         {/* <Button size="small">Share</Button> */}
         <div className="flex items-center justify-between">
           <ButtonBase className="w-full flex items-center gap-2">
