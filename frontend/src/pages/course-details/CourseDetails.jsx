@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Card,
@@ -8,14 +8,27 @@ import {
   FormControl,
   InputLabel,
   Select,
+  Tabs,
+  Tab,
   MenuItem,
   CardContent,
   Button,
   Avatar,
 } from "@mui/material";
 import ReactLogo from "../../assets/react.png";
+import CourseListChip from "../../features/courses/CourseListChip";
+import { CourseDetailsTabEnum } from "features/courses/CourseConstants";
+import CourseDetailsDescription from "features/courses/CourseDetailsDescription"
+import CourseDetailsVideoTutorials from "features/courses/CourseDetailsVideoTutorials"
+import CourseDetailsComments from "features/courses/CourseDetailsComments"
 
 const CourseDetails = () => {
+  const [activeTab, setActiveTab] = useState(CourseDetailsTabEnum.DESCRIPTION);
+
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
+  };
+
   return (
     <div>
       <Toolbar disableGutters className="flex justify-between items-center">
@@ -27,11 +40,67 @@ const CourseDetails = () => {
         </Typography>
       </Toolbar>
       <div className="flex flex-col lg:flex-row gap-4">
-        <Container className="lg:w-3/4">
-          <Paper></Paper>
+        <Container disableGutters className="lg:w-3/4">
+          <Paper className="px-4 pt-4">
+            <div className="h-[500px] rounded-md overflow-hidden">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://youtube.com/embed/JDtOIc6WFF4"
+                title="Youtube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className="flex justify-between items-center mt-5">
+              <div>
+                <Typography variant="h5" className="font-semibold">
+                  Getting Started with Javascript
+                </Typography>
+                <div className="flex items-center gap-4 mt-2">
+                  <Typography className="body2">React Development</Typography>S
+                  S S S S<Typography className="body2">4.5</Typography>
+                  <CourseListChip
+                    size="small"
+                    color="Intermediate"
+                    label="Intermediate"
+                    className="!rounded-sm h-4"
+                  />
+                </div>
+              </div>
+              <CourseListChip
+                size="small"
+                color="Yellow"
+                label="S"
+                variant="None"
+                className="!rounded-md h-7 w-7 cursor-pointer"
+              />
+            </div>
+
+            <Tabs value={activeTab} onChange={handleTabChange} className="mt-6">
+              {[
+                { value: CourseDetailsTabEnum.DESCRIPTION, label: "Description" },
+                { value: CourseDetailsTabEnum.VIDEO_TUTORIALS, label: "Video Tutorials" },
+                { value: CourseDetailsTabEnum.COMMENTS, label: "Comments" },
+              ].map((tab) => (
+                <Tab key={tab.label} value={tab.value} label={tab.label} className="text-[14px]"/>
+              ))}
+            </Tabs>
+          
+          </Paper>
+          <Paper className="p-4 mt-4">
+              {
+              {
+                [CourseDetailsTabEnum.DESCRIPTION]: <CourseDetailsDescription />,
+                [CourseDetailsTabEnum.VIDEO_TUTORIALS]: <CourseDetailsVideoTutorials />,
+                [CourseDetailsTabEnum.COMMENTS]: <CourseDetailsComments />,
+              }[activeTab]
+            }
+          </Paper>
         </Container>
 
-        <Container className="lg:w-1/4 flex flex-col gap-4">
+        <Container disableGutters className="lg:w-1/4 flex flex-col gap-4">
           <Card className="bg-white border-none">
             <Container variant="soft" color="priimary">
               <div className="relative p-5">
@@ -83,22 +152,25 @@ const CourseDetails = () => {
                 key={index}
                 className="w-full flex justify-between items-center mt-1"
               >
-                <Typography variant="body2">{label}</Typography>
-                <Typography variant="body2" className="text-mui-primary-tertiary">
+                <Typography>{label}</Typography>
+                <Typography
+                
+                  className="text-mui-primary-tertiary"
+                >
                   {value}
                 </Typography>
               </div>
             ))}
           </Paper>
           <Paper className="p-4">
-            <div className="w-full flex justify-between items-center mb-3">
+            <div className="w-full flex justify-between items-center">
               <Typography variant="h6" className="font-semibold">
                 Instructor Details
               </Typography>
               <Typography color="primary">View More</Typography>
             </div>
-            <div className="flex text-start items-center my-6">
-              <Avatar className="mr-2 w-12 h-12 rounded-md" src=""></Avatar>
+            <div className="flex text-start items-center my-4">
+              <Avatar className="mr-2 w-10 h-10 rounded-md" src=""></Avatar>
               <div>
                 <Typography className="font-semibold text-black">
                   Morgan Satterfield
@@ -113,12 +185,18 @@ const CourseDetails = () => {
             </Button>
           </Paper>
           <Card className="bg-mui-primary-main bg-[url('https://themesbrand.com/steex/layouts/assets/images/effect-pattern/pattern.png')] bg-right bg-no-repeat bg-contain p-4">
-              <Typography variant="h6" className="font-semibold text-white">Join Membership</Typography>
-              <Typography className="text-mui-primary-tertiary">Access all courses anywhere and any time</Typography>
-            <Button size="large" className="bg-mui-primary-lighter text-black font-semibold mt-8 max-w-sm">
-            Join Now
+            <Typography variant="h6" className="font-semibold text-white">
+              Join Membership
+            </Typography>
+            <Typography className="text-mui-primary-tertiary">
+              Access all courses anywhere and any time
+            </Typography>
+            <Button
+              size="large"
+              className="bg-mui-primary-lighter text-black font-semibold mt-8 max-w-sm"
+            >
+              Join Now
             </Button>
-
           </Card>
         </Container>
       </div>
