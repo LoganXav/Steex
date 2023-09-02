@@ -48,6 +48,7 @@ export default {
           error: {
             main: "var(--color-mui-error-main)",
             light: "var(--color-mui-error-light)",
+            lighter: "var(--color-mui-error-lighter)",
             dark: "var(--color-mui-error-dark)",
             contrastText: "var(--color-mui-error-contrastText)",
           },

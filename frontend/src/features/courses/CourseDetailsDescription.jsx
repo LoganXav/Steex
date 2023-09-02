@@ -1,24 +1,16 @@
 import React from "react";
 import {
   Typography,
-  Card,
-  Paper,
-  Container,
-  Toolbar,
-  FormControl,
-  InputLabel,
-  Select,
-  Tabs,
-  Tab,
-  MenuItem,
-  CardContent,
-  Button,
-  Avatar,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
 } from "@mui/material";
+import { Iconly } from "react-iconly";
 
 const CourseDetailsDescription = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3">
       <Typography variant="h6" className="font-semibold">
         Overview
       </Typography>
@@ -38,8 +30,34 @@ const CourseDetailsDescription = () => {
         </Typography>
       </div>
       <Typography variant="h6" className="font-semibold">
-        What We'll Cover in this Video
+        What We'll Cover in this Videos
       </Typography>
+      <List>
+        {[
+          "How to learn JavaScript faster – an overview",
+          "How to practice coding in JavaScript",
+          "Why you should read the documentation",
+          "Some best practices you can adopt from reading documentation",
+          "How to contribute to open source projects",
+          "How to find projects to contribute to",
+          "Why you should build lots of projects",
+          "Resources that might inspire you to build projects"
+        ].map((item, index) => (
+
+          <ListItem className="!p-[0]" key={index}>
+            <ListItemIcon className="!mr-[-2rem]">
+              <Iconly
+                size="small"
+                name="ChevronRight"
+              />
+            </ListItemIcon>
+            <ListItemText
+              className="!font-extralight"
+              primary={item}
+            />
+          </ListItem>
+        ))}
+      </List>
       <Typography variant="h6" className="font-semibold">
         How to Practice Coding in JavaScript
       </Typography>

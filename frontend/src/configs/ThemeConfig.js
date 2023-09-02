@@ -12,11 +12,10 @@ export const lightTheme = responsiveFontSizes(
         // darker: "#0F274D",
         // darkAlt: "#193F7C",
         light: "#97979A",
-
         lighter: "#EEF0F7",
-
         lightAlt: "#F7F7F7",
         tertiary: "#98A6Ad",
+        // contrastText: "#F7F7F7",
       },
       secondary: {
         lightAlt: "#222328",
@@ -24,10 +23,10 @@ export const lightTheme = responsiveFontSizes(
         dark: "#181A20",
         contrastText: "#7C7F7B",
       },
-      // success: {
-      //   ...defaultTheme.palette.success,
-      //   lighter: "#5FD25533",
-      // },
+      info: {
+        ...defaultTheme.palette.info,
+        contrastText: "#4AB0C1",
+      },
       success: {
         ...defaultTheme.palette.success,
         lighter: alpha(defaultTheme.palette.success.main, 0.2),
@@ -42,7 +41,7 @@ export const lightTheme = responsiveFontSizes(
       },
       info: {
         ...defaultTheme.palette.info,
-        lighter: alpha(defaultTheme.palette.info.main, 0.2),
+        light: alpha(defaultTheme.palette.info.main, 0.2),
       },
       background: {
         ...defaultTheme.palette.background,

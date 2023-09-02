@@ -32,7 +32,7 @@ function AppProtectedSideNavigationItem(props) {
       <Typography
         className={clsx(
           "ml-2",
-          !!match && "font-semibold text-mui-primary-lighter"
+          !!match && "font-semibold text-mui-primary-contrastText"
         )}
       >
         {name}

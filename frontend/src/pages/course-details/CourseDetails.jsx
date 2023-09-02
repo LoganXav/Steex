@@ -14,16 +14,20 @@ import {
   CardContent,
   Button,
   Avatar,
+  Rating,
 } from "@mui/material";
 import ReactLogo from "../../assets/react.png";
 import CourseListChip from "../../features/courses/CourseListChip";
 import { CourseDetailsTabEnum } from "features/courses/CourseConstants";
 import CourseDetailsDescription from "features/courses/CourseDetailsDescription"
 import CourseDetailsVideoTutorials from "features/courses/CourseDetailsVideoTutorials"
-import CourseDetailsComments from "features/courses/CourseDetailsComments"
+import CourseDetailsFeedback from "features/courses/CourseDetailsFeedback"
 
 const CourseDetails = () => {
   const [activeTab, setActiveTab] = useState(CourseDetailsTabEnum.DESCRIPTION);
+
+
+
 
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);
@@ -42,7 +46,7 @@ const CourseDetails = () => {
       <div className="flex flex-col lg:flex-row gap-4">
         <Container disableGutters className="lg:w-3/4">
           <Paper className="px-4 pt-4">
-            <div className="h-[500px] rounded-md overflow-hidden">
+            <div className="h-[300px] sm:h-[500px] rounded-md overflow-hidden">
               <iframe
                 width="100%"
                 height="100%"
@@ -53,14 +57,19 @@ const CourseDetails = () => {
                 allowFullScreen
               ></iframe>
             </div>
-            <div className="flex justify-between items-center mt-5">
+            <div className="flex justify-between mt-5">
               <div>
                 <Typography variant="h5" className="font-semibold">
                   Getting Started with Javascript
                 </Typography>
-                <div className="flex items-center gap-4 mt-2">
-                  <Typography className="body2">React Development</Typography>S
-                  S S S S<Typography className="body2">4.5</Typography>
+                <div className="flex items-center gap-4 mt-2 flex-wrap">
+                  <Typography className="body2">React Development</Typography>
+                  <Rating
+                    name="simple-controlled"
+                    value={4}
+                    readOnly 
+                  />
+                  <Typography className="body2">4.5</Typography>
                   <CourseListChip
                     size="small"
                     color="Intermediate"
@@ -82,19 +91,19 @@ const CourseDetails = () => {
               {[
                 { value: CourseDetailsTabEnum.DESCRIPTION, label: "Description" },
                 { value: CourseDetailsTabEnum.VIDEO_TUTORIALS, label: "Video Tutorials" },
-                { value: CourseDetailsTabEnum.COMMENTS, label: "Comments" },
+                { value: CourseDetailsTabEnum.FEEDBACK, label: "Feedback" },
               ].map((tab) => (
-                <Tab key={tab.label} value={tab.value} label={tab.label} className="text-[14px]"/>
+                <Tab key={tab.label} value={tab.value} label={tab.label} className="text-[14px]" />
               ))}
             </Tabs>
-          
+
           </Paper>
           <Paper className="p-4 mt-4">
-              {
+            {
               {
                 [CourseDetailsTabEnum.DESCRIPTION]: <CourseDetailsDescription />,
                 [CourseDetailsTabEnum.VIDEO_TUTORIALS]: <CourseDetailsVideoTutorials />,
-                [CourseDetailsTabEnum.COMMENTS]: <CourseDetailsComments />,
+                [CourseDetailsTabEnum.FEEDBACK]: <CourseDetailsFeedback />,
               }[activeTab]
             }
           </Paper>
@@ -102,7 +111,7 @@ const CourseDetails = () => {
 
         <Container disableGutters className="lg:w-1/4 flex flex-col gap-4">
           <Card className="bg-white border-none">
-            <Container variant="soft" color="priimary">
+            <Container variant="soft" color="info">
               <div className="relative p-5">
                 <img className="w-32 mx-auto opacity-20" src={ReactLogo} />
                 <img
@@ -123,7 +132,7 @@ const CourseDetails = () => {
               <Typography variant="body2" color="error" className="my-2">
                 10 days left at this price
               </Typography>
-              <div className="w-full flex items-center justify-center gap-3">
+              <div className="w-full flex md:flex-col xl:flex-row items-center justify-center gap-3">
                 <Button size="large" className=" w-full" color="primary">
                   Free Trial
                 </Button>
@@ -154,7 +163,7 @@ const CourseDetails = () => {
               >
                 <Typography>{label}</Typography>
                 <Typography
-                
+
                   className="text-mui-primary-tertiary"
                 >
                   {value}
@@ -180,7 +189,7 @@ const CourseDetails = () => {
                 </Typography>
               </div>
             </div>
-            <Button size="large" className="w-full" color="primary">
+            <Button size="large" className="w-full text-mui-info-main bg-mui-info-light hover:text-white hover:bg-mui-info-main">
               Get in Touch
             </Button>
           </Paper>
