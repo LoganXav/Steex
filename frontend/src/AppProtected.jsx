@@ -75,14 +75,14 @@ function AppProtected(props) {
     // >
     //   {() => (
         <>
-          <ProtectedPageHeader elevation={0} position="sticky" />
+          <ProtectedPageHeader elevation={0} position="fixed" />
           <AppProtectedSideNavigation />
           <div
             style={{
               marginLeft: isxl ? APP_SIDE_MENU_WIDTH + 30 : islg ? APP_SIDE_MENU_WIDTH : 0,
             }}
           >
-            <Container maxWidth="2xl" className="p-4 mt-14">
+            <Container maxWidth="2xl" className="p-4 mt-16">
               <Suspense>{routes}</Suspense>
             </Container>
           </div>

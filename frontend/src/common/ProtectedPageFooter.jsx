@@ -22,7 +22,7 @@ import { RouteEnum } from "../constants/RouterConstants";
 // import useAuthUser from "../hooks/useAuthUser";
 // import useLogout from "../hooks/useLogout";
 import usePopover from "../hooks/usePopover";
-// import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
+import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
 import "./ProtectedPageFooter.css";
 import SearchTextField from "./SearchTextField";
 import { resolvedTailwindConfig } from "constants/Global";
@@ -42,7 +42,7 @@ function ProtectedPageFooter(props) {
 
   // const authUser = useAuthUser();
 
-  // const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
+  const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
 
   const infoPopover = usePopover();
 

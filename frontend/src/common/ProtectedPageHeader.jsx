@@ -24,7 +24,7 @@ import { RouteEnum } from "../constants/RouterConstants";
 // import useAuthUser from "../hooks/useAuthUser";
 // import useLogout from "../hooks/useLogout";
 import usePopover from "../hooks/usePopover";
-// import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
+import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
 import "./ProtectedPageHeader.css";
 import SearchTextField from "./SearchTextField";
 import { resolvedTailwindConfig } from "constants/Global";
@@ -39,13 +39,14 @@ import SteexLogo from "../assets/steex.png";
  */
 function ProtectedPageHeader(props) {
   const { className, position, ...rest } = props;
+  const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl);
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
   const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
   // const { logout } = useLogout();
 
   // const authUser = useAuthUser();
 
-  // const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
+  const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
 
   const infoPopover = usePopover();
 
@@ -58,35 +59,24 @@ function ProtectedPageHeader(props) {
   return (
     <div>
       <AppBar
-        className={clsx("ProtectedPageHeader", className)}
-        // position={position}
+        className={clsx("ProtectedPageHeader top-0", className)}
+        position={position}
         style={{
-          // left: islg ? APP_SIDE_MENU_WIDTH : 0,
-          // width: islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
+          left: islg ? APP_SIDE_MENU_WIDTH : 0,
+          left: isxl && 0 ,
+          width: isxl ? "100%" : islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
           ...rest,
         }}
         {...rest}
       >
-        <Container maxWidth="false" className="py-1 bg-inherit border-b rounded-none bg-mui-secondary-dark">
+        <Container maxWidth="false" className="py-1 bg-white border-b rounded-none">
           <Toolbar>
             {!islg && (
-              // <IconButton variant="soft" size="medium">
-              //   <Iconly
-              //     size="medium"
-              //     name="Show"
-              //     // primaryColor={
-              //     //   resolvedTailwindConfig.theme.colors.primary.main
-              //     // }
-              //     // secondaryColor={
-              //     //   resolvedTailwindConfig.theme.colors.primary.main
-              //     // }
-              //   />
-              // </IconButton>
-
               <IconButton variant="soft" size="medium">
                 <Iconly
                   size="medium"
                   name="ArrowRight"
+                  onClick={() => toggleSideNavigation()}
                   // primaryColor={
                   //   resolvedTailwindConfig.theme.colors.primary.main
                   // }
@@ -106,10 +96,10 @@ function ProtectedPageHeader(props) {
             <div className="flex-1" />
             <div className="flex items-center gap-4">
               <IconButton variant="soft" size="medium">
-                <FullscreenExitOutlinedIcon style={{ color: "#F7F7F7" }} />
+                <FullscreenExitOutlinedIcon />
               </IconButton>
               <IconButton variant="soft" size="medium">
-                <WbSunnyOutlinedIcon style={{ color: "#F7F7F7" }} />
+                <WbSunnyOutlinedIcon />
               </IconButton>
               <IconButton
                 variant="soft"
@@ -122,7 +112,7 @@ function ProtectedPageHeader(props) {
                   primaryColor="#F7F7F7"
                   secondaryColor="#F7F7F7"
                 /> */}
-                <NotificationsOutlinedIcon style={{ color: "#F7F7F7" }} />
+                <NotificationsOutlinedIcon/>
               </IconButton>
               <ButtonBase
                 className="flex text-start items-center px-3 rounded-md"
@@ -134,7 +124,7 @@ function ProtectedPageHeader(props) {
                 </Avatar>
                 {ismd && (
                   <div>
-                    <Typography className="font-semibold text-mui-primary-lightAlt">
+                    <Typography className="font-semibold ">
                       {/* {authUser?.fullName} */}
                       Logan Xavier
                     </Typography>

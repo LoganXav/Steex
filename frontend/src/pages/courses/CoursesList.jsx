@@ -25,16 +25,17 @@ const CoursesList = () => {
         </Typography>
         <Typography variant="body2" className="text-mui-primary-tertiary">Courses    /   All Courses</Typography>
       </Toolbar>
-      <Paper className="">
-        <Toolbar>
+      <Paper className="py-4 md:py-0">
+        <Toolbar className="flex flex-col md:flex-row gap-2">
           <SearchTextField
             size="small"
             className="md:w-[20rem]"
             label="Search for a course..."
+            fullWidth
           />
 
           <div className="flex-1" />
-          <FormControl className="w-28 sm:w-44">
+          <FormControl fullWidth className="md:w-28 sm:w-44">
             <InputLabel id="demo-simple-select-label">Status</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -43,6 +44,7 @@ const CoursesList = () => {
               label="Status"
               size="small"
               // onChange={handleChange}
+              
             >
               <MenuItem value="active">Active</MenuItem>
               <MenuItem value="inactive">Inactive</MenuItem>

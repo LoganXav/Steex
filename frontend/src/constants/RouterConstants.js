@@ -10,16 +10,21 @@ export const RouteEnum = {
   ABOUT: "/about",
   CONTACT: "/contact",
   DASHBOARD: "/",
+  TRANSACTIONS: "/transactions",
   CONTACT_US: "/contact-us",
-  INSTRUCTORS: "/instructors",
-  SUBSCRIPTIONS: "/subscriptions",
+  CONTACT_US_SUPPORT: "/contact-us/support",
   CONTACT_US_FAQS: "/contact-us/faqs",
-  PROFILE: "/profile",
   SETTINGS: "/settings",
-
-
-  // Courses
+  // CONTACT_US_FAQS: "/contact-us/faqs",
+  // PROFILE: "/profile",
+  
   COURSES: "/courses",
-  COURSES_DETAILS: "/courses/:id",
   COURSES_CATEGORIES: "/courses/categories",
+  COURSES_DETAILS: "/courses/:id",
+  SUBSCRIPTIONS: "/subscriptions",
+  INSTRUCTORS: "/instructors",
+  PROFILE: "/profile",
+  CONTACT_US_FAQS: "/contact-us/faqs",
+
+
 };

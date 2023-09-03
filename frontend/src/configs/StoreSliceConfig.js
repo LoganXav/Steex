@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SelfServiceAuthenticationApi } from "apis/SelfServiceAuthenticationApi";
+import { SelfServiceAuthenticationApi } from "../apis/SelfServiceAuthenticationApi";
 import { logoutAction } from "./StoreActionConfig";
-import { SelfUserDetailsApi } from "apis/SelfUserDetails";
-import { SelfUserApi } from "apis/SelfUserApi";
-import { SelfClientApi } from "apis/SelfClientApi";
+import { SelfUserDetailsApi } from "../apis/SelfUserDetails";
+import { SelfUserApi } from "../apis/SelfUserApi";
+import { SelfClientApi } from "../apis/SelfClientApi";
 
 export const globalInitialState = {
   themeMode: "light", // 'dark'| 'light' | 'media'

@@ -296,7 +296,7 @@ const Dashboard = () => {
               time: "02:18 PM",
             },
           ].map(({ title, date, time }, index) => (
-            <Paper elevation={1} key={index} className="p-4 flex lg:flex-col lg:gap-2 xl:gap-0 xl:flex-row items-center justify-between border-l-4 border-[#3762EA]">
+            <Paper elevation={0} key={index} className="p-4 flex lg:flex-col lg:gap-2 xl:gap-0 xl:flex-row items-center justify-between border-l-4 border-[#3762EA]">
               <div className="">
                 <Typography className="">{title}</Typography>
                 <div className="flex lg:flex-col xl:flex-row items-center gap-2 text-mui-primary-tertiary">

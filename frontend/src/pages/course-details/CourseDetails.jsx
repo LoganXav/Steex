@@ -46,7 +46,7 @@ const CourseDetails = () => {
       <div className="flex flex-col lg:flex-row gap-4">
         <Container disableGutters className="lg:w-3/4">
           <Paper className="px-4 pt-4">
-            <div className="h-[300px] sm:h-[500px] rounded-md overflow-hidden">
+            <div className="h-[200px] sm:h-[300px] md:h-[500px] rounded-md overflow-hidden">
               <iframe
                 width="100%"
                 height="100%"
@@ -189,7 +189,7 @@ const CourseDetails = () => {
                 </Typography>
               </div>
             </div>
-            <Button size="large" className="w-full text-mui-info-main bg-mui-info-light hover:text-white hover:bg-mui-info-main">
+            <Button size="large" className="w-full text-mui-info-contrastText bg-mui-info-light hover:text-white hover:bg-mui-info-contrastText">
               Get in Touch
             </Button>
           </Paper>

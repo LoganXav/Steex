@@ -34,6 +34,7 @@ const CourseCategories = () => {
           size="small"
           className="md:w-[20rem]"
           label="Search for a category..."
+          fullWidth
         />
 
         <div className="flex-1" />
