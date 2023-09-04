@@ -4,6 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Iconly } from "react-iconly";
 
 const CourseDetailsVideoTutorials = () => {
   return (
@@ -13,9 +14,9 @@ const CourseDetailsVideoTutorials = () => {
           category: "Introduction to Javascript + Setup (4 Lessons)",
           titles:
             [
-              "What Javascript framework shuld I learn?",
-              "What Javascript framework shuld I learn?",
-              "What Javascript framework shuld I learn?",
+              "What Javascript framework should I learn?",
+              "What Javascript framework should I learn?",
+              "What Javascript framework should I learn?",
             ]
         },
         {
@@ -25,14 +26,14 @@ const CourseDetailsVideoTutorials = () => {
           category: "Introduction to Javascript + Setup (4 Lessons)",
           titles:
             [
-              "What Javascript framework shuld I learn?",
-              "What Javascript framework shuld I learn?",
-              "What Javascript framework shuld I learn?",
+              "What Javascript framework should I learn?",
+              "What Javascript framework should I learn?",
+              "What Javascript framework should I learn?",
             ]
         },
       ].map(({ category, titles }) => (
 
-        <Accordion className="border mt-4">
+        <Accordion className="border mt-2">
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -41,10 +42,22 @@ const CourseDetailsVideoTutorials = () => {
             <Typography>{category}</Typography>
           </AccordionSummary>
           {titles?.map((title) => (
-            <AccordionDetails className="">
-              <Typography className="border p-4">
-                {title}
-              </Typography>
+            <AccordionDetails className="mt-[-1rem]">
+              <div className="flex justify-between items-center border p-4 cursor-pointer">
+                <div className="flex items-center gap-2">
+                  <Iconly
+                    size="medium"
+                    name="Play"
+                  />
+                  <Typography>
+                    {title}
+                  </Typography>
+                </div>
+                <Typography>
+                  03:20 min
+                </Typography>
+
+              </div>
             </AccordionDetails>
           ))}
         </Accordion>

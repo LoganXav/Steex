@@ -13,6 +13,7 @@ import {
 import ReactLogo from "../../assets/react.png";
 import CourseListChip from "./CourseListChip";
 import { Link } from "react-router-dom";
+import { Iconly } from "react-iconly";
 import { RouteEnum } from "../../constants/RouterConstants";
 import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
@@ -72,11 +73,41 @@ const CoursesListCard = ({
          {category}
         </Typography>
         <div className="flex items-center my-2 gap-2 text-mui-primary-tertiary">
-          <AccessTimeOutlinedIcon />
+        <Iconly
+                  size="small"
+                  name="TimeCircle"
+                  // onClick={() => toggleSideNavigation()}
+                  // primaryColor={
+                  //   resolvedTailwindConfig.theme.colors.primary.main
+                  // }
+                  // secondaryColor={
+                  //   resolvedTailwindConfig.theme.colors.primary.main
+                  // }
+                />
           <Typography>{duration}</Typography>
-          <SchoolOutlinedIcon />
+          <Iconly
+                  size="small"
+                  name="People"
+                  // onClick={() => toggleSideNavigation()}
+                  // primaryColor={
+                  //   resolvedTailwindConfig.theme.colors.primary.main
+                  // }
+                  // secondaryColor={
+                  //   resolvedTailwindConfig.theme.colors.primary.main
+                  // }
+                />
           <Typography>{students}</Typography>
-          <LibraryBooksOutlinedIcon />
+          <Iconly
+                  size="small"
+                  name="Bookmark"
+                  // onClick={() => toggleSideNavigation()}
+                  // primaryColor={
+                  //   resolvedTailwindConfig.theme.colors.primary.main
+                  // }
+                  // secondaryColor={
+                  //   resolvedTailwindConfig.theme.colors.primary.main
+                  // }
+                />
           <Typography>{lessons} Lessons</Typography>
         </div>
       </CardContent>

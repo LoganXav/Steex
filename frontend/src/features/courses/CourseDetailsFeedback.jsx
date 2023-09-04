@@ -69,7 +69,7 @@ const CourseDetailsFeedback = () => {
                 />
               </div>
             </div>
-            <Typography variant="h6" className="font-bold">Course Complexity</Typography>
+            <Typography variant="h6" className="font-semibold">Course Complexity</Typography>
             <Typography className="mt-2">"This is an incredible framework worth so much in the right hands! Nowhere else are you going to get so much flexibility and great code for a few dollars. Highly recommend purchasing today! Like right now!"</Typography>
           </div>
         </div>

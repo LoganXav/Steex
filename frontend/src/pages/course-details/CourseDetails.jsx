@@ -48,7 +48,7 @@ const CourseDetails = () => {
       <div className="flex flex-col lg:flex-row gap-4">
         <Container disableGutters className="lg:w-3/4">
           <Paper className="px-4 pt-4">
-            <div className="h-[200px] sm:h-[300px] md:h-[500px] rounded-md overflow-hidden">
+            <div className="h-[200px] sm:h-[300px] md:h-[500px] rounded-sm overflow-hidden">
               <iframe
                 width="100%"
                 height="100%"
@@ -61,7 +61,7 @@ const CourseDetails = () => {
             </div>
             <div className="flex justify-between mt-5">
               <div>
-                <Typography variant="h5" className="font-semibold uppercase">
+                <Typography variant="h5" className="font-semibold">
                   Getting Started with Javascript
                 </Typography>
                 <div className="flex items-center gap-4 mt-2 flex-wrap">
