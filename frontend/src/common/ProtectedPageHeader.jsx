@@ -69,7 +69,7 @@ function ProtectedPageHeader(props) {
         }}
         {...rest}
       >
-        <Container maxWidth="false" className="py-1 bg-white border-b rounded-none">
+        <Container maxWidth="false" className="py-1 bg-white border-b rounded-none text-black">
           <Toolbar>
             {!islg && (
               <IconButton variant="soft" size="medium">

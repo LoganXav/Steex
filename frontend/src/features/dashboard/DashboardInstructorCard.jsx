@@ -6,7 +6,7 @@ const DashboardInstructorCard = ({ src, name, desc }) => {
     <ButtonBase className="flex text-start items-center rounded-md">
       <Avatar className="mr-2 w-9 h-9" src={src ? src : ""}></Avatar>
       <div>
-        <Typography className="font-semibold text-black">{name}</Typography>
+        <Typography>{name}</Typography>
         <Typography className="text-mui-primary-tertiary">{desc}</Typography>
       </div>
     </ButtonBase>

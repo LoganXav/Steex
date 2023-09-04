@@ -38,7 +38,7 @@ const CourseDetailsFeedbackDialogue = (props) => {
                 <DialogContent
                     id="alert-dialog-slide-description"
                     className="">
-                    <div className="w-full flex justify-between items-center mb-6">
+                    <div className="w-full flex justify-between items-center mb-4">
                         <Typography variant="h5" className="font-bold">
                             {title}
                         </Typography>
@@ -54,7 +54,7 @@ const CourseDetailsFeedbackDialogue = (props) => {
                         />
                         </div>
                     </div>
-                    <div className="my-8 flex flex-col gap-4">
+                    <div className="my-8 flex flex-col gap-2">
 
                         <Typography component="legend">Select Rating *</Typography>
                         <Rating
@@ -66,18 +66,18 @@ const CourseDetailsFeedbackDialogue = (props) => {
                             }}
                         />
                     </div>
-                    <div className="my-8 flex flex-col gap-4">
+                    <div className="my-4 flex flex-col gap-4">
 
-                        <Typography component="legend">Feedback Title *</Typography>
+                        {/* <Typography component="legend">Feedback Title *</Typography> */}
                         <TextField
                             id="outlined-basic"
                             label="Title"
                             variant="outlined"
                             fullWidth />
                     </div>
-                    <div className="my-8 flex flex-col gap-4">
+                    <div className="my-4 flex flex-col gap-4">
 
-                        <Typography component="legend">Feedback *</Typography>
+                        {/* <Typography component="legend">Feedback *</Typography> */}
                         <TextField
                             id="outlined-textarea"
                             label="Feedback"
@@ -89,8 +89,8 @@ const CourseDetailsFeedbackDialogue = (props) => {
                     </div>
 
                 </DialogContent>
-                <DialogActions className="p-6">
-                    <Button className="bg-mui-primary-contrastText text-mui-error-main hover:bg-mui-error-lighter ease duration-150" onClick={onClose} startIcon={
+                <DialogActions className="p-6 pt-0">
+                    <Button size="large" className="bg-mui-primary-contrastText text-mui-error-main hover:bg-mui-error-lighter ease duration-150" onClick={onClose} startIcon={
                         <Iconly
                             name="CloseSquare"
                             size="small"
@@ -98,7 +98,7 @@ const CourseDetailsFeedbackDialogue = (props) => {
                         // primaryColor="white"
                         // secondaryColor="white"
                         />} >Close</Button>
-                    <Button color="primary" onClick={onClose}>Add Feedback</Button>
+                    <Button size="large" color="primary" onClick={onClose}>Add Feedback</Button>
                 </DialogActions>
             </Dialog>
         </>

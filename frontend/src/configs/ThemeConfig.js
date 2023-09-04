@@ -73,10 +73,9 @@ export function customizeTheme(theme) {
     },
     typography: {
       fontFamily: [
-        "'BR Firma'",
+        "Segoe UI",
         "-apple-system",
         "BlinkMacSystemFont",
-        "Segoe UI",
         "Roboto",
         "Oxygen",
         "Ubuntu",
@@ -89,25 +88,20 @@ export function customizeTheme(theme) {
       fontSize: 12,
       color: "#000051",
       body1: {
-        fontWeight: 600,
+        fontWeight: 400,
       },
       body2: {
-        fontWeight: 600,
+        fontWeight: 400,
       },
       button: {
         textTransform: "none",
         fontWeight: 600,
       },
       caption: {
-        fontWeight: 600,
+        fontWeight: 400,
       },
       overline: {
         fontWeight: 600,
-      },
-      button: {
-        textTransform: "none",
-        // width: "8rem",
-        // height: "3rem",
       },
     },
     components: {

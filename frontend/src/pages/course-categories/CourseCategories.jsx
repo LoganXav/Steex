@@ -22,7 +22,7 @@ const CourseCategories = () => {
   return (
     <>
       <Toolbar disableGutters className="flex justify-between items-center">
-        <Typography variant="body1" className="font-bold">
+        <Typography variant="body1" className="font-semibold">
           CATEGORY
         </Typography>
         <Typography variant="body2" className="text-mui-primary-tertiary">

@@ -22,6 +22,8 @@ import { CourseDetailsTabEnum } from "features/courses/CourseConstants";
 import CourseDetailsDescription from "features/courses/CourseDetailsDescription"
 import CourseDetailsVideoTutorials from "features/courses/CourseDetailsVideoTutorials"
 import CourseDetailsFeedback from "features/courses/CourseDetailsFeedback"
+import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 
 const CourseDetails = () => {
   const [activeTab, setActiveTab] = useState(CourseDetailsTabEnum.DESCRIPTION);
@@ -59,17 +61,18 @@ const CourseDetails = () => {
             </div>
             <div className="flex justify-between mt-5">
               <div>
-                <Typography variant="h5" className="font-semibold">
+                <Typography variant="h5" className="font-semibold uppercase">
                   Getting Started with Javascript
                 </Typography>
                 <div className="flex items-center gap-4 mt-2 flex-wrap">
-                  <Typography className="body2">React Development</Typography>
+                  <Typography>React Development</Typography>
                   <Rating
                     name="simple-controlled"
+                    size="small"
                     value={4}
-                    readOnly 
+                    readOnly
                   />
-                  <Typography className="body2">4.5</Typography>
+                  <Typography>4.5</Typography>
                   <CourseListChip
                     size="small"
                     color="Intermediate"
@@ -81,9 +84,9 @@ const CourseDetails = () => {
               <CourseListChip
                 size="small"
                 color="Yellow"
-                label="S"
                 variant="None"
-                className="!rounded-md h-7 w-7 cursor-pointer"
+                label={<StarOutlineOutlinedIcon style={{ width: "15px" }} />}
+                className="!rounded-sm h-7 cursor-pointer"
               />
             </div>
 

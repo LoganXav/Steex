@@ -14,6 +14,11 @@ import ReactLogo from "../../assets/react.png";
 import CourseListChip from "./CourseListChip";
 import { Link } from "react-router-dom";
 import { RouteEnum } from "../../constants/RouterConstants";
+import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
+import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
+import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
 
 const CoursesListCard = ({
   title,
@@ -27,6 +32,9 @@ const CoursesListCard = ({
   color,
   rating
 }) => {
+
+
+
   return (
     <Card className="bg-white border-none">
       <Container variant="soft" color={color} component={Link} to={RouteEnum.COURSES_DETAILS}>
@@ -50,24 +58,26 @@ const CoursesListCard = ({
             size="small"
             rating={rating}
             color="Yellow"
-            label="S"
-            className="!rounded-sm p-1"
+            label={rating ? <StarOutlinedIcon style={{width: "15px"}}/> : <StarOutlineOutlinedIcon style={{width: "15px"}}/>}
+            className="!rounded-sm h-7 cursor-pointer"
           />
         </div>
         <Typography noWrap className="font-semibold lg:w-44 xl:w-full">
          {title}
         </Typography>
         <Typography
-          gutterBottom
-          variant="body2"
-          className="text-mui-primary-tertiary"
+          gutterBottom        
+          className="text-mui-primary-tertiary my-1"
         >
          {category}
         </Typography>
-        <div className="flex items-center gap-2 text-mui-primary-tertiary">
-          <Typography variant="body2">{duration}</Typography>
-          <Typography variant="body2">{students}</Typography>
-          <Typography variant="body2">{lessons} Lessons</Typography>
+        <div className="flex items-center my-2 gap-2 text-mui-primary-tertiary">
+          <AccessTimeOutlinedIcon />
+          <Typography>{duration}</Typography>
+          <SchoolOutlinedIcon />
+          <Typography>{students}</Typography>
+          <LibraryBooksOutlinedIcon />
+          <Typography>{lessons} Lessons</Typography>
         </div>
       </CardContent>
       <CardActions className="flex justify-between items-center p-4 border-t text-black">
@@ -84,13 +94,13 @@ const CoursesListCard = ({
             </Typography>
           </ButtonBase>
         </div>
-        <CourseListChip
+        {/* <CourseListChip
           size="small"
           color="Black"
           label="..."
           className="!rounded-sm p-1"
           variant=""
-        />
+        /> */}
       </CardActions>
     </Card>
   );

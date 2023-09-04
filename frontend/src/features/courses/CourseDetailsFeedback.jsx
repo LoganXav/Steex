@@ -42,7 +42,8 @@ const CourseDetailsFeedback = () => {
           <Rating
             name="simple-controlled"
             value={4}
-            className="mt-4"
+            className="mt-4 mb-2"
+            size="small"
             readOnly
           />
           <Typography>10 comments</Typography>

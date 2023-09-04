@@ -91,7 +91,7 @@ const Dashboard = () => {
                       label={logo}
                       className="w-12 h-12 !rounded-md"
                     />
-                    <Typography className="font-semibold">
+                    <Typography className="">
                       {category}
                     </Typography>
                   </div>
@@ -235,7 +235,7 @@ const Dashboard = () => {
         </div>
         <div className="flex flex-col text-center items-center gap-1 mb-6">
           <Avatar className="w-20 h-20 mb-2" src=""></Avatar>
-          <Typography className="font-semibold">Logan Xavier</Typography>
+          <Typography variant="h6" className="font-semibold">Logan Xavier</Typography>
           <Typography className="text-mui-primary-tertiary">
             Software Engineer
           </Typography>
@@ -300,8 +300,8 @@ const Dashboard = () => {
               <div className="">
                 <Typography className="">{title}</Typography>
                 <div className="flex lg:flex-col xl:flex-row items-center gap-2 text-mui-primary-tertiary">
-                  <Typography className="">{date}</Typography>
-                  <Typography className="">{time}</Typography>
+                  <Typography>{date}</Typography>
+                  <Typography>{time}</Typography>
                 </div>
               </div>
               <Button size="small" className="px-0" color="primary">A</Button>
