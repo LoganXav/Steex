@@ -72,7 +72,7 @@ const CoursesListCard = ({
         >
          {category}
         </Typography>
-        <div className="flex flex-wrap items-center justify-between my-2 text-mui-primary-tertiary">
+        <div className="flex flex-wrap items-center gap-2 my-2 text-mui-primary-tertiary">
           <div className="flex gap-1">
         <Iconly
                   size="small"

@@ -280,31 +280,15 @@ const Dashboard = () => {
               date: "04 April, 2023",
               time: "02:18 PM",
             },
-            {
-              title: "Advanced React and Redux",
-              date: "04 April, 2023",
-              time: "02:18 PM",
-            },
-            {
-              title: "Advanced React and Redux",
-              date: "04 April, 2023",
-              time: "02:18 PM",
-            },
-            {
-              title: "Advanced React and Redux",
-              date: "04 April, 2023",
-              time: "02:18 PM",
-            },
           ].map(({ title, date, time }, index) => (
-            <Paper elevation={0} key={index} className="p-4 flex lg:flex-col lg:gap-2 xl:gap-0 xl:flex-row items-center justify-between border-l-4 border-[#3762EA]">
+            <Paper elevation={0} key={index} className="p-4 border-l-4 border-[#3762EA]">
               <div className="">
                 <Typography className="">{title}</Typography>
-                <div className="flex lg:flex-col xl:flex-row items-center gap-2 text-mui-primary-tertiary">
+                <div className="flex flex-wrap items-center gap-2 text-mui-primary-tertiary">
                   <Typography>{date}</Typography>
                   <Typography>{time}</Typography>
                 </div>
               </div>
-              <Button size="small" className="px-0" color="primary">A</Button>
             </Paper>
           ))}
         </div>
