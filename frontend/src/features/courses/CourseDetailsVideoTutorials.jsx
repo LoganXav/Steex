@@ -43,7 +43,7 @@ const CourseDetailsVideoTutorials = () => {
           </AccordionSummary>
           {titles?.map((title) => (
             <AccordionDetails className="mt-[-1rem]">
-              <div className="flex justify-between items-center border p-4 cursor-pointer">
+              <div className="flex justify-between border p-2 sm:p-4 cursor-pointer">
                 <div className="flex items-center gap-2">
                   <Iconly
                     size="medium"
@@ -53,10 +53,9 @@ const CourseDetailsVideoTutorials = () => {
                     {title}
                   </Typography>
                 </div>
-                <Typography>
-                  03:20 min
-                </Typography>
-
+                  <Typography noWrap>
+                    03:20 min
+                  </Typography>
               </div>
             </AccordionDetails>
           ))}

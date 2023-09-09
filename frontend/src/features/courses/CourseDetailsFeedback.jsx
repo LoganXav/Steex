@@ -50,28 +50,52 @@ const CourseDetailsFeedback = () => {
         </div>
         <div className="w-full max-h-[25rem] overflow-y-scroll custom-scrollbar">
 
-          <div className="w-full border-dashed border rounded-md p-4 mb-4">
+         {[
+          {
+            rating: "4.5", 
+            name: "Logan Xavier", 
+            date: "08 Mar, 2023", 
+            desc: "Course Complexity", 
+            comment: "This is an incredible framework worth so much in the right hands! Nowhere else are you going to get so much flexibility and great code for a few dollars. Highly recommend purchasing today! Like right now!"
+          },
+          {
+            rating: "4.5", 
+            name: "Logan Xavier", 
+            date: "08 Mar, 2023", 
+            desc: "Course Complexity", 
+            comment: "This is an incredible framework worth so much in the right hands! Nowhere else are you going to get so much flexibility and great code for a few dollars. Highly recommend purchasing today! Like right now!"
+          },
+          {
+            rating: "4.5", 
+            name: "Logan Xavier", 
+            date: "08 Mar, 2023", 
+            desc: "Course Complexity", 
+            comment: "This is an incredible framework worth so much in the right hands! Nowhere else are you going to get so much flexibility and great code for a few dollars. Highly recommend purchasing today! Like right now!"
+          },
+         ].map(({ rating, name, date, desc, comment }, index) => (
+
+          <div label={index} className="w-full border-dashed border rounded-md p-4 mb-4">
             <div className="flex w-full justify-between items-center flex-wrap mb-5">
               <div className="flex items-center gap-4">
-                <Chip color="error" variant="soft" label="4.5" className="h-5"
+                <Chip color="error" variant="soft" label={rating} className="h-5"
                 />
                 <div className="h-6 border-l" />
                 <Typography color="primary">
 
-                  Jansh Brown
+                  {name}
                 </Typography>
               </div>
               <div className="flex items-center gap-1">
-                <Typography className="mr-1 text-mui-primary-tertiary">08 Mar, 2023</Typography>
+                <Typography className="mr-1 text-mui-primary-tertiary">{date}</Typography>
                 <Chip variant="soft" label="Edit" className="h-4 rounded-sm"
                 />
-                <Chip color="error" variant="soft" label="D" className="h-4 rounded-sm"
+                <Chip color="error" variant="soft" label="Delete" className="h-4 rounded-sm"
                 />
               </div>
             </div>
-            <Typography variant="h6" className="font-semibold">Course Complexity</Typography>
-            <Typography className="mt-2">"This is an incredible framework worth so much in the right hands! Nowhere else are you going to get so much flexibility and great code for a few dollars. Highly recommend purchasing today! Like right now!"</Typography>
-          </div>
+            <Typography variant="h6" className="font-semibold">{desc}</Typography>
+            <Typography className="mt-2">{comment}</Typography>
+          </div>))}
         </div>
       </div>
       {isAddFeedback && (

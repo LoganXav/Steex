@@ -72,7 +72,8 @@ const CoursesListCard = ({
         >
          {category}
         </Typography>
-        <div className="flex items-center my-2 gap-2 text-mui-primary-tertiary">
+        <div className="flex flex-wrap items-center justify-between my-2 text-mui-primary-tertiary">
+          <div className="flex gap-1">
         <Iconly
                   size="small"
                   name="TimeCircle"
@@ -85,6 +86,8 @@ const CoursesListCard = ({
                   // }
                 />
           <Typography>{duration}</Typography>
+          </div>
+          <div className="flex gap-1">
           <Iconly
                   size="small"
                   name="People"
@@ -97,6 +100,8 @@ const CoursesListCard = ({
                   // }
                 />
           <Typography>{students}</Typography>
+          </div>
+          <div className="flex gap-1">
           <Iconly
                   size="small"
                   name="Bookmark"
@@ -109,6 +114,7 @@ const CoursesListCard = ({
                   // }
                 />
           <Typography>{lessons} Lessons</Typography>
+          </div>
         </div>
       </CardContent>
       <CardActions className="flex justify-between items-center p-4 border-t text-black">

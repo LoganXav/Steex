@@ -71,7 +71,8 @@ const CourseDetailsFeedbackDialogue = (props) => {
                         {/* <Typography component="legend">Feedback Title *</Typography> */}
                         <TextField
                             id="outlined-basic"
-                            label="Title"
+                            label="Description"
+                            placeholder="Feedback Description"
                             variant="outlined"
                             fullWidth />
                     </div>
