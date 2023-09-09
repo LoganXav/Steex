@@ -1,8 +1,6 @@
 import {
   Button,
-  Divider,
   Drawer,
-  Icon,
   IconButton,
   List,
   Toolbar,
@@ -10,7 +8,6 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import AppProtectedSideNavigationItem from "./AppProtectedSideNavigationItem";
-// import LogoSvg from "common/LogoSvg";
 import {
   APP_SIDE_MENU_WIDTH,
   MediaQueryBreakpointEnum,
@@ -43,12 +40,6 @@ function AppProtectedSideNavigation() {
           <div className="mx-auto w-28">
             <img src={SteexLogo} />
           </div>
-
-          {/* {!islg && (
-            <IconButton color="primary">
-              <Icon>chevron_left</Icon>
-            </IconButton>
-          )} */}
         </Toolbar>
         <Typography variant="caption">MENU</Typography>
         <List className="flex-1 min-h-0 mt-3">
@@ -66,9 +57,6 @@ function AppProtectedSideNavigation() {
                 <Iconly
                   size="small"
                   name="Logout"
-
-                  // primaryColor="black"
-                  // secondaryColor="black"
                 />
               </IconButton>
             }

@@ -77,12 +77,6 @@ function ProtectedPageHeader(props) {
                   size="medium"
                   name="ArrowRight"
                   onClick={() => toggleSideNavigation()}
-                  // primaryColor={
-                  //   resolvedTailwindConfig.theme.colors.primary.main
-                  // }
-                  // secondaryColor={
-                  //   resolvedTailwindConfig.theme.colors.primary.main
-                  // }
                 />
               </IconButton>
             )}
@@ -91,7 +85,7 @@ function ProtectedPageHeader(props) {
             </div>
             <SearchTextField
               size="small"
-              className="hidden lg:flex w-[15rem]"
+              className="hidden lg:flex"
             />
             <div className="flex-1" />
             <div className="flex items-center gap-4">
@@ -106,12 +100,6 @@ function ProtectedPageHeader(props) {
                 size="medium"
                 onClick={infoPopover.togglePopover}
               >
-                {/* <Iconly
-                  size="medium"
-                  name="Notification"
-                  primaryColor="#F7F7F7"
-                  secondaryColor="#F7F7F7"
-                /> */}
                 <NotificationsOutlinedIcon/>
               </IconButton>
               <ButtonBase

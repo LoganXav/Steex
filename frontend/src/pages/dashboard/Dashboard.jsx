@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col lg:flex-row gap-5 mt-4">
       <div className="w-full lg:w-3/4">
-        <div className="flex flex-col md:flex-row gap-4 mb-4">
+        <div className="flex flex-col 2xl:flex-row gap-4 mb-4">
           <div className="grid grid-cols-1 md:grid-cols-2 grid-rows-2 gap-5 flex-1">
             {[
               {
@@ -61,7 +61,7 @@ const Dashboard = () => {
                   View All
                 </Typography>
               </div>
-              <div className="flex flex-col gap-3 sm:gap-0 sm:flex-row items-center justify-around">
+              <div className="grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-1 gap-3">
                 {[
                   {
                     logo: <img src={ShopifyLogo} />,
@@ -84,14 +84,14 @@ const Dashboard = () => {
                     type: "Open",
                   },
                 ].map(({ logo, category, type }) => (
-                  <div className="flex flex-col gap-3 items-center text-center pb-2">
+                  <div className="flex col-span-1 flex-col gap-3 items-center text-center pb-2">
                     <DashboardChip
                       size="medium"
                       status={type}
                       label={logo}
                       className="w-12 h-12 !rounded-md"
                     />
-                    <Typography className="">
+                    <Typography noWrap className="w-full">
                       {category}
                     </Typography>
                   </div>
@@ -99,7 +99,7 @@ const Dashboard = () => {
               </div>
             </Paper>
           </div>
-          <Paper className="lg:w-1/4 p-4 flex flex-col justify-between items-center">
+          <Paper className="2xl:w-1/4 p-4 flex flex-col justify-between items-center">
             <div className="w-full flex justify-between items-center mb-5">
               <Typography variant="h6" className="font-semibold">
                 Daily Progress
@@ -113,8 +113,8 @@ const Dashboard = () => {
             </Typography>
           </Paper>
         </div>
-        <div className="flex flex-col md:flex-row gap-5 md:h-[25rem] mb-4">
-          <Paper className="w-full h-full md:w-2/3 p-4">
+        <div className="flex flex-col md:flex-row lg:flex-col 2xl:flex-row gap-5 mb-4">
+          <Paper className="w-full h-[25rem] md:w-2/3 lg:w-full 2xl:w-2/3 p-4">
             <div className="w-full flex justify-between items-center">
               <Typography variant="h6" className="font-semibold">
                 Learning Overview
@@ -148,7 +148,7 @@ const Dashboard = () => {
               </div>
             </div>
           </Paper>
-          <Paper className="w-full md:w-1/3 h-[25rem] md:h-full pb-4">
+          <Paper className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 h-[25rem] pb-4">
             <div className="pb-4 h-full overflow-hidden">
               <div className="w-full flex justify-between items-center p-4">
                 <Typography variant="h6" className="font-semibold">
