@@ -1,11 +1,7 @@
 import React from "react";
 import {
   Avatar,
-  Button,
-  Checkbox,
-  Divider,
   Paper,
-  TextField,
   Typography,
 } from "@mui/material";
 import DashboardChip from "../../features/dashboard/DashboardChip";
@@ -14,6 +10,9 @@ import WebpackLogo from "../../assets/webpack.png";
 import LaravelLogo from "../../assets/laravel.png";
 import ReactLogo from "../../assets/react.png";
 import DashboardInstructorCard from "../../features/dashboard/DashboardInstructorCard";
+import DashboardPieChart from "../../features/dashboard/DashboardPieChart"
+import DashboardDailyProgressChart from "../../features/dashboard/DashboardDailyProgressChart"
+import DashboardLearningOverviewChart from "../../features/dashboard/DashboardLearningOverviewChart"
 
 const Dashboard = () => {
   return (
@@ -27,30 +26,29 @@ const Dashboard = () => {
                 type: "Gain",
                 label: "4.65%",
                 amount: "4,899k",
+                value: 550,
+                series: [90, 10],
+                colors: ["#275be8", "#c4e8ef"]
               },
               {
                 title: "Total Courses",
                 type: "Loss",
                 label: "1.27%",
                 amount: "754",
+                value: 550,
+                series: [50, 50],
+                colors: ["#275be8", "#c4e8ef"]
               },
-            ].map(({ title, amount, label, type }) => (
-              <Paper className="flex flex-col gap-4 p-4">
-                <div className="flex justify-between items-center">
-                  <Typography className="text-mui-primary-tertiary">
-                    {title}
-                  </Typography>
-                  <DashboardChip
-                    size="small"
-                    status={type}
-                    label={label}
-                    className="!rounded-md h-4"
-                  />
-                </div>
-                <Typography variant="h5" className="font-bold">
-                  {amount}
-                </Typography>
-              </Paper>
+            ].map(({ title, amount, label, type, value, series, colors }) => (
+              <DashboardPieChart
+                title={title}
+                label={label}
+                type={type}
+                amount={amount}
+                value={value}
+                series={series}
+                colors={colors}
+              />
             ))}
             <Paper className="col-span-1 md:col-span-2 p-4">
               <div className="flex justify-between items-center mb-5">
@@ -99,55 +97,10 @@ const Dashboard = () => {
               </div>
             </Paper>
           </div>
-          <Paper className="2xl:w-1/4 p-4 flex flex-col justify-between items-center">
-            <div className="w-full flex justify-between items-center mb-5">
-              <Typography variant="h6" className="font-semibold">
-                Daily Progress
-              </Typography>
-              <Typography className="text-mui-primary-tertiary">
-                Today
-              </Typography>
-            </div>
-            <Typography className="text-mui-primary-tertiary text-center">
-              Very good, keep improving the quality of your learning
-            </Typography>
-          </Paper>
+          <DashboardDailyProgressChart />
         </div>
         <div className="flex flex-col md:flex-row lg:flex-col 2xl:flex-row gap-5 mb-4">
-          <Paper className="w-full h-[25rem] md:w-2/3 lg:w-full 2xl:w-2/3 p-4">
-            <div className="w-full flex justify-between items-center">
-              <Typography variant="h6" className="font-semibold">
-                Learning Overview
-              </Typography>
-              <div className="flex gap-2 items-center">
-                {[
-                  {
-                    filter: "ALL",
-                    type: "Primary",
-                  },
-                  {
-                    filter: "1M",
-                    type: "Primary",
-                  },
-                  {
-                    filter: "6M",
-                    type: "Primary",
-                  },
-                  {
-                    filter: "1Y",
-                    type: "Open",
-                  },
-                ].map(({ filter, type }) => (
-                  <DashboardChip
-                    size="small"
-                    status={type}
-                    label={filter}
-                    className="w-9 h-7 !rounded-sm cursor-pointer hover:bg-black hover:text-white"
-                  />
-                ))}
-              </div>
-            </div>
-          </Paper>
+          <DashboardLearningOverviewChart />
           <Paper className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 h-[25rem] pb-4">
             <div className="pb-4 h-full overflow-hidden">
               <div className="w-full flex justify-between items-center p-4">
@@ -210,14 +163,14 @@ const Dashboard = () => {
         </div>
         <div className="h-[30rem]">
           <Paper className="w-full h-full">
-          <div className="w-full flex justify-between items-center p-4">
-                <Typography variant="h6" className="font-semibold">
-                  Recent Courses
-                </Typography>
-                <Typography className="flex items-center">
-                  SORT BY: <span className="text-mui-primary-tertiary ml-1">Course Name</span>
-                </Typography>
-              </div>
+            <div className="w-full flex justify-between items-center p-4">
+              <Typography variant="h6" className="font-semibold">
+                Recent Courses
+              </Typography>
+              <Typography className="flex items-center">
+                SORT BY: <span className="text-mui-primary-tertiary ml-1">Course Name</span>
+              </Typography>
+            </div>
           </Paper>
         </div>
       </div>
