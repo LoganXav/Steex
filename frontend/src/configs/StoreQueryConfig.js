@@ -1,32 +1,16 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
-import { EnvVarEnum } from "constants/Global";
 import { StoreQueryTagEnum } from "constants/StoreConstants";
-import SalaryPayHttp from "./HttpConfig";
+import CoreHttp from "./HttpConfig";
+import { EnvVarEnum } from "constants/Global";
 
-export const SalaryPayApi = createApi({
-  reducerPath: "salaryPay",
-  // baseQuery: fetchBaseQuery({
-  //   baseUrl: EnvVarEnum.API_BASE_URL + "/fineract-provider/api/v1/",
-  //   // mode: "no-cors",
-  //   // fetchFn: (input, init) => {
-  //   //   console.log(input, init, input.headers.get("Fineract-Platform-TenantId"));
-  //   //   return fetch(input, init);
-  //   // },
-  //   prepareHeaders: (headers, { getState }) => {
-  //     headers.set("Fineract-Platform-TenantId", "default");
-  //     const { token } = getState()?.global?.authUser || {};
-  //     if (token) {
-  //       headers.set("Authorization", `Bearer ${token}`);
-  //     }
-  //     return headers;
-  //   },
-  // }),
-  baseQuery: axiosBaseQuery({ url: "" }, SalaryPayHttp),
-  endpoints: (builder) => ({}),
+export const CoreApi = createApi({
+  reducerPath: "steex",
+  baseQuery: axiosBaseQuery({ url: "" }, CoreHttp),
+  endpoints: () => ({}),
 });
 
-[SalaryPayApi].forEach((api) => {
+[CoreApi].forEach((api) => {
   api.enhanceEndpoints({ addTagTypes: Object.values(StoreQueryTagEnum) });
 });
 

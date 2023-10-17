@@ -3,7 +3,7 @@ import { setupListeners } from "@reduxjs/toolkit/query/react";
 import { throttle } from "utils/FunctionUtils";
 import { isObjectEmpty, deepMerge } from "utils/ObjectUtils";
 import { logoutAction } from "./StoreActionConfig";
-import { SalaryPayApi } from "./StoreQueryConfig";
+import { CoreApi } from "./StoreQueryConfig";
 import globalSlice, {
   getGlobalSliceStorageState,
   globalInitialState,
@@ -11,7 +11,7 @@ import globalSlice, {
 
 const store = configureStore({
   reducer: {
-    [SalaryPayApi.reducerPath]: SalaryPayApi.reducer,
+    [CoreApi.reducerPath]: CoreApi.reducer,
     [globalSlice.name]: globalSlice.reducer,
   },
   preloadedState: loadState({
@@ -19,8 +19,8 @@ const store = configureStore({
   }),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
-      SalaryPayApi.middleware,
-      rtkqOnResetMiddleware(SalaryPayApi)
+      CoreApi.middleware,
+      rtkqOnResetMiddleware(CoreApi)
     ),
 });
 

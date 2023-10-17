@@ -1,17 +1,17 @@
 import { lazy } from "react";
-// import { IconButton, Icon } from "@mui/material";
+import { IconButton, Icon } from "@mui/material";
 // import { SnackbarProvider } from "notistack";
 import AppThemeProvider from "./AppThemeProvider";
 // import { notistackRef } from "constants/RefConstants";
 // import useLoadingModal from "hooks/useLoadingModal";
-// import useAuthUser from "hooks/useAuthUser";
+import useAuthUser from "./hooks/useAuthUser";
 // import LoadingModal from "common/LoadingModal";
 import Suspense from "common/Suspense";
 
 function App() {
   // const { isLoadingModal } = useLoadingModal();
 
-  // const authUser = useAuthUser();
+  const authUser = useAuthUser();
 
   return (
     <AppThemeProvider>
@@ -33,7 +33,7 @@ function App() {
       > */}
         <Suspense>
           {/* {authUser?.base64EncodedAuthenticationKey ? ( */}
-          {true ? (
+          {authUser ? (
             <AppProtected />
           ) : (
             <AppPublic />

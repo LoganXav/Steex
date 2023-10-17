@@ -1,10 +1,14 @@
-import React from "react"
+import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 // import { useSnackbar } from "notistack";
+import { useNavigate } from "react-router-dom";
 import { LoadingButton } from "@mui/lab";
 import PasswordTextField from "../../common/PasswordTextField";
-// import { getTextFieldFormikProps } from "../../utils/FormikUtils";
+import {
+  getTextFieldFormikProps,
+  getCheckFieldFormikProps,
+} from "../../utils/FormikUtils";
 import {
   Button,
   Checkbox,
@@ -17,62 +21,60 @@ import { RouteEnum } from "../../constants/RouterConstants";
 import AuthScaffold from "../../features/auth/AuthScaffold";
 import AuthTitle from "features/auth/AuthTitle";
 import AuthCaption from "features/auth/AuthCaption";
-// import { useSearchParams } from "react-router-dom";
-// import { urlSearchParamsExtractor } from "utils/URLUtils";
-// import { ReactComponent as GoogleSvg } from "assets/svgs/google.svg";
-// import { SelfServiceAuthenticationApi } from "apis/SelfServiceAuthenticationApi";
+import CoreAuthenticationApi from "../../apis/CoreAuthenticationApi";
+import { useDispatch } from "react-redux";
+import { loginAction } from "../../configs/StoreActionConfig";
 
 function Signin(props) {
   // const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
 
-  // const [searchParam] = useSearchParams();
+  const [loginMutation, loginMutationMutationResult] =
+    CoreAuthenticationApi.useLoginMutation();
 
-  // const { username } = urlSearchParamsExtractor(searchParam, { username: "" });
-
-  // const [
-  //   selfAuthenticationLoginMutation,
-  //   selfAuthenticationLoginMutationResult,
-  // ] = SelfServiceAuthenticationApi.useSelfAuthenticationLoginMutation();
-
-  // const formik = useFormik({
-  //   initialValues: {
-  //     username,
-  //     password: "",
-  //   },
-  //   validateOnBlur: false,
-  //   validateOnChange: false,
-  //   validationSchema: yup.object({
-  //     username: yup.string().label("Username").trim().required(),
-  //     password: yup.string().label("Password").trim().required(),
-  //   }),
-  //   onSubmit: alert("hi")
-    // async (values) => {
-    //   try {
-    //     const data = await selfAuthenticationLoginMutation({
-    //       body: values,
-    //     }).unwrap();
-    //     enqueueSnackbar(data?.defaultUserMessage || "Login successful", {
-    //       variant: "success",
-    //     });
-    //   } catch (error) {
-    //     enqueueSnackbar(error?.defaultUserMessage || "Failed to login", {
-    //       variant: "error",
-    //     });
-    //   }
-    // },
-  // });
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+      rememberMe: false,
+    },
+    validateOnChange: false,
+    validateOnBlur: false,
+    validationSchema: yup.object({
+      username: yup.string().label("Email").trim().email().max(40).required(),
+      password: yup.string().label("Password").trim().min(6).max(10).required(),
+    }),
+    onSubmit: async (values) => {
+      try {
+        // const data = await authenticationMutation({
+        //   data: values,
+        // }).unwrap();
+        // enqueueSnackbar(data?.message || "Logged In Successful", {
+        //   variant: "success",
+        // });
+        console.log(values);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        dispatch(loginAction())
+        navigate(RouteEnum.DASHBOARD);
+      } catch (error) {
+        enqueueSnackbar(
+          error?.data?.errors?.[0]?.defaultUserMessage ||
+            error?.data?.defaultUserMessage ||
+            "Invalid Crendentials",
+          { variant: "error" }
+        );
+      }
+    },
+  });
 
   return (
     <AuthScaffold>
-       <div class="mb-4">
-          <AuthTitle>
-            Welcome Back
-          </AuthTitle>
-          <AuthCaption>
-            Sign in to continue to Steex.
-          </AuthCaption>
-        </div>
-      <form className="block p-5">
+      <div className="mb-4">
+        <AuthTitle>Welcome Back</AuthTitle>
+        <AuthCaption>Sign in to continue to Steex.</AuthCaption>
+      </div>
+      <form className="block p-5" onSubmit={formik.handleSubmit}>
         <TextField
           required
           fullWidth
@@ -80,7 +82,7 @@ function Signin(props) {
           margin="normal"
           label="Username"
           placeholder="Enter your username or Email"
-          // {...getTextFieldFormikProps(formik, "username")}
+          {...getTextFieldFormikProps(formik, "username")}
         />
         <PasswordTextField
           required
@@ -89,15 +91,19 @@ function Signin(props) {
           label="Password"
           margin="normal"
           placeholder="Enter your Password"
-          // {...getTextFieldFormikProps(formik, "password")}
+          {...getTextFieldFormikProps(formik, "password")}
         />
-        <div class="flex justify-between items-center mb-4">
+        <div className="flex justify-between items-center mb-4">
           <Typography>
-            <Checkbox /> Remember me
+            <Checkbox {...getCheckFieldFormikProps(formik, "rememberMe")} />{" "}
+            Remember me
           </Typography>
-            <MuiRouterLink className="text-mui-primary-tertiary no-underline" to={RouteEnum.FORGOT_PASSWORD}>
-              Forgot Password?
-            </MuiRouterLink>
+          <MuiRouterLink
+            className="text-mui-primary-tertiary no-underline"
+            to={RouteEnum.FORGOT_PASSWORD}
+          >
+            Forgot Password?
+          </MuiRouterLink>
         </div>
 
         <LoadingButton
@@ -112,22 +118,23 @@ function Signin(props) {
           Sign in
         </LoadingButton>
         <div className="my-4">
-
-        <Divider>Sign in with</Divider>
+          <Divider>Sign in with</Divider>
         </div>
-          <Button
-            color="inherit"
-            className="font-bold"
-            fullWidth
-            size="large"
-            borderRadius="square"
-            // startIcon={<GoogleSvg />}
-          >
-            Continue with Google
-          </Button>
+        <Button
+          color="inherit"
+          className="font-bold"
+          fullWidth
+          size="large"
+          borderRadius="square"
+          // startIcon={<GoogleSvg />}
+        >
+          Continue with Google
+        </Button>
         <Typography className="text-center mt-14">
           Don't have an Account?{" "}
-          <MuiRouterLink className="font-medium" to={RouteEnum.SIGNUP}>Sign Up</MuiRouterLink>
+          <MuiRouterLink className="font-medium" to={RouteEnum.SIGNUP}>
+            Sign Up
+          </MuiRouterLink>
         </Typography>
       </form>
     </AuthScaffold>

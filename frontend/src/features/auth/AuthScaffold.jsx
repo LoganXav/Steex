@@ -15,7 +15,7 @@ function AuthScaffold(props) {
                 variant="h4"
                 className="font-semibold mb-2"
               >
-                Start your journey with us.
+                Start your journey.
               </Typography>
               <Typography variant="body2" className="text-white opacity-75">
                 It brings together your tasks, projects, timelines, files and

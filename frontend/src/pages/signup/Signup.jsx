@@ -4,7 +4,7 @@ import * as yup from "yup";
 // import { useSnackbar } from "notistack";
 import { LoadingButton } from "@mui/lab";
 import PasswordTextField from "../../common/PasswordTextField";
-// import { getTextFieldFormikProps } from "../../utils/FormikUtils";
+import { getTextFieldFormikProps } from "../../utils/FormikUtils";
 import {
   Button,
   Checkbox,
@@ -17,19 +17,60 @@ import { RouteEnum } from "../../constants/RouterConstants";
 import AuthScaffold from "../../features/auth/AuthScaffold";
 import AuthTitle from "features/auth/AuthTitle";
 import AuthCaption from "features/auth/AuthCaption";
-// import { useSearchParams } from "react-router-dom";
-// import { urlSearchParamsExtractor } from "utils/URLUtils";
-// import { ReactComponent as GoogleSvg } from "assets/svgs/google.svg";
-// import { SelfServiceAuthenticationApi } from "apis/SelfServiceAuthenticationApi";
+import CoreAuthenticationApi from "../../apis/CoreAuthenticationApi";
+import { useNavigate } from "react-router-dom";
+
 
 const Signup = () => {
+  // const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
+
+  const [registerMutation, registerMutationMutationResult] =
+    CoreAuthenticationApi.useRegisterMutation();
+
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      username: "",
+      password: "",
+    },
+    validateOnChange: false,
+    validateOnBlur: false,
+    validationSchema: yup.object({
+      email: yup.string().label("Email").trim().email().max(40).required(),
+      username: yup.string().label("Username").trim().max(40).required(),
+      password: yup.string().label("Password").trim().min(6).max(10).required(),
+    }),
+    onSubmit: async (values) => {
+      try {
+        // const data = await authenticationMutation({
+        //   data: values,
+        // }).unwrap();
+        // enqueueSnackbar(data?.message || "Logged In Successful", {
+        //   variant: "success",
+        // });
+        console.log(values);
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        navigate(RouteEnum.SIGNIN);
+      } catch (error) {
+        enqueueSnackbar(
+          error?.data?.errors?.[0]?.defaultUserMessage ||
+            error?.data?.defaultUserMessage ||
+            "Invalid Crendentials",
+          { variant: "error" }
+        );
+      }
+    },
+  });
+
+
   return (
     <AuthScaffold>
       <div className="mb-4">
         <AuthTitle>Create your free account</AuthTitle>
         <AuthCaption>Get your your free Steex account now</AuthCaption>
       </div>
-      <form className="block p-5">
+      <form className="block p-5" onSubmit={formik.handleSubmit}>
         <TextField
           required
           fullWidth
@@ -37,7 +78,7 @@ const Signup = () => {
           margin="normal"
           label="Email"
           placeholder="Enter your email address"
-          // {...getTextFieldFormikProps(formik, "username")}
+          {...getTextFieldFormikProps(formik, "email")}
         />
         <TextField
           required
@@ -46,7 +87,7 @@ const Signup = () => {
           margin="normal"
           label="Username"
           placeholder="Enter your username"
-          // {...getTextFieldFormikProps(formik, "username")}
+          {...getTextFieldFormikProps(formik, "username")}
         />
         <PasswordTextField
           required
@@ -55,12 +96,14 @@ const Signup = () => {
           label="Password"
           margin="normal"
           placeholder="Enter your password"
-          // {...getTextFieldFormikProps(formik, "password")}
+          {...getTextFieldFormikProps(formik, "password")}
         />
         <div class="my-4 text-left">
           <Typography className="italic text-mui-primary-tertiary">
-            By registering you agree to the Steex {" "}
-            <MuiRouterLink className="not-italic" to={RouteEnum.SIGNIN}>Terms of Use</MuiRouterLink>
+            By registering you agree to the Steex{" "}
+            <MuiRouterLink className="not-italic" to={RouteEnum.SIGNIN}>
+              Terms of Use
+            </MuiRouterLink>
           </Typography>
         </div>
 
@@ -93,7 +136,9 @@ const Signup = () => {
         </div>
         <Typography className="text-center mt-14">
           Already have an Account?{" "}
-          <MuiRouterLink  className="font-medium" to={RouteEnum.SIGNIN}>Sign In</MuiRouterLink>
+          <MuiRouterLink className="font-medium" to={RouteEnum.SIGNIN}>
+            Sign In
+          </MuiRouterLink>
         </Typography>
       </form>
     </AuthScaffold>

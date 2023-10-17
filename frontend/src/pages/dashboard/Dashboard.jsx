@@ -12,7 +12,6 @@ import ReactLogo from "../../assets/react.png";
 import DashboardInstructorCard from "../../features/dashboard/DashboardInstructorCard";
 import DashboardPieChart from "../../features/dashboard/DashboardPieChart"
 import DashboardDailyProgressChart from "../../features/dashboard/DashboardDailyProgressChart"
-import DashboardLearningOverviewChart from "../../features/dashboard/DashboardLearningOverviewChart"
 
 const Dashboard = () => {
   return (
@@ -100,7 +99,7 @@ const Dashboard = () => {
           <DashboardDailyProgressChart />
         </div>
         <div className="flex flex-col md:flex-row lg:flex-col 2xl:flex-row gap-5 mb-4">
-          <DashboardLearningOverviewChart />
+
           <Paper className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 h-[25rem] pb-4">
             <div className="pb-4 h-full overflow-hidden">
               <div className="w-full flex justify-between items-center p-4">
