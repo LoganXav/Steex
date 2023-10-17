@@ -22,7 +22,7 @@ import {
 import { Link } from "react-router-dom";
 import { RouteEnum } from "../constants/RouterConstants";
 // import useAuthUser from "../hooks/useAuthUser";
-// import useLogout from "../hooks/useLogout";
+import useLogout from "../hooks/useLogout";
 import usePopover from "../hooks/usePopover";
 import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
 import "./ProtectedPageHeader.css";
@@ -42,7 +42,9 @@ function ProtectedPageHeader(props) {
   const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl);
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
   const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
-  // const { logout } = useLogout();
+
+
+  const { logout } = useLogout();
 
   // const authUser = useAuthUser();
 
@@ -52,8 +54,7 @@ function ProtectedPageHeader(props) {
 
   function handleLogout() {
     infoPopover.togglePopover();
-    // logout();
-    alert("Logout successful");
+    logout();
   }
 
   return (
@@ -142,8 +143,7 @@ function ProtectedPageHeader(props) {
                     {authUser?.username} */}
                   Welcome Logan!
                 </Typography>
-
-                <div className="py-2">
+                {/* <div className="py-2">
                   {[
                     {
                       icon: "User",
@@ -195,21 +195,9 @@ function ProtectedPageHeader(props) {
                     </>
                   ))}
                 </div>
-                <Divider></Divider>
+                <Divider></Divider> */}
                 <div className="py-2">
                   {[
-                    {
-                      icon: "Ticket",
-                      children: "Balance",
-                      component: Link,
-                      to: RouteEnum.DASHBOARD,
-                    },
-                    {
-                      icon: "Setting",
-                      children: "Settings",
-                      component: Link,
-                      to: RouteEnum.DASHBOARD,
-                    },
                     {
                       icon: "Lock",
                       children: "Lock screen",
