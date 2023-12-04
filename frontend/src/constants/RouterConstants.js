@@ -13,11 +13,8 @@ export const RouteEnum = {
   TRANSACTIONS: "/transactions",
   CONTACT_US: "/contact-us",
   CONTACT_US_SUPPORT: "/contact-us/support",
-  CONTACT_US_FAQS: "/contact-us/faqs",
   SETTINGS: "/settings",
-  // CONTACT_US_FAQS: "/contact-us/faqs",
-  // PROFILE: "/profile",
-  
+
   COURSES: "/courses",
   COURSES_CATEGORIES: "/courses/categories",
   COURSES_DETAILS: "/courses/:id",
@@ -25,6 +22,4 @@ export const RouteEnum = {
   INSTRUCTORS: "/instructors",
   PROFILE: "/profile",
   CONTACT_US_FAQS: "/contact-us/faqs",
-
-
 };

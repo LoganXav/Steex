@@ -26,45 +26,42 @@ function AppProtectedSideNavigation() {
   // const authUser = useAuthUser();
 
   return (
-      <Drawer
-        open={isSideNavigation}
-        variant={islg ? "permanent" : "temporary"}
-        PaperProps={{
-          style: { width: APP_SIDE_MENU_WIDTH },
-          className:
-            "flex flex-col bg-mui-secondary-dark !bg-opacity-0 px-3 text-mui-primary-light rounded-md xl:h-[85%] xl:ml-5 xl:translate-y-24 max-h-full",
-        }}
-        onClose={() => toggleSideNavigation()}
-      >
-        <Toolbar className="flex items-center justify-center mb-1">
-          <div className="mx-auto w-28">
-            <img src={SteexLogo} />
-          </div>
-        </Toolbar>
-        <Typography variant="caption">MENU</Typography>
-        <List className="flex-1 min-h-0 mt-3">
-          {LINKS.map((item, key) => {
-            return <AppProtectedSideNavigationItem {...{ ...item, key }} />;
-          })}
-        </List>
-        <Toolbar className="p-4 flex items-center justify-between">
-          <Button
-            fullWidth
-            variant="text"
-            color="error"
-            startIcon={
-              <IconButton variant="soft" color="error" size="small">
-                <Iconly
-                  size="small"
-                  name="Logout"
-                />
-              </IconButton>
-            }
-          >
-            Logout
-          </Button>
-        </Toolbar>
-      </Drawer>
+    <Drawer
+      open={isSideNavigation}
+      variant={islg ? "permanent" : "temporary"}
+      PaperProps={{
+        style: { width: APP_SIDE_MENU_WIDTH },
+        className:
+          "flex flex-col bg-mui-secondary-dark !bg-opacity-0 px-3 text-mui-primary-light rounded-md xl:h-[85%] xl:ml-5 xl:translate-y-24 max-h-full",
+      }}
+      onClose={() => toggleSideNavigation()}
+    >
+      <Toolbar className="flex items-center justify-center mb-1">
+        <div className="mx-auto w-28">
+          <img src={SteexLogo} />
+        </div>
+      </Toolbar>
+      <Typography variant="caption">MENU</Typography>
+      <List className="flex-1 min-h-0 mt-3">
+        {LINKS.map((item, index) => {
+          return <AppProtectedSideNavigationItem item={item} key={index} />;
+        })}
+      </List>
+      <Toolbar className="p-4 flex items-center justify-between">
+        <Button
+          fullWidth
+          variant="text"
+          color="error"
+          startIcon={
+            <IconButton variant="soft" color="error" size="small">
+              <Iconly size="small" name="Logout" />
+            </IconButton>
+          }
+        >
+          Logout
+        </Button>
+      </Toolbar>
+    </Drawer>
   );
 }
 

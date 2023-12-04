@@ -1,8 +1,6 @@
-import React from "react";
 import {
   Typography,
   Paper,
-  Container,
   Toolbar,
   FormControl,
   InputLabel,
@@ -10,10 +8,9 @@ import {
   MenuItem,
 } from "@mui/material";
 import SearchTextField from "../../common/SearchTextField";
-import CoursesListCard from "../../features/courses/CoursesListCard";
+import CourseListCard from "../../features/courses/CourseListCard";
 import ReactLogo from "../../assets/react.png";
 import ShopifyLogo from "../../assets/shopify.png";
-import WebpackLogo from "../../assets/webpack.png";
 import LaravelLogo from "../../assets/laravel.png";
 
 const CoursesList = () => {
@@ -23,7 +20,9 @@ const CoursesList = () => {
         <Typography variant="body1" className="font-bold">
           COURSES
         </Typography>
-        <Typography variant="body2" className="text-mui-primary-tertiary">Courses    /   All Courses</Typography>
+        <Typography variant="body2" className="text-mui-primary-tertiary">
+          Course Categories / All Courses
+        </Typography>
       </Toolbar>
       <Paper className="py-4 md:py-0">
         <Toolbar className="flex flex-col md:flex-row gap-2">
@@ -35,7 +34,7 @@ const CoursesList = () => {
           />
 
           <div className="flex-1" />
-          <FormControl fullWidth className="md:w-28 sm:w-44">
+          <FormControl fullWidth className="md:w-28">
             <InputLabel id="demo-simple-select-label">Status</InputLabel>
             <Select
               labelId="demo-simple-select-label"
@@ -44,7 +43,6 @@ const CoursesList = () => {
               label="Status"
               size="small"
               // onChange={handleChange}
-              
             >
               <MenuItem value="active">Active</MenuItem>
               <MenuItem value="inactive">Inactive</MenuItem>
@@ -178,7 +176,7 @@ const CoursesList = () => {
             },
             index
           ) => (
-            <CoursesListCard
+            <CourseListCard
               key={index}
               title={title}
               logo={logo}

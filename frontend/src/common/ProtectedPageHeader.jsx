@@ -43,7 +43,6 @@ function ProtectedPageHeader(props) {
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
   const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
 
-
   const { logout } = useLogout();
 
   // const authUser = useAuthUser();
@@ -63,14 +62,20 @@ function ProtectedPageHeader(props) {
         className={clsx("ProtectedPageHeader top-0", className)}
         position={position}
         style={{
-          left: islg ? APP_SIDE_MENU_WIDTH : 0,
-          left: isxl && 0 ,
-          width: isxl ? "100%" : islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
+          left: isxl ? 0 : islg ? APP_SIDE_MENU_WIDTH : 0,
+          width: isxl
+            ? "100%"
+            : islg
+            ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)`
+            : "100%",
           ...rest,
         }}
         {...rest}
       >
-        <Container maxWidth="false" className="py-1 bg-white border-b rounded-none text-black">
+        <Container
+          maxWidth="false"
+          className="py-1 bg-white border-b rounded-none text-black"
+        >
           <Toolbar>
             {!islg && (
               <IconButton variant="soft" size="medium">
@@ -84,10 +89,7 @@ function ProtectedPageHeader(props) {
             <div className="mx-auto w-32 lg:hidden">
               <img src={SteexLogo} />
             </div>
-            <SearchTextField
-              size="small"
-              className="hidden lg:flex"
-            />
+            <SearchTextField size="small" className="hidden lg:flex" />
             <div className="flex-1" />
             <div className="flex items-center gap-4">
               <IconButton variant="soft" size="medium">
@@ -101,7 +103,7 @@ function ProtectedPageHeader(props) {
                 size="medium"
                 onClick={infoPopover.togglePopover}
               >
-                <NotificationsOutlinedIcon/>
+                <NotificationsOutlinedIcon />
               </IconButton>
               <ButtonBase
                 className="flex text-start items-center px-3 rounded-md"

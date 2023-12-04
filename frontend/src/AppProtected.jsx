@@ -17,34 +17,21 @@ import AppProtectedSideNavigation from "./AppProtectedSideNavigation";
 // import { SelfUserApi } from "apis/SelfUserApi";
 // import { SelfClientApi } from "apis/SelfClientApi";
 
-function AppProtected(props) {
+function AppProtected() {
   const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl);
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
 
-//   const authUser = useAuthUser();
+  //   const authUser = useAuthUser();
   const authUser = {
     name: "Segun",
-    desc: "Rich"
+    desc: "Rich",
   };
 
-//   const userQueryResult = SelfUserApi.useGetSelfUserQuery(
-//     useMemo(() => ({ path: { userId: authUser.userId } }), [authUser.userId])
-//   );
-
-//   const clientId = authUser.clients?.[0]?.id || authUser.clients?.[0];
-
-//   const clientQueryResult = SelfClientApi.useGetSelfClientQuery(
-//     useMemo(() => ({ path: { clientId } }), [clientId]),
-//     { skip: !userQueryResult.data }
-//   );
-
-//   const clientImageQueryResult = SelfClientApi.useGetSelfClientImageQuery(
-//     useMemo(() => ({ path: { clientId } }), [clientId]),
-//     { skip: !clientQueryResult.data }
-//   );
-
   const routes = useRoutes(
-    useMemo(() => getRoutes({ redirectTo: RouteEnum.DASHBOARD }), [])
+    useMemo(
+      () => getRoutes({ authUser, redirectTo: RouteEnum.DASHBOARD }),
+      [authUser]
+    )
   );
 
   return (
@@ -74,35 +61,35 @@ function AppProtected(props) {
     //   }}
     // >
     //   {() => (
-        <>
-          <ProtectedPageHeader elevation={0} position="fixed" />
-          <AppProtectedSideNavigation />
-          <div
-            style={{
-              marginLeft: isxl ? APP_SIDE_MENU_WIDTH + 30 : islg ? APP_SIDE_MENU_WIDTH : 0,
-            }}
-          >
-            <Container maxWidth="2xl" className="p-4 mt-16">
-              <Suspense>{routes}</Suspense>
-            </Container>
-          </div>
-          <ProtectedPageFooter elevation={0} position="sticky" />
-          {/* <Suspense>
+    <>
+      <ProtectedPageHeader elevation={0} position="fixed" />
+      <AppProtectedSideNavigation />
+      <div
+        style={{
+          marginLeft: isxl
+            ? APP_SIDE_MENU_WIDTH + 30
+            : islg
+            ? APP_SIDE_MENU_WIDTH
+            : 0,
+        }}
+      >
+        <Container maxWidth="2xl" className="p-4 mt-16">
+          <Suspense>{routes}</Suspense>
+        </Container>
+      </div>
+      <ProtectedPageFooter elevation={0} position="sticky" />
+      {/* <Suspense>
             <ProfileChangePasswordDialog
               open={authUser.firstTimeLoginRemaining}
             />
           </Suspense> */}
-        </>
+    </>
     //   )}
     // </LoadingContent>
   );
 }
 
 export default AppProtected;
-
-// const ProfileChangePasswordDialog = lazy(() =>
-//   import("features/profile/ProfileChangePasswordDialog")
-// );
 
 const getRoutes = function getRoutes({ redirectTo }) {
   return configureRoutes([

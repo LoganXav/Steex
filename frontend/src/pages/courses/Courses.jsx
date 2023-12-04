@@ -5,7 +5,6 @@ import { configureRoutes } from "utils/RouterUtils";
 import Suspense from "common/Suspense";
 
 function Courses() {
-
   const routes = useRoutes(useMemo(() => getRoutes(), []));
 
   return <Suspense>{routes}</Suspense>;
@@ -18,23 +17,23 @@ function getRoutes() {
     [
       {
         path: "*",
-        element: <Navigate to={RouteEnum.COURSES} replace />,
+        element: <Navigate to={RouteEnum.COURSES_CATEGORIES} replace />,
       },
-      {
-        index: true,
-        element: lazy(() => import("./CoursesList")),
-      },
+      // {
+      //   index: true,
+      //   element: lazy(() => import("./CourseCategories")),
+      // },
       {
         path: RouteEnum.COURSES_CATEGORIES,
-        element: lazy(() => import("../course-categories/CourseCategories")),
+        element: lazy(() => import("./CourseCategories")),
       },
       {
-        path: RouteEnum.COURSES.concat("/*"),
+        path: RouteEnum.COURSES,
         element: lazy(() => import("./CoursesList")),
       },
       {
-        path: RouteEnum.COURSES_DETAILS.concat("/*"),
-        element: lazy(() => import("../course-details/CourseDetails")),
+        path: RouteEnum.COURSES_DETAILS,
+        element: lazy(() => import("./CourseDetails")),
       },
     ],
     {
@@ -42,5 +41,3 @@ function getRoutes() {
     }
   );
 }
-
-
