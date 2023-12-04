@@ -22,7 +22,7 @@ const Subscriptions = () => {
         <div className="flex-1">
           <Paper className="p-4 flex justify-between">
             <Typography variant="h6" className="font-semibold">
-              My Courses
+              My Subscriptions
             </Typography>
             <Button>Upgrade Courses</Button>
           </Paper>

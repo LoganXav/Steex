@@ -64,11 +64,14 @@ function ProtectedPageFooter(props) {
         }}
         {...rest}
       >
-        <Container maxWidth="false" className="text-mui-primary-tertiary bg-inherit">
+        <Container
+          maxWidth="false"
+          className="text-mui-primary-tertiary bg-inherit"
+        >
           <Toolbar>
-          <Typography>2023 @ Steex</Typography>  
-          <div className="flex-1"/>
-          <Typography>Design & Develop by LOGAN</Typography>  
+            <Typography>2023 @ Steex</Typography>
+            <div className="flex-1" />
+            <Typography>LGNX</Typography>
           </Toolbar>
         </Container>
       </AppBar>
