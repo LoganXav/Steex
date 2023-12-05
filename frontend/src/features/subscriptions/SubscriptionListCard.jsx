@@ -71,10 +71,14 @@ const SubscriptionListCard = ({
             className="!rounded-sm h-7 cursor-pointer"
           />
         </div>
-        <Typography noWrap className="font-semibold lg:w-44 xl:w-full">
+        <Typography noWrap className="font-semibold md:w-44 lg:w-full">
           {title}
         </Typography>
-        <Typography gutterBottom className="text-mui-primary-tertiary my-1">
+        <Typography
+          gutterBottom
+          variant="body2"
+          className="text-mui-primary-tertiary my-1"
+        >
           {category}
         </Typography>
         <div className="flex flex-wrap items-center gap-2 my-2 text-mui-primary-tertiary">

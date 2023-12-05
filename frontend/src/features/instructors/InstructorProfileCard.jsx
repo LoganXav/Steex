@@ -1,0 +1,101 @@
+import Paper from "../../libs/mui/Paper";
+import Typography from "../../libs/mui/Typography";
+import Button from "../../libs/mui/Button";
+import InstructorProfileChip from "./InstructorProfileChip";
+import { Iconly } from "react-iconly";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import MessageOutlinedIcon from "@mui/icons-material/MessageOutlined";
+
+const InstructorProfileCard = () => {
+  return (
+    <Paper className="p-4 flex flex-col md:flex-row gap-8 justify-between">
+      <div className="flex flex-col gap-4">
+        <div>
+          <Typography variant="h6" className="font-semibold">
+            Ayaan Bowen
+            <span className="bg-[red] w-8 h-8 rounded-full ml-4"></span>
+          </Typography>
+          <div className="flex flex-wrap items-center gap-2 my-2 text-mui-primary-tertiary">
+            <div className="flex gap-1">
+              <Iconly size="small" name="TimeCircle" />
+              <Typography variant="body2">Pheonix, USA</Typography>
+            </div>
+            <div className="flex gap-1">
+              <Iconly size="small" name="People" />
+              <Typography variant="body2">874 Students</Typography>
+            </div>
+            <div className="flex gap-1">
+              <Iconly size="small" name="Bookmark" />
+              <Typography variant="body2">231 Courses</Typography>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-md">
+          <Typography>Shopify Developer</Typography>
+          <Typography className="text-mui-primary-tertiary mt-2">
+            Shopify developers are experts in building online stores, themes and
+            apps using the shopify platform.
+          </Typography>
+        </div>
+        <div>
+          <div className="flex gap-3 items-center">
+            <Iconly size="small" name="Folder" />
+            <Typography>
+              Master of Engineering in California State University System
+            </Typography>
+          </div>
+          <div className="flex gap-3 items-center mt-4">
+            <Button>Connect</Button>
+            <InstructorProfileChip
+              size="small"
+              label={
+                <MessageOutlinedIcon style={{ width: "15px", color: "grey" }} />
+              }
+              className="!rounded-sm h-8 cursor-pointer"
+            />
+            <InstructorProfileChip
+              size="small"
+              type="option"
+              label={<MoreVertIcon style={{ width: "15px" }} />}
+              className="!rounded-sm h-8 cursor-pointer"
+            />
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <Typography className="text-mui-primary-tertiary">
+            Languages
+          </Typography>
+
+          <div className="flex gap-2 mt-2">
+            {[1, 2, 3].map(() => (
+              <InstructorProfileChip
+                label="English"
+                className="rounded-sm h-4"
+                type="language"
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 max-w-xs">
+          <Typography className="text-mui-primary-tertiary">
+            Featured Skills
+          </Typography>
+          <div className="flex gap-2 mt-2 flex-wrap">
+            {[1, 2, 3].map(() => (
+              <InstructorProfileChip
+                label="Shopify Development"
+                className="rounded-sm h-4"
+                type="skill"
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </Paper>
+  );
+};
+
+export default InstructorProfileCard;

@@ -5,17 +5,21 @@ import { RouteEnum } from "../../constants/RouterConstants";
 import ReactLogo from "../../assets/react.png";
 import ShopifyLogo from "../../assets/shopify.png";
 import LaravelLogo from "../../assets/laravel.png";
+import PageBreadcrumbs from "../../common/PageBreadcrumbs";
 
 const CourseCategories = () => {
   return (
     <>
       <Toolbar disableGutters className="flex justify-between items-center">
         <Typography variant="body1" className="font-semibold">
-          CATEGORY
+          CATEGORIES
         </Typography>
-        <Typography variant="body2" className="text-mui-primary-tertiary">
-          Dashboard / Course Categories
-        </Typography>
+        <PageBreadcrumbs
+          breadcrumbs={[
+            { name: "Dashboard", to: RouteEnum.DASHBOARD },
+            { name: "Categories" },
+          ]}
+        />
       </Toolbar>
       <Toolbar disableGutters>
         <SearchTextField

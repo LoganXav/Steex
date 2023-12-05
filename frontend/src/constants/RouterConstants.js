@@ -20,6 +20,7 @@ export const RouteEnum = {
   COURSES_DETAILS: "/courses/:id",
   SUBSCRIPTIONS: "/subscriptions",
   INSTRUCTORS: "/instructors",
+  INSTRUCTORS_DETAILS: "/instructors/:id",
   PROFILE: "/profile",
   CONTACT_US_FAQS: "/contact-us/faqs",
 };

@@ -103,15 +103,15 @@ const getRoutes = function getRoutes({ redirectTo }) {
     },
     {
       path: RouteEnum.COURSES.concat("/*"),
-      element: lazy(() => import("pages/courses/Courses")),
+      element: lazy(() => import("pages/courses/Course")),
     },
     {
       path: RouteEnum.SUBSCRIPTIONS.concat("/*"),
-      element: lazy(() => import("pages/subscriptions/Subscriptions")),
+      element: lazy(() => import("pages/subscriptions/Subscription")),
     },
     {
       path: RouteEnum.INSTRUCTORS.concat("/*"),
-      element: lazy(() => import("pages/instructors/Instructors")),
+      element: lazy(() => import("pages/instructors/Instructor")),
     },
     {
       path: RouteEnum.PROFILE.concat("/*"),
@@ -119,7 +119,7 @@ const getRoutes = function getRoutes({ redirectTo }) {
     },
     {
       path: RouteEnum.CONTACT_US_FAQS.concat("/*"),
-      element: lazy(() => import("pages/contact-us/Faqs")),
+      element: lazy(() => import("pages/contact-us/Faq")),
     },
   ]);
 };

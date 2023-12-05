@@ -74,50 +74,24 @@ const CoursesListCard = ({
         <Typography noWrap className="font-semibold lg:w-44 xl:w-full">
           {title}
         </Typography>
-        <Typography gutterBottom className="text-mui-primary-tertiary my-1">
+        <Typography
+          variant="body2"
+          gutterBottom
+          className="text-mui-primary-tertiary my-1"
+        >
           {category}
         </Typography>
         <div className="flex flex-wrap items-center gap-2 my-2 text-mui-primary-tertiary">
           <div className="flex gap-1">
-            <Iconly
-              size="small"
-              name="TimeCircle"
-              // onClick={() => toggleSideNavigation()}
-              // primaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-              // secondaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-            />
+            <Iconly size="small" name="TimeCircle" />
             <Typography>{duration}</Typography>
           </div>
           <div className="flex gap-1">
-            <Iconly
-              size="small"
-              name="People"
-              // onClick={() => toggleSideNavigation()}
-              // primaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-              // secondaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-            />
+            <Iconly size="small" name="People" />
             <Typography>{students}</Typography>
           </div>
           <div className="flex gap-1">
-            <Iconly
-              size="small"
-              name="Bookmark"
-              // onClick={() => toggleSideNavigation()}
-              // primaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-              // secondaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-            />
+            <Iconly size="small" name="Bookmark" />
             <Typography>{lessons} Lessons</Typography>
           </div>
         </div>

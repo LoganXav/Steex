@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import {
-  Typography,
   Card,
-  Paper,
   Container,
-  Toolbar,
   FormControl,
   InputLabel,
   Select,
@@ -19,17 +16,21 @@ import {
 import ReactLogo from "../../assets/react.png";
 import CourseListChip from "../../features/courses/CourseListChip";
 import { CourseDetailsTabEnum } from "features/courses/CourseConstants";
-import CourseDetailsDescription from "features/courses/CourseDetailsDescription"
-import CourseDetailsVideoTutorials from "features/courses/CourseDetailsVideoTutorials"
-import CourseDetailsFeedback from "features/courses/CourseDetailsFeedback"
-import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
-import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
+import CourseDetailsDescription from "features/courses/CourseDetailsDescription";
+import CourseDetailsVideoTutorials from "features/courses/CourseDetailsVideoTutorials";
+import CourseDetailsFeedback from "features/courses/CourseDetailsFeedback";
+import StarOutlineOutlinedIcon from "@mui/icons-material/StarOutlineOutlined";
+import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
+
+import PageBreadcrumbs from "../../common/PageBreadcrumbs";
+import Toolbar from "../../libs/mui/Toolbar";
+import Typography from "../../libs/mui/Typography";
+import Paper from "../../libs/mui/Paper";
+
+import { RouteEnum } from "../../constants/RouterConstants";
 
 const CourseDetails = () => {
   const [activeTab, setActiveTab] = useState(CourseDetailsTabEnum.DESCRIPTION);
-
-
-
 
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);
@@ -38,12 +39,15 @@ const CourseDetails = () => {
   return (
     <div>
       <Toolbar disableGutters className="flex justify-between items-center">
-        <Typography variant="body1" className="font-bold">
+        <Typography variant="body1" className="font-semibold">
           OVERVIEW
         </Typography>
-        <Typography variant="body2" className="text-mui-primary-tertiary">
-          Courses / Overview
-        </Typography>
+        <PageBreadcrumbs
+          breadcrumbs={[
+            { name: "Courses", to: RouteEnum.COURSES },
+            { name: "Overview" },
+          ]}
+        />
       </Toolbar>
       <div className="flex flex-col lg:flex-row gap-4">
         <Container disableGutters className="lg:w-3/4">
@@ -92,20 +96,34 @@ const CourseDetails = () => {
 
             <Tabs value={activeTab} onChange={handleTabChange} className="mt-6">
               {[
-                { value: CourseDetailsTabEnum.DESCRIPTION, label: "Description" },
-                { value: CourseDetailsTabEnum.VIDEO_TUTORIALS, label: "Video Tutorials" },
+                {
+                  value: CourseDetailsTabEnum.DESCRIPTION,
+                  label: "Description",
+                },
+                {
+                  value: CourseDetailsTabEnum.VIDEO_TUTORIALS,
+                  label: "Video Tutorials",
+                },
                 { value: CourseDetailsTabEnum.FEEDBACK, label: "Feedback" },
               ].map((tab) => (
-                <Tab key={tab.label} value={tab.value} label={tab.label} className="text-[14px]" />
+                <Tab
+                  key={tab.label}
+                  value={tab.value}
+                  label={tab.label}
+                  className="text-[14px]"
+                />
               ))}
             </Tabs>
-
           </Paper>
           <Paper className="p-4 mt-4">
             {
               {
-                [CourseDetailsTabEnum.DESCRIPTION]: <CourseDetailsDescription />,
-                [CourseDetailsTabEnum.VIDEO_TUTORIALS]: <CourseDetailsVideoTutorials />,
+                [CourseDetailsTabEnum.DESCRIPTION]: (
+                  <CourseDetailsDescription />
+                ),
+                [CourseDetailsTabEnum.VIDEO_TUTORIALS]: (
+                  <CourseDetailsVideoTutorials />
+                ),
                 [CourseDetailsTabEnum.FEEDBACK]: <CourseDetailsFeedback />,
               }[activeTab]
             }
@@ -165,10 +183,7 @@ const CourseDetails = () => {
                 className="w-full flex justify-between items-center mt-1"
               >
                 <Typography>{label}</Typography>
-                <Typography
-
-                  className="text-mui-primary-tertiary"
-                >
+                <Typography className="text-mui-primary-tertiary">
                   {value}
                 </Typography>
               </div>
@@ -192,7 +207,10 @@ const CourseDetails = () => {
                 </Typography>
               </div>
             </div>
-            <Button size="large" className="w-full text-mui-info-contrastText bg-mui-info-light hover:text-white hover:bg-mui-info-contrastText">
+            <Button
+              size="large"
+              className="w-full text-mui-info-contrastText bg-mui-info-light hover:text-white hover:bg-mui-info-contrastText"
+            >
               Get in Touch
             </Button>
           </Paper>

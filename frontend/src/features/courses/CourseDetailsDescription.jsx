@@ -41,20 +41,13 @@ const CourseDetailsDescription = () => {
           "How to contribute to open source projects",
           "How to find projects to contribute to",
           "Why you should build lots of projects",
-          "Resources that might inspire you to build projects"
+          "Resources that might inspire you to build projects",
         ].map((item, index) => (
-
           <ListItem className="!p-[0]" key={index}>
             <ListItemIcon className="!mr-[-2rem]">
-              <Iconly
-                size="small"
-                name="ChevronRight"
-              />
+              <Iconly size="small" name="ChevronRight" />
             </ListItemIcon>
-            <ListItemText
-              className="!font-extralight"
-              primary={item}
-            />
+            <ListItemText className="!font-extralight" primary={item} />
           </ListItem>
         ))}
       </List>
