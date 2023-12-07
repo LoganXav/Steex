@@ -7,7 +7,7 @@
   flex-direction: column;
   padding: 8px 0;
   margin-top: 2rem;
-  gap: 2px;
+  gap: 1rem;
   background-color: inherit;
 
   @media (min-width: 768px) {
