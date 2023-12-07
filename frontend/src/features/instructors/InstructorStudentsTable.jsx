@@ -50,7 +50,7 @@ const columns = [
     accessorKey: "emailAddress",
   },
   {
-    header: "contactNumber",
+    header: "Contact Number",
     accessorKey: "contactNumber",
   },
   {
