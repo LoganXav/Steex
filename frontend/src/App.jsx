@@ -1,12 +1,13 @@
 import { lazy } from "react";
-import { IconButton, Icon } from "@mui/material";
-// import { SnackbarProvider } from "notistack";
+import { IconButton } from "@mui/material";
+import { SnackbarProvider } from "notistack";
 import AppThemeProvider from "./AppThemeProvider";
-// import { notistackRef } from "constants/RefConstants";
+import { notistackRef } from "./constants/RefConstants";
 // import useLoadingModal from "hooks/useLoadingModal";
 import useAuthUser from "./hooks/useAuthUser";
 // import LoadingModal from "common/LoadingModal";
 import Suspense from "common/Suspense";
+import { Iconly } from "react-iconly";
 
 function App() {
   // const { isLoadingModal } = useLoadingModal();
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <AppThemeProvider>
-      {/* <SnackbarProvider
+      <SnackbarProvider
         ref={notistackRef}
         anchorOrigin={{ horizontal: "right", vertical: "top" }}
         preventDuplicate
@@ -27,19 +28,15 @@ function App() {
             color="inherit"
             size="small"
           >
-            <Icon>close</Icon>
+            <Iconly type="small" name="ChevronDown" />
           </IconButton>
         )}
-      > */}
+      >
         <Suspense>
           {/* {authUser?.base64EncodedAuthenticationKey ? ( */}
-          {authUser ? (
-            <AppProtected />
-          ) : (
-            <AppPublic />
-          )}
+          {authUser ? <AppProtected /> : <AppPublic />}
         </Suspense>
-      {/* </SnackbarProvider> */}
+      </SnackbarProvider>
       {/* <LoadingModal open={isLoadingModal} /> */}
     </AppThemeProvider>
   );

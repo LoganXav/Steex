@@ -63,7 +63,7 @@
 .Table__body__row__cell,
 .Table__footer__row__cell {
   position: relative;
-  padding: 15px 0;
+  padding: 5px 0;
   /* height: 48px; */
   text-align: left;
 }
