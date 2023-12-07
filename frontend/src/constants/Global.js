@@ -23,12 +23,12 @@ export const APP_SIDE_MENU_WIDTH = 270;
 
 export const PaginationParamsDefault = {
   offset: 0,
-  limit: 20,
+  limit: 10,
 };
 
 export const PaginationDefault = {
   pageIndex: 0,
-  pageSize: 20,
+  pageSize: 10,
 };
 
 export const ErrorMessages = {

@@ -1,7 +1,6 @@
-import React from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-// import { useSnackbar } from "notistack";
+import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
 import { LoadingButton } from "@mui/lab";
 import PasswordTextField from "../../common/PasswordTextField";
@@ -21,17 +20,13 @@ import { RouteEnum } from "../../constants/RouterConstants";
 import AuthScaffold from "../../features/auth/AuthScaffold";
 import AuthTitle from "features/auth/AuthTitle";
 import AuthCaption from "features/auth/AuthCaption";
-import CoreAuthenticationApi from "../../apis/CoreAuthenticationApi";
 import { useDispatch } from "react-redux";
 import { loginAction } from "../../configs/StoreActionConfig";
 
 function Signin(props) {
-  // const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
-  const dispatch = useDispatch()
-
-  const [loginMutation, loginMutationMutationResult] =
-    CoreAuthenticationApi.useLoginMutation();
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -50,12 +45,12 @@ function Signin(props) {
         // const data = await authenticationMutation({
         //   data: values,
         // }).unwrap();
-        // enqueueSnackbar(data?.message || "Logged In Successful", {
-        //   variant: "success",
-        // });
         console.log(values);
         await new Promise((resolve) => setTimeout(resolve, 2000));
-        dispatch(loginAction())
+        dispatch(loginAction());
+        enqueueSnackbar("Logged In Successful", {
+          variant: "success",
+        });
         navigate(RouteEnum.DASHBOARD);
       } catch (error) {
         enqueueSnackbar(

@@ -49,8 +49,8 @@ const SubscriptionListCard = ({
           />
         </div>
       </Container>
-      <CardContent className="text-black flex-1 border-b-4 border-green-500">
-        <div className="flex items-center justify-between mb-2">
+      <CardContent className="text-black flex-1 border-b-4 border-green-500 flex flex-col justify-between py-0 pt-3">
+        <div className="flex items-center justify-between">
           <SubscriptionListChip
             size="small"
             color={difficulty}

@@ -1,17 +1,13 @@
 import React from "react";
-import {
-  Avatar,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { Avatar, Paper, Typography } from "@mui/material";
 import DashboardChip from "../../features/dashboard/DashboardChip";
 import ShopifyLogo from "../../assets/shopify.png";
 import WebpackLogo from "../../assets/webpack.png";
 import LaravelLogo from "../../assets/laravel.png";
 import ReactLogo from "../../assets/react.png";
 import DashboardInstructorCard from "../../features/dashboard/DashboardInstructorCard";
-import DashboardPieChart from "../../features/dashboard/DashboardPieChart"
-import DashboardDailyProgressChart from "../../features/dashboard/DashboardDailyProgressChart"
+import DashboardPieChart from "../../features/dashboard/DashboardPieChart";
+import DashboardDailyProgressChart from "../../features/dashboard/DashboardDailyProgressChart";
 
 const Dashboard = () => {
   return (
@@ -27,7 +23,7 @@ const Dashboard = () => {
                 amount: "4,899k",
                 value: 550,
                 series: [90, 10],
-                colors: ["#275be8", "#c4e8ef"]
+                colors: ["#275be8", "#c4e8ef"],
               },
               {
                 title: "Total Courses",
@@ -36,19 +32,25 @@ const Dashboard = () => {
                 amount: "754",
                 value: 550,
                 series: [50, 50],
-                colors: ["#275be8", "#c4e8ef"]
+                colors: ["#275be8", "#c4e8ef"],
               },
-            ].map(({ title, amount, label, type, value, series, colors }) => (
-              <DashboardPieChart
-                title={title}
-                label={label}
-                type={type}
-                amount={amount}
-                value={value}
-                series={series}
-                colors={colors}
-              />
-            ))}
+            ].map(
+              (
+                { title, amount, label, type, value, series, colors },
+                index
+              ) => (
+                <DashboardPieChart
+                  key={index}
+                  title={title}
+                  label={label}
+                  type={type}
+                  amount={amount}
+                  value={value}
+                  series={series}
+                  colors={colors}
+                />
+              )
+            )}
             <Paper className="col-span-1 md:col-span-2 p-4">
               <div className="flex justify-between items-center mb-5">
                 <Typography variant="h6" className="font-semibold">
@@ -80,8 +82,11 @@ const Dashboard = () => {
                     category: "React Development",
                     type: "Open",
                   },
-                ].map(({ logo, category, type }) => (
-                  <div className="flex col-span-1 flex-col gap-3 items-center text-center pb-2">
+                ].map(({ logo, category, type }, index) => (
+                  <div
+                    key={index}
+                    className="flex col-span-1 flex-col gap-3 items-center text-center pb-2"
+                  >
                     <DashboardChip
                       size="medium"
                       status={type}
@@ -99,7 +104,6 @@ const Dashboard = () => {
           <DashboardDailyProgressChart />
         </div>
         <div className="flex flex-col md:flex-row lg:flex-col 2xl:flex-row gap-5 mb-4">
-
           <Paper className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 h-[25rem] pb-4">
             <div className="pb-4 h-full overflow-hidden">
               <div className="w-full flex justify-between items-center p-4">
@@ -167,7 +171,10 @@ const Dashboard = () => {
                 Recent Courses
               </Typography>
               <Typography className="flex items-center">
-                SORT BY: <span className="text-mui-primary-tertiary ml-1">Course Name</span>
+                SORT BY:{" "}
+                <span className="text-mui-primary-tertiary ml-1">
+                  Course Name
+                </span>
               </Typography>
             </div>
           </Paper>
@@ -187,7 +194,9 @@ const Dashboard = () => {
         </div>
         <div className="flex flex-col text-center items-center gap-1 mb-6">
           <Avatar className="w-20 h-20 mb-2" src=""></Avatar>
-          <Typography variant="h6" className="font-semibold">Logan Xavier</Typography>
+          <Typography variant="h6" className="font-semibold">
+            Logan Xavier
+          </Typography>
           <Typography className="text-mui-primary-tertiary">
             Software Engineer
           </Typography>
@@ -233,7 +242,11 @@ const Dashboard = () => {
               time: "02:18 PM",
             },
           ].map(({ title, date, time }, index) => (
-            <Paper elevation={0} key={index} className="p-4 border-l-4 border-[#3762EA]">
+            <Paper
+              elevation={0}
+              key={index}
+              className="p-4 border-l-4 border-[#3762EA]"
+            >
               <div className="">
                 <Typography className="">{title}</Typography>
                 <div className="flex flex-wrap items-center gap-2 text-mui-primary-tertiary">

@@ -1,8 +1,10 @@
-import { Button, Typography, Icon } from "@mui/material";
+import Typography from "../libs/mui/Typography";
+import Icon from "../libs/mui/Icon";
+import Button from "../libs/mui/Button";
 import clsx from "clsx";
 // import ErrorContentImg from "assets/images/ErrorContent.png";
 import "./ErrorContent.css";
-import useLogout from "hooks/useLogout";
+import useLogout from "../hooks/useLogout";
 
 /**
  *

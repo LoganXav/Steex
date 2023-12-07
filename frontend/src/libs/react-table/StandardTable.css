@@ -1,0 +1,126 @@
+.Table__root {
+  padding: 1rem;
+  overflow-x: scroll;
+}
+
+.Table {
+  min-width: 100%;
+  background: inherit;
+  /* text-indent: 0; */
+  /* border-color: inherit; */
+  /* border-collapse: collapse; */
+}
+
+.Table__header {
+  top: 0;
+}
+
+.pagination {
+  justify-content: flex-end;
+  bottom: 0;
+}
+
+.Table__header,
+.Table__footer {
+  font-weight: 700;
+  /* @apply mui-text-secondary bg-inherit; */
+}
+
+.Table__header,
+/* .Table__footer, */
+.pagination {
+  /* position: sticky;
+  z-index: 10;
+  background-color: inherit; */
+}
+
+.Table__header__row,
+.Table__body__row,
+.Table__footer__row {
+  border-bottom: 1px solid lightgray;
+}
+
+/* .Table__header__row--relative,
+.Table__body__row--relative,
+.Table__footer__row--relative {
+  display: flex;
+  min-width: 100%;
+}
+
+.Table__header__row--absolute,
+.Table__body__row--absolute,
+.Table__footer__row--absolute {
+  display: flex;
+  position: relative;
+  height: 40px;
+} */
+
+.Table__header__row__cell {
+  font-weight: 700;
+}
+
+.Table__header__row__cell,
+.Table__body__row__cell,
+.Table__footer__row__cell {
+  position: relative;
+  padding: 15px 0;
+  /* height: 48px; */
+  text-align: left;
+}
+
+/* .Table__header__row__cell--relative,
+.Table__body__row__cell--relative,
+.Table__footer__row__cell--relative {
+  flex: 1 0 auto;
+}
+
+.Table__header__row__cell--absolute,
+.Table__body__row__cell--absolute,
+.Table__footer__row__cell--absolute {
+  position: absolute;
+  height: 40px;
+} */
+
+.loading,
+.empty,
+.error {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+
+.loading,
+.empty,
+.error,
+.pagination {
+  position: sticky;
+  left: 0;
+  right: 0;
+}
+
+.resizer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: col-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.resizer.resizing {
+  background: blue;
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .resizer {
+    opacity: 0;
+  }
+
+  *:hover > .resizer {
+    opacity: 1;
+  }
+}
