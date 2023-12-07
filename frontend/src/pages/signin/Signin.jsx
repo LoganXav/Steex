@@ -30,15 +30,15 @@ function Signin(props) {
 
   const formik = useFormik({
     initialValues: {
-      username: "",
-      password: "",
+      username: "username",
+      password: "password",
       rememberMe: false,
     },
     validateOnChange: false,
     validateOnBlur: false,
     validationSchema: yup.object({
       username: yup.string().label("Email").trim().email().max(40).required(),
-      password: yup.string().label("Password").trim().min(6).max(10).required(),
+      password: yup.string().label("Password").trim().min(6).required(),
     }),
     onSubmit: async (values) => {
       try {
