@@ -30,7 +30,7 @@ function Signin(props) {
 
   const formik = useFormik({
     initialValues: {
-      username: "username",
+      username: "test@email.com",
       password: "password",
       rememberMe: false,
     },
