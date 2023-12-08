@@ -1,4 +1,4 @@
-import React from "react";
+import { RouteEnum } from "../../constants/RouterConstants";
 import { Avatar, Paper, Typography } from "@mui/material";
 import DashboardChip from "../../features/dashboard/DashboardChip";
 import ShopifyLogo from "../../assets/shopify.png";
@@ -9,6 +9,7 @@ import DashboardInstructorCard from "../../features/dashboard/DashboardInstructo
 import DashboardPieChart from "../../features/dashboard/DashboardPieChart";
 import DashboardDailyProgressChart from "../../features/dashboard/DashboardDailyProgressChart";
 import DashboardRecentCoursesTable from "../../features/dashboard/DashboardRecentCoursesTable";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -57,7 +58,11 @@ const Dashboard = () => {
                 <Typography variant="h6" className="font-semibold">
                   Features Course Categories
                 </Typography>
-                <Typography className="text-mui-primary-main">
+                <Typography
+                  component={Link}
+                  to={RouteEnum.COURSES_CATEGORIES}
+                  className="text-mui-primary-tertiary hover:text-mui-primary-main"
+                >
                   View All
                 </Typography>
               </div>
@@ -111,7 +116,11 @@ const Dashboard = () => {
                 <Typography variant="h6" className="font-semibold">
                   Best Instructors
                 </Typography>
-                <Typography className="text-mui-primary-main">
+                <Typography
+                  component={Link}
+                  to={RouteEnum.INSTRUCTORS}
+                  className="text-mui-primary-tertiary hover:text-mui-primary-main"
+                >
                   View All
                 </Typography>
               </div>
@@ -165,22 +174,7 @@ const Dashboard = () => {
             </div>
           </Paper>
         </div>
-        <div className="">
-          <Paper className="p-4">
-            <div className="w-full flex justify-between items-center">
-              <Typography variant="h6" className="font-semibold">
-                Recent Courses
-              </Typography>
-              <Typography className="flex items-center">
-                SORT BY:{" "}
-                <span className="text-mui-primary-tertiary ml-1">
-                  Course Name
-                </span>
-              </Typography>
-            </div>
-          </Paper>
-          <DashboardRecentCoursesTable />
-        </div>
+        <DashboardRecentCoursesTable />
       </div>
       <Paper className="w-full lg:w-1/4 p-4">
         <div className="w-full flex justify-between items-center mb-5">
@@ -197,10 +191,10 @@ const Dashboard = () => {
         <div className="flex flex-col text-center items-center gap-1 mb-6">
           <Avatar className="w-20 h-20 mb-2" src=""></Avatar>
           <Typography variant="h6" className="font-semibold">
-            Logan Xavier
+            Richard Marshall
           </Typography>
           <Typography className="text-mui-primary-tertiary">
-            Software Engineer
+            Web Engineer
           </Typography>
         </div>
         <div className="flex items-center justify-center gap-2 mb-6">

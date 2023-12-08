@@ -2,12 +2,24 @@ import Table from "../../libs/react-table/Table";
 import useTable from "../../hooks/useTable";
 import Typography from "../../libs/mui/Typography";
 import DashboardStatusChip from "./DashboardStatusChip";
+import Paper from "../../libs/mui/Paper";
 
 const DashboardRecentCoursesTable = () => {
   const tableInstance = useTable({ columns, data });
 
   return (
     <>
+      <Paper className="p-4">
+        <div className="w-full flex justify-between items-center">
+          <Typography variant="h6" className="font-semibold">
+            Recent Courses
+          </Typography>
+          <Typography className="flex items-center">
+            SORT BY:{" "}
+            <span className="text-mui-primary-tertiary ml-1">Course Title</span>
+          </Typography>
+        </div>
+      </Paper>
       <Table instance={tableInstance} />;
     </>
   );

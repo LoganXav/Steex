@@ -101,7 +101,7 @@ function ProtectedPageHeader(props) {
               <IconButton
                 variant="soft"
                 size="medium"
-                onClick={infoPopover.togglePopover}
+                // onClick={infoPopover.togglePopover}
               >
                 <NotificationsOutlinedIcon />
               </IconButton>
@@ -109,18 +109,13 @@ function ProtectedPageHeader(props) {
                 className="flex text-start items-center px-3 rounded-md"
                 onClick={infoPopover.togglePopover}
               >
-                <Avatar className="md:mr-2 w-7 h-7" src="">
-                  {/* <Avatar className="ml-4" src={authUser.clients?.[0].avatar}> */}
-                  {/* {authUser?.fullName?.[0]} */}
-                </Avatar>
+                <Avatar className="md:mr-2 w-7 h-7" src=""></Avatar>
                 {ismd && (
                   <div>
                     <Typography className="font-semibold ">
-                      {/* {authUser?.fullName} */}
-                      Logan Xavier
+                      Richard Marshall
                     </Typography>
                     <Typography className="text-mui-primary-tertiary">
-                      {/* {authUser?.accountType} */}
                       Student
                     </Typography>
                   </div>
@@ -141,9 +136,7 @@ function ProtectedPageHeader(props) {
                   variant="subtitle2"
                   className="font-semibold pt-4 pl-4"
                 >
-                  {/* {authUser?.firstname} {authUser?.lastname}
-                    {authUser?.username} */}
-                  Welcome Logan!
+                  Welcome Richard!
                 </Typography>
                 {/* <div className="py-2">
                   {[

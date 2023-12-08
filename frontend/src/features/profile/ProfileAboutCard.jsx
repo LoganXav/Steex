@@ -1,14 +1,18 @@
+import { Link } from "react-router-dom";
 import Button from "../../libs/mui/Button";
 import Paper from "../../libs/mui/Paper";
 import Typography from "../../libs/mui/Typography";
 import InstructorProfileChip from "../instructors/InstructorProfileChip";
+import { RouteEnum } from "../../constants/RouterConstants";
 
 const ProfileAboutCard = () => {
   return (
     <div className="flex-1">
       <div className="flex justify-between items-center">
         <div className="flex-1" />
-        <Button>Edit Profile</Button>
+        <Button component={Link} to={RouteEnum.PROFILE_EDIT}>
+          Edit Profile
+        </Button>
       </div>
       <Paper className="flex flex-col gap-4 p-4 mt-4">
         <Typography variant="h6">Media</Typography>
