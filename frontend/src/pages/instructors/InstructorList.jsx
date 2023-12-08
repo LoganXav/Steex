@@ -5,9 +5,25 @@ import useTable from "../../hooks/useTable";
 import InstructorStatusChip from "../../features/instructors/InstructorStatusChip";
 import InstructorRatingChip from "../../features/instructors/InstructorRatingChip";
 import InstructorListAction from "../../features/instructors/InstructorListAction";
+import Paper from "../../libs/mui/Paper";
+import SearchTextField from "../../common/SearchTextField";
+import { useState } from "react";
 
 const Instructors = () => {
-  const tableInstance = useTable({ columns, data });
+  const [filteredData, setFilteredData] = useState(data);
+  const [searchTerm, setSearchTerm] = useState("");
+  const tableInstance = useTable({ columns, data: filteredData });
+
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+
+    const filteredResults = data.filter((item) =>
+      item.instructor.toLowerCase().includes(searchTerm)
+    );
+
+    setFilteredData(filteredResults);
+  };
   return (
     <>
       <Toolbar disableGutters className="flex justify-between items-center">
@@ -15,19 +31,30 @@ const Instructors = () => {
           INSTRUCTORS
         </Typography>
       </Toolbar>
-      <Table instance={tableInstance} />
+
+      <Paper className="p-4">
+        <SearchTextField
+          placeholder="Search for instructor..."
+          size="small"
+          value={searchTerm}
+          onChange={handleSearch}
+          className="my-4"
+        />
+        <Table instance={tableInstance} />
+      </Paper>
     </>
   );
 };
 
 export default Instructors;
+
 const data = [
   {
     id: 1,
     instructor: "John Doe",
     totalCourses: 13,
     students: 745,
-    email: "6 months",
+    email: "jdoe@email.com",
     experience: "5 years",
     contact: "+(234) 9082727383",
     rating: 4.5,
@@ -38,7 +65,7 @@ const data = [
     instructor: "Logan Xavier",
     totalCourses: 13,
     students: 745,
-    email: "6 months",
+    email: "jdoe@email.com",
     experience: "5 years",
     contact: "+(234) 9082727383",
     rating: 1,
@@ -49,7 +76,7 @@ const data = [
     instructor: "Logan Xavier",
     totalCourses: 13,
     students: 745,
-    email: "6 months",
+    email: "jdoe@email.com",
     experience: "5 years",
     contact: "+(234) 9082727383",
     rating: 3.5,
@@ -60,7 +87,7 @@ const data = [
     instructor: "Logan Xavier",
     totalCourses: 13,
     students: 745,
-    email: "6 months",
+    email: "jdoe@email.com",
     experience: "5 years",
     contact: "+(234) 9082727383",
     rating: 3.5,
@@ -71,7 +98,7 @@ const data = [
     instructor: "Logan Xavier",
     totalCourses: 13,
     students: 745,
-    email: "6 months",
+    email: "jdoe@email.com",
     experience: "5 years",
     contact: "+(234) 9082727383",
     rating: 3.5,
@@ -82,7 +109,7 @@ const data = [
     instructor: "Logan Xavier",
     totalCourses: 13,
     students: 745,
-    email: "6 months",
+    email: "jdoe@email.com",
     experience: "5 years",
     contact: "+(234) 9082727383",
     rating: 3.5,
@@ -93,7 +120,7 @@ const data = [
     instructor: "Logan Xavier",
     totalCourses: 13,
     students: 745,
-    email: "6 months",
+    email: "jdoe@email.com",
     experience: "5 years",
     contact: "+(234) 9082727383",
     rating: 3.5,

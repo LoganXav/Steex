@@ -1,4 +1,5 @@
-import { TextField, InputAdornment, Icon } from "@mui/material";
+import TextField from "../libs/mui/TextField";
+import InputAdornment from "../libs/mui/InputAdornment";
 import { forwardRef } from "react";
 import { Iconly } from "react-iconly";
 
@@ -14,16 +15,13 @@ const SearchTextField = forwardRef(
     return (
       <TextField
         ref={ref}
-        placeholder={ label ? label : "Search"}
+        placeholder={label ? label : "Search"}
         InputProps={{
           ...InputProps,
           ...(!InputProps?.startAdornment && {
             startAdornment: (
               <InputAdornment position="start">
-               <Iconly
-                size="small"
-                name="Search"
-              />
+                <Iconly size="small" name="Search" />
               </InputAdornment>
             ),
           }),

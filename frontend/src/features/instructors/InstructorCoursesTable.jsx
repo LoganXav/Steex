@@ -4,10 +4,36 @@ import Table from "../../libs/react-table/Table";
 import InstructorRatingChip from "./InstructorRatingChip";
 import InstructorStatusChip from "./InstructorStatusChip";
 import InstructorListAction from "./InstructorListAction";
+import SearchTextField from "../../common/SearchTextField";
+import { useState } from "react";
 
 const InstructorCoursesTable = () => {
-  const tableInstance = useTable({ columns, data });
-  return <Table instance={tableInstance} />;
+  const [filteredData, setFilteredData] = useState(data);
+  const [searchTerm, setSearchTerm] = useState("");
+  const tableInstance = useTable({ columns, data: filteredData });
+
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+
+    const filteredResults = data.filter((item) =>
+      item.courseTitle.toLowerCase().includes(searchTerm)
+    );
+
+    setFilteredData(filteredResults);
+  };
+  return (
+    <>
+      <SearchTextField
+        placeholder="Search for course..."
+        size="small"
+        value={searchTerm}
+        onChange={handleSearch}
+        className="my-4"
+      />
+      <Table instance={tableInstance} />;
+    </>
+  );
 };
 
 export default InstructorCoursesTable;
@@ -22,7 +48,7 @@ const data = [
     status: true,
   },
   {
-    courseTitle: "The Complete Shopify Dropship Course",
+    courseTitle: "The Complete React Development Course",
     price: "451.32",
     duration: "6 months",
     students: 745,

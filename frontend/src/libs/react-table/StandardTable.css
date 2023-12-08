@@ -6,6 +6,7 @@
 .Table {
   min-width: 100%;
   background: inherit;
+  position: relative;
   /* text-indent: 0; */
   /* border-color: inherit; */
   /* border-collapse: collapse; */
@@ -15,9 +16,9 @@
   top: 0;
 }
 
-.pagination {
+.Table__pagination {
   justify-content: flex-end;
-  bottom: 0;
+  /* bottom: 0; */
 }
 
 .Table__header,
@@ -26,12 +27,12 @@
   /* @apply mui-text-secondary bg-inherit; */
 }
 
-.Table__header,
+/* .Table__header, */
 /* .Table__footer, */
-.pagination {
-  /* position: sticky;
+.Table__pagination {
+  position: sticky;
   z-index: 10;
-  background-color: inherit; */
+  background-color: inherit;
 }
 
 .Table__header__row,
