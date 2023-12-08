@@ -23,8 +23,18 @@
   align-items: center;
   margin-right: 16px;
 }
+
 .Pagination__button {
-  background-color: transparent;
+  background-color: white;
   border: 1px solid lightgray;
   color: #3762ea;
+}
+
+.Pagination__button:hover {
+  color: #fff;
+}
+
+.Pagination__button:disabled {
+  background-color: white;
+  color: lightgray;
 }

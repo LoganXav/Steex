@@ -165,7 +165,7 @@ const Dashboard = () => {
             </div>
           </Paper>
         </div>
-        <div className="h-[30rem]">
+        <div className="">
           <Paper className="p-4">
             <div className="w-full flex justify-between items-center">
               <Typography variant="h6" className="font-semibold">

@@ -44,11 +44,11 @@ function Pagination(props) {
 
         <div className="flex items-center gap-2">
           <Button
-            className="Pagination__button text-mui-primary-tertiary"
+            className="Pagination__button"
             // color="primary"
             size="small"
             onClick={() => instance.previousPage()}
-            // disabled={!instance.getCanPreviousPage()}
+            disabled={!instance.getCanPreviousPage()}
           >
             Previous
           </Button>
@@ -65,6 +65,7 @@ function Pagination(props) {
           <div className={clsx("Pagination__page", classes?.page)}>
             <Button
               // color="primary"
+              // variant="soft"
               className={clsx("Pagination__pageText", classes?.pageText)}
             >
               {instance.getState()?.pagination?.pageIndex + 1}
@@ -81,7 +82,7 @@ function Pagination(props) {
             {String(instance.getPageCount() + 2)}
           </Button> */}
           <Button
-            className="Pagination__button text-mui-primary-main"
+            className="Pagination__button"
             // color="primary"
             size="small"
             onClick={() => instance.nextPage()}
