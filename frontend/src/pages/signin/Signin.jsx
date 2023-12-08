@@ -48,7 +48,7 @@ function Signin() {
         console.log(values);
         await new Promise((resolve) => setTimeout(resolve, 2000));
         dispatch(loginAction());
-        enqueueSnackbar("Logged In Successful", {
+        enqueueSnackbar("Logged In Successfully", {
           variant: "success",
         });
         navigate(RouteEnum.DASHBOARD);
