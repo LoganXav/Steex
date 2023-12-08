@@ -58,7 +58,7 @@ const CourseDetails = () => {
                 height="100%"
                 src="https://youtube.com/embed/JDtOIc6WFF4"
                 title="Youtube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>

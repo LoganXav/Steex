@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-*{
-font-family: 'Poppins', sans-serif !important;
+* {
+  font-family: "Poppins", sans-serif !important;
 }
 
 @layer base {
@@ -140,6 +139,29 @@ font-family: 'Poppins', sans-serif !important;
     transition: all 0.9s ease;
   }
   .custom-scrollbar:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.2)
+    background-color: rgba(0, 0, 0, 0.2);
   }
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px !important; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Rounded corners of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Color of the scrollbar thumb on hover */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scrollbar track */
 }

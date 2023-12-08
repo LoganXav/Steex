@@ -8,6 +8,7 @@ import ReactLogo from "../../assets/react.png";
 import DashboardInstructorCard from "../../features/dashboard/DashboardInstructorCard";
 import DashboardPieChart from "../../features/dashboard/DashboardPieChart";
 import DashboardDailyProgressChart from "../../features/dashboard/DashboardDailyProgressChart";
+import DashboardRecentCoursesTable from "../../features/dashboard/DashboardRecentCoursesTable";
 
 const Dashboard = () => {
   return (
@@ -165,8 +166,8 @@ const Dashboard = () => {
           </Paper>
         </div>
         <div className="h-[30rem]">
-          <Paper className="w-full h-full">
-            <div className="w-full flex justify-between items-center p-4">
+          <Paper className="p-4">
+            <div className="w-full flex justify-between items-center">
               <Typography variant="h6" className="font-semibold">
                 Recent Courses
               </Typography>
@@ -177,6 +178,7 @@ const Dashboard = () => {
                 </span>
               </Typography>
             </div>
+            <DashboardRecentCoursesTable />
           </Paper>
         </div>
       </div>
