@@ -28,7 +28,7 @@ const InstructorStudentsTable = () => {
         size="small"
         value={searchTerm}
         onChange={handleSearch}
-        className="my-4"
+        className="my-2"
       />
       <Table instance={tableInstance} />
     </>

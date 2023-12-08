@@ -42,12 +42,12 @@ const InstructorDetails = () => {
       </Toolbar>
       <InstructorProfileCard />
 
-      <Paper className="flex flex-col md:flex-row justify-between items-center p-4 my-6 ">
+      <Paper className="flex flex-col md:flex-row justify-between md:items-center p-4 my-6 ">
         <Typography variant="h6" className="font-semibold">
           Portfolio Overview
         </Typography>
 
-        <Tabs value={activeTab} onChange={handleTabChange} className="mt-6">
+        <Tabs value={activeTab} onChange={handleTabChange} className="">
           {[
             {
               value: InstructorDetailsTabEnum.COURSES,
@@ -69,15 +69,13 @@ const InstructorDetails = () => {
         </Tabs>
       </Paper>
 
-      <Paper className="p-4 mt-4">
+      {
         {
-          {
-            [InstructorDetailsTabEnum.COURSES]: <InstructorCoursesTable />,
-            [InstructorDetailsTabEnum.STUDENTS]: <InstructorStudentsTable />,
-            // [InstructorDetailsTabEnum.FEEDBACK]: <InstructorFeedback />,
-          }[activeTab]
-        }
-      </Paper>
+          [InstructorDetailsTabEnum.COURSES]: <InstructorCoursesTable />,
+          [InstructorDetailsTabEnum.STUDENTS]: <InstructorStudentsTable />,
+          // [InstructorDetailsTabEnum.FEEDBACK]: <InstructorFeedback />,
+        }[activeTab]
+      }
     </>
   );
 };

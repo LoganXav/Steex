@@ -1,15 +1,16 @@
 .Table__root {
-  padding: 1rem;
   overflow-x: scroll;
 }
 
 .Table {
+  /* table-layout: auto;
+  width: auto; */
   min-width: 100%;
   background: inherit;
   position: relative;
   /* text-indent: 0; */
-  /* border-color: inherit; */
-  /* border-collapse: collapse; */
+  border-collapse: separate;
+  border-spacing: 0px 10px;
 }
 
 .Table__header {
@@ -38,7 +39,8 @@
 .Table__header__row,
 .Table__body__row,
 .Table__footer__row {
-  border-bottom: 1px solid lightgray;
+  background-color: #fff;
+  white-space: nowrap;
 }
 
 /* .Table__header__row--relative,
@@ -64,9 +66,12 @@
 .Table__body__row__cell,
 .Table__footer__row__cell {
   position: relative;
-  padding: 5px 0;
-  /* height: 48px; */
+  padding: 10px;
   text-align: left;
+
+  @media (max-width: 768px) {
+    padding: 5px;
+  }
 }
 
 /* .Table__header__row__cell--relative,

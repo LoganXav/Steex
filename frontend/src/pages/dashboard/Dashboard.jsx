@@ -178,8 +178,8 @@ const Dashboard = () => {
                 </span>
               </Typography>
             </div>
-            <DashboardRecentCoursesTable />
           </Paper>
+          <DashboardRecentCoursesTable />
         </div>
       </div>
       <Paper className="w-full lg:w-1/4 p-4">

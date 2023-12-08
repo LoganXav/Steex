@@ -145,11 +145,13 @@
 
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
+  scrollbar-width: thin !important;
   width: 5px !important; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Color of the scrollbar thumb */
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 5px !important;
   border-radius: 5px; /* Rounded corners of the scrollbar thumb */
 }
 
@@ -163,5 +165,5 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Color of the scrollbar track */
+  background-color: transparent; /* Color of the scrollbar thumb */
 }

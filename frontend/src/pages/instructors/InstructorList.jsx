@@ -5,7 +5,6 @@ import useTable from "../../hooks/useTable";
 import InstructorStatusChip from "../../features/instructors/InstructorStatusChip";
 import InstructorRatingChip from "../../features/instructors/InstructorRatingChip";
 import InstructorListAction from "../../features/instructors/InstructorListAction";
-import Paper from "../../libs/mui/Paper";
 import SearchTextField from "../../common/SearchTextField";
 import { useState } from "react";
 
@@ -32,16 +31,14 @@ const Instructors = () => {
         </Typography>
       </Toolbar>
 
-      <Paper className="p-4">
-        <SearchTextField
-          placeholder="Search for instructor..."
-          size="small"
-          value={searchTerm}
-          onChange={handleSearch}
-          className="my-4"
-        />
-        <Table instance={tableInstance} />
-      </Paper>
+      <SearchTextField
+        placeholder="Search for instructor..."
+        size="small"
+        value={searchTerm}
+        onChange={handleSearch}
+        className="my-4"
+      />
+      <Table instance={tableInstance} />
     </>
   );
 };
