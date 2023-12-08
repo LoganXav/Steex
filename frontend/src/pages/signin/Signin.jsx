@@ -23,7 +23,7 @@ import AuthCaption from "features/auth/AuthCaption";
 import { useDispatch } from "react-redux";
 import { loginAction } from "../../configs/StoreActionConfig";
 
-function Signin(props) {
+function Signin() {
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
   const dispatch = useDispatch();

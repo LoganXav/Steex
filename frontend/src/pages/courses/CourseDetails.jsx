@@ -154,7 +154,7 @@ const CourseDetails = () => {
                 10 days left at this price
               </Typography>
               <div className="w-full flex md:flex-col xl:flex-row items-center justify-center gap-3">
-                <Button size="large" className=" w-full" color="primary">
+                <Button size="large" className="w-full" color="primary">
                   Free Trial
                 </Button>
                 <Button

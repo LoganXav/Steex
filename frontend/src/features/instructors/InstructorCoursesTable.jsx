@@ -3,7 +3,7 @@ import Typography from "../../libs/mui/Typography";
 import Table from "../../libs/react-table/Table";
 import InstructorRatingChip from "./InstructorRatingChip";
 import InstructorStatusChip from "./InstructorStatusChip";
-import InstructorListAction from "./InstructorListAction";
+import InstructorCoursesListAction from "./InstructorCoursesListAction";
 import SearchTextField from "../../common/SearchTextField";
 import { useState } from "react";
 
@@ -40,6 +40,7 @@ export default InstructorCoursesTable;
 
 const data = [
   {
+    id: 1,
     courseTitle: "The Complete Shopify Dropship Course",
     price: "451.32",
     duration: "6 months",
@@ -48,6 +49,7 @@ const data = [
     status: true,
   },
   {
+    id: 2,
     courseTitle: "The Complete React Development Course",
     price: "451.32",
     duration: "6 months",
@@ -56,6 +58,7 @@ const data = [
     status: false,
   },
   {
+    id: 3,
     courseTitle: "The Complete Shopify Dropship Course",
     price: "451.32",
     duration: "6 months",
@@ -100,7 +103,7 @@ const columns = [
   {
     header: "Action",
     accessorKey: "actions",
-    cell: ({ row }) => <InstructorListAction data={row.original} />,
+    cell: ({ row }) => <InstructorCoursesListAction data={row.original} />,
     id: "actions",
     maxSize: 40,
   },

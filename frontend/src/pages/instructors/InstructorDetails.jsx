@@ -13,6 +13,7 @@ import { useLocation } from "react-router-dom";
 import Paper from "../../libs/mui/Paper";
 import Tab from "../../libs/mui/Tab";
 import Tabs from "../../libs/mui/Tabs";
+import InstructorReview from "../../features/instructors/InstructorReview";
 
 const InstructorDetails = () => {
   // const StudentTableInstance = useTable({ studentColumns, studentData });
@@ -57,7 +58,7 @@ const InstructorDetails = () => {
               value: InstructorDetailsTabEnum.STUDENTS,
               label: "Students",
             },
-            { value: InstructorDetailsTabEnum.FEEDBACK, label: "Feedback" },
+            { value: InstructorDetailsTabEnum.REVIEW, label: "Review" },
           ].map((tab) => (
             <Tab
               key={tab.label}
@@ -73,7 +74,7 @@ const InstructorDetails = () => {
         {
           [InstructorDetailsTabEnum.COURSES]: <InstructorCoursesTable />,
           [InstructorDetailsTabEnum.STUDENTS]: <InstructorStudentsTable />,
-          // [InstructorDetailsTabEnum.FEEDBACK]: <InstructorFeedback />,
+          [InstructorDetailsTabEnum.REVIEW]: <InstructorReview />,
         }[activeTab]
       }
     </>

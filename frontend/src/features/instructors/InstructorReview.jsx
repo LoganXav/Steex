@@ -1,23 +1,26 @@
-import { Button, Chip, Typography, Rating } from "@mui/material";
+import Button from "../../libs/mui/Button";
+import Chip from "../../libs/mui/Chip";
+import Typography from "../../libs/mui/Typography";
+import Paper from "../../libs/mui/Paper";
+import { Rating } from "@mui/material";
 import { Iconly } from "react-iconly";
 import useToggle from "../../hooks/useToggle";
-import CourseDetailsFeedbackDialogue from "./CourseDetailsFeedbackDialogue";
+import InstructorReviewDialog from "./InstructorReviewDialog";
 import { useSnackbar } from "notistack";
 
-const CourseDetailsFeedback = () => {
+const InstructorReview = () => {
   const [isAddFeedback, toggleAddFeedback] = useToggle();
-
   const { enqueueSnackbar } = useSnackbar();
 
-  const handleAddFeedback = () => {
-    enqueueSnackbar("Your feedback for this course has been submitted", {
+  const handleAddReview = () => {
+    enqueueSnackbar("Your review has been submitted", {
       variant: "success",
     });
     toggleAddFeedback();
   };
 
   return (
-    <>
+    <Paper className="p-4">
       <div className="flex justify-between items-center mb-5">
         <Typography variant="h6" className="font-semibold">
           Ratings & Reviews
@@ -36,7 +39,7 @@ const CourseDetailsFeedback = () => {
             />
           }
         >
-          Give Feedback
+          Give Review
         </Button>
       </div>
       <div className="flex flex-col lg:flex-row w-full gap-4 mt-4">
@@ -120,15 +123,15 @@ const CourseDetailsFeedback = () => {
         </div>
       </div>
       {isAddFeedback && (
-        <CourseDetailsFeedbackDialogue
+        <InstructorReviewDialog
           open={isAddFeedback}
           onClose={toggleAddFeedback}
-          onSubmit={handleAddFeedback}
+          onSubmit={handleAddReview}
           title="Give Feedback"
         />
       )}
-    </>
+    </Paper>
   );
 };
 
-export default CourseDetailsFeedback;
+export default InstructorReview;

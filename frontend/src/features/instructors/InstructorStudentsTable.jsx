@@ -2,7 +2,7 @@ import useTable from "../../hooks/useTable";
 import Typography from "../../libs/mui/Typography";
 import Table from "../../libs/react-table/Table";
 import InstructorStatusChip from "./InstructorStatusChip";
-import InstructorListAction from "./InstructorListAction";
+import InstructorStudentsListAction from "./InstructorStudentsListAction";
 import SearchTextField from "../../common/SearchTextField";
 import { useState } from "react";
 
@@ -39,6 +39,7 @@ export default InstructorStudentsTable;
 
 const data = [
   {
+    id: 1,
     studentName: "Jonathan Gunn",
     emailAddress: "v9melody@email.com",
     contactNumber: "+(234) 8100063819",
@@ -47,6 +48,7 @@ const data = [
     status: true,
   },
   {
+    id: 2,
     studentName: "Victor Melodiaz",
     emailAddress: "v9melody@email.com",
     contactNumber: "+(234) 8100063819",
@@ -55,6 +57,7 @@ const data = [
     status: false,
   },
   {
+    id: 3,
     studentName: "Victor Melodiaz",
     emailAddress: "v9melody@email.com",
     contactNumber: "+(234) 8100063819",
@@ -99,7 +102,7 @@ const columns = [
   {
     header: "Action",
     accessorKey: "actions",
-    cell: ({ row }) => <InstructorListAction data={row.original} />,
+    cell: ({ row }) => <InstructorStudentsListAction data={row.original} />,
     id: "actions",
     maxSize: 40,
   },

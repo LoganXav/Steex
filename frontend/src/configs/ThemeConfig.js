@@ -23,10 +23,10 @@ export const lightTheme = responsiveFontSizes(
         dark: "#181A20",
         contrastText: "#7C7F7B",
       },
-      info: {
-        ...defaultTheme.palette.info,
-        contrastText: "#4AB0C1",
-      },
+      // info: {
+      //   ...defaultTheme.palette.info,
+      //   contrastText: "#4AB0C1",
+      // },
       success: {
         ...defaultTheme.palette.success,
         lighter: alpha(defaultTheme.palette.success.main, 0.2),
@@ -160,6 +160,25 @@ export function customizeTheme(theme) {
           root: ({ theme, ownerState }) => ({
             ...(!isNaN(Number(ownerState.borderRadius))
               ? { borderRadius: Number(ownerState.borderRadius) }
+              : {}),
+            ...(ownerState.variant === "soft"
+              ? {
+                  color:
+                    theme.palette[ownerState.color]?.main ||
+                    theme.palette.grey[500],
+                  backgroundColor: alpha(
+                    theme.palette[ownerState.color]?.main ||
+                      theme.palette.grey[500],
+                    0.2
+                  ),
+                  "&:hover": {
+                    backgroundColor: alpha(
+                      theme.palette[ownerState.color]?.main ||
+                        theme.palette.grey[500],
+                      0.3
+                    ),
+                  },
+                }
               : {}),
           }),
         },

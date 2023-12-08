@@ -66,11 +66,11 @@
 .Table__body__row__cell,
 .Table__footer__row__cell {
   position: relative;
-  padding: 10px;
+  padding: 15px;
   text-align: left;
 
   @media (max-width: 768px) {
-    padding: 5px;
+    padding: 5px 10px;
   }
 }
 

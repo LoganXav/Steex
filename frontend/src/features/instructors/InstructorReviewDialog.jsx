@@ -4,7 +4,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   Rating,
   TextField,
   Typography,
@@ -16,7 +15,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-const CourseDetailsFeedbackDialogue = (props) => {
+const InstructorReviewDialog = (props) => {
   const { open, onClose, onSubmit, title, ...restProps } = props;
   const [value, setValue] = React.useState(3);
 
@@ -100,7 +99,7 @@ const CourseDetailsFeedbackDialogue = (props) => {
             Close
           </Button>
           <Button size="large" color="primary" onClick={onSubmit}>
-            Add Feedback
+            Add Review
           </Button>
         </DialogActions>
       </Dialog>
@@ -108,4 +107,4 @@ const CourseDetailsFeedbackDialogue = (props) => {
   );
 };
 
-export default CourseDetailsFeedbackDialogue;
+export default InstructorReviewDialog;
