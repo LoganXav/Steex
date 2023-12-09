@@ -61,7 +61,7 @@ function ProfileSettingsForm() {
     dataRef.current.formik.setValues({
       ...values,
     });
-  });
+  }, [dataRef]);
 
   const contentProps = {
     ...dataRef.current,
