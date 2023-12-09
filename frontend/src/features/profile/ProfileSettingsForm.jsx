@@ -162,7 +162,7 @@ function ProfileSettingsForm() {
 
           <div className="flex">
             <div className="flex-1" />
-            <div className="max-w-[250px] flex justify-end gap-2 my-10">
+            <div className="w-[280px] flex justify-end gap-2 my-10">
               <Button
                 fullWidth
                 size="large"
