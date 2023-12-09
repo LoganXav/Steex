@@ -22,6 +22,6 @@ export const RouteEnum = {
   INSTRUCTORS: "/instructors",
   INSTRUCTORS_DETAILS: "/instructors/:id",
   PROFILE: "/profile:id",
-  PROFILE_EDIT: "/profile-settings",
-  CONTACT_US_FAQS: "/contact-us/faqs",
+  PROFILE_SETTINGS: "/profile:id/settings",
+  CONTACT_US_FAQS: "/faqs",
 };

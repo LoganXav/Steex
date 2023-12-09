@@ -10,7 +10,7 @@ const ProfileAboutCard = () => {
     <div className="flex-1">
       <div className="flex justify-between items-center">
         <div className="flex-1" />
-        <Button component={Link} to={RouteEnum.PROFILE_EDIT}>
+        <Button component={Link} to={RouteEnum.PROFILE_SETTINGS}>
           Edit Profile
         </Button>
       </div>

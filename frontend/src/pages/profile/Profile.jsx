@@ -28,8 +28,8 @@ function getRoutes() {
         element: lazy(() => import("./ProfileDetails")),
       },
       {
-        path: RouteEnum.PROFILE_EDIT,
-        element: lazy(() => import("./ProfileEdit")),
+        path: RouteEnum.PROFILE_SETTINGS,
+        element: lazy(() => import("./ProfileSettings")),
       },
     ],
     {

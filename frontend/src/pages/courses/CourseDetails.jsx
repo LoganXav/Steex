@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Card,
   Container,
-  FormControl,
-  InputLabel,
-  Select,
   Tabs,
   Tab,
-  MenuItem,
   CardContent,
   Button,
   Avatar,
@@ -20,7 +16,6 @@ import CourseDetailsDescription from "features/courses/CourseDetailsDescription"
 import CourseDetailsVideoTutorials from "features/courses/CourseDetailsVideoTutorials";
 import CourseDetailsFeedback from "features/courses/CourseDetailsFeedback";
 import StarOutlineOutlinedIcon from "@mui/icons-material/StarOutlineOutlined";
-import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
 
 import PageBreadcrumbs from "../../common/PageBreadcrumbs";
 import Toolbar from "../../libs/mui/Toolbar";

@@ -102,16 +102,18 @@ function Signin() {
         </div>
 
         <LoadingButton
-          // loading={selfAuthenticationLoginMutationResult.isLoading}
-          loadingPosition="start"
-          type="submit"
           fullWidth
-          size="large"
           borderRadius="circular"
+          size="large"
           color="primary"
+          onClick={formik.handleSubmit}
+          loading={formik.isSubmitting}
+          loadingPosition="end"
+          endIcon={<></>}
         >
           Sign in
         </LoadingButton>
+
         <div className="my-4">
           <Divider>Sign in with</Divider>
         </div>
