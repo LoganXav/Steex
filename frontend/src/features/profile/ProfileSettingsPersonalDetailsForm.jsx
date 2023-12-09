@@ -14,7 +14,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
           </Typography>
 
           <div className="grid grid-cols-2 gap-4 mt-4">
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 md:col-span-1">
               <Typography variant="p" className="mb-2" color="GrayText">
                 First Name
               </Typography>
@@ -24,7 +24,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
               ></TextField>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 md:col-span-1">
               <Typography variant="p" className="mb-2" color="GrayText">
                 Last Name
               </Typography>
@@ -34,7 +34,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
               ></TextField>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 md:col-span-1">
               <Typography variant="p" className="mb-2" color="GrayText">
                 Phone Number
               </Typography>
@@ -44,7 +44,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
               ></TextField>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 md:col-span-1">
               <Typography variant="p" className="mb-2" color="GrayText">
                 Email Address
               </Typography>
@@ -54,7 +54,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
               ></TextField>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 md:col-span-1">
               <Typography variant="p" className="mb-2" color="GrayText">
                 Date of Birth
               </Typography>
@@ -64,7 +64,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
               ></TextField>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 md:col-span-1">
               <Typography variant="p" className="mb-2" color="GrayText">
                 Joining Date
               </Typography>
@@ -93,7 +93,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
               </TextField>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 md:col-span-1">
               <Typography variant="p" className="mb-2" color="GrayText">
                 Designation
               </Typography>
@@ -103,7 +103,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
               ></TextField>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col col-span-2 md:col-span-1">
               <Typography variant="p" className="mb-2" color="GrayText">
                 Website
               </Typography>
@@ -113,7 +113,7 @@ function ProfileSettingsPersonalDetailsForm({ formik }) {
               ></TextField>
             </div>
 
-            <div className="col-span-2 grid grid-cols-3 gap-4">
+            <div className="md:col-span-2 grid md:grid-cols-3 gap-4">
               <div className="flex flex-col">
                 <Typography variant="p" className="mb-2" color="GrayText">
                   City
