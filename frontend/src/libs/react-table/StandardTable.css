@@ -25,7 +25,6 @@
 .Table__header,
 .Table__footer {
   font-weight: 700;
-  /* @apply mui-text-secondary bg-inherit; */
 }
 
 /* .Table__header, */
@@ -39,7 +38,9 @@
 .Table__header__row,
 .Table__body__row,
 .Table__footer__row {
-  background-color: #fff;
+  /* background-color: #fff; */
+  @apply bg-mui-primary-lighter text-mui-primary-light;
+
   white-space: nowrap;
 }
 

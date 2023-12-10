@@ -11,7 +11,7 @@ export const lightTheme = responsiveFontSizes(
         dark: "#3258D3",
 
         lighter: "#ffff",
-        light: "#fff",
+        light: "#000",
 
         // darker: "#0F274D",
         // darkAlt: "#193F7C",
