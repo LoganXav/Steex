@@ -24,7 +24,7 @@ function ProfileSettingsForm() {
 
   const formik = useFormik({
     initialValues: {
-      Github: "git",
+      Github: "",
       Website: "",
       Twitter: "",
       LinkedIn: "",

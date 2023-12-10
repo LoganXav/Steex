@@ -1,8 +1,15 @@
-// import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleThemeModeAction } from "configs/StoreSliceConfig";
 
 function useThemeMode() {
-  return "light";
-  // return useSelector((state) => state.global.themeMode);
+  const dispatch = useDispatch();
+  const themeMode = useSelector((state) => state.global.themeMode);
+
+  function toggleThemeMode(payload) {
+    dispatch(toggleThemeModeAction(payload));
+  }
+
+  return [themeMode, toggleThemeMode];
 }
 
 export default useThemeMode;

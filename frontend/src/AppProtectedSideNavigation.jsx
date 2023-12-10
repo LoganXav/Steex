@@ -18,12 +18,13 @@ import SteexLogo from "./assets/steex.png";
 
 // import useAuthUser from "hooks/useAuthUser";
 import useSideNavigationToggle from "./hooks/useSideNavigationToggle";
+import useLogout from "./hooks/useLogout";
 
 function AppProtectedSideNavigation() {
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
   const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
   const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
-  // const authUser = useAuthUser();
+  const { logout } = useLogout();
 
   return (
     <Drawer
@@ -32,7 +33,7 @@ function AppProtectedSideNavigation() {
       PaperProps={{
         style: { width: APP_SIDE_MENU_WIDTH },
         className:
-          "flex flex-col bg-mui-secondary-dark !bg-opacity-0 px-3 text-mui-primary-light rounded-md xl:h-[85%] xl:ml-5 xl:translate-y-24 max-h-full",
+          "flex flex-col bg-mui-secondary-dark !bg-opacity-0 px-3  rounded-md xl:h-[85%] xl:ml-5 xl:translate-y-24 max-h-full",
       }}
       onClose={() => toggleSideNavigation()}
     >
@@ -41,7 +42,9 @@ function AppProtectedSideNavigation() {
           <img src={SteexLogo} />
         </div>
       </Toolbar>
-      <Typography variant="caption">MENU</Typography>
+      <Typography className="text-mui-primary-tertiary" variant="caption">
+        MENU
+      </Typography>
       <List className="flex-1 min-h-0 mt-3">
         {LINKS.map((item, index) => {
           return <AppProtectedSideNavigationItem item={item} key={index} />;
@@ -57,6 +60,7 @@ function AppProtectedSideNavigation() {
               <Iconly size="small" name="Logout" />
             </IconButton>
           }
+          onClick={() => logout()}
         >
           Logout
         </Button>

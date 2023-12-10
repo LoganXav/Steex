@@ -17,8 +17,8 @@ function AppProtectedSideNavigationItem({ item, index }) {
       className={clsx(
         "rounded px-0 py-2",
         match
-          ? "bg-mui-secondary-lightAlt text-mui-primary-lighter"
-          : "text-mui-primary-light hover:text-mui-primary-lighter transition ease duration-150 "
+          ? "bg-mui-secondary-lightAlt text-mui-primary-light"
+          : "text-mui-primary-tertiary hover:text-mui-primary-light transition ease duration-150 "
       )}
       // {...restProps}
     >
@@ -33,8 +33,8 @@ function AppProtectedSideNavigationItem({ item, index }) {
       </IconButton>
       <Typography
         className={clsx(
-          "ml-2",
-          !!match && "font-semibold text-mui-primary-contrastText"
+          "ml-2 text-mui-primary-tertiary",
+          !!match && "font-semibold !text-mui-primary-contrastText"
         )}
       >
         {name}

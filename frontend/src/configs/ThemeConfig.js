@@ -9,10 +9,12 @@ export const lightTheme = responsiveFontSizes(
       primary: {
         main: "#3762EA",
         dark: "#3258D3",
+
+        lighter: "#ffff",
+        light: "#fff",
+
         // darker: "#0F274D",
         // darkAlt: "#193F7C",
-        light: "#97979A",
-        lighter: "#EEF0F7",
         lightAlt: "#F7F7F7",
         tertiary: "#98A6Ad",
         // contrastText: "#F7F7F7",
@@ -23,10 +25,18 @@ export const lightTheme = responsiveFontSizes(
         dark: "#181A20",
         contrastText: "#7C7F7B",
       },
-      // info: {
-      //   ...defaultTheme.palette.info,
-      //   contrastText: "#4AB0C1",
-      // },
+      text: {
+        ...defaultTheme.palette.text,
+        default: "#000",
+      },
+      white: {
+        ...defaultTheme.palette.white,
+        default: "#fff",
+      },
+      info: {
+        ...defaultTheme.palette.info,
+        contrastText: "#4AB0C1",
+      },
       success: {
         ...defaultTheme.palette.success,
         lighter: alpha(defaultTheme.palette.success.main, 0.2),
@@ -39,10 +49,6 @@ export const lightTheme = responsiveFontSizes(
         ...defaultTheme.palette.error,
         lighter: alpha(defaultTheme.palette.error.main, 0.2),
       },
-      info: {
-        ...defaultTheme.palette.info,
-        light: alpha(defaultTheme.palette.info.main, 0.2),
-      },
       background: {
         ...defaultTheme.palette.background,
         default: "#F7F7F7",
@@ -51,7 +57,54 @@ export const lightTheme = responsiveFontSizes(
   })
 );
 export const darkTheme = responsiveFontSizes(
-  customizeTheme({ palette: { mode: "dark" } })
+  customizeTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#3762EA",
+        dark: "#3258D3",
+
+        lighter: "#181A20",
+        light: "#fff",
+
+        // darker: "#0F274D",
+        // darkAlt: "#193F7C",
+        lightAlt: "#F7F7F7",
+        tertiary: "#98A6Ad",
+        contrastText: "#F7F7F7",
+      },
+      secondary: {
+        lightAlt: "#222328",
+        main: "#fff",
+        dark: "#181A20",
+        contrastText: "#7C7F7B",
+      },
+      text: {
+        ...defaultTheme.palette.text,
+        default: "#fff",
+      },
+      info: {
+        ...defaultTheme.palette.info,
+        contrastText: "#4AB0C1",
+      },
+      success: {
+        ...defaultTheme.palette.success,
+        lighter: alpha(defaultTheme.palette.success.main, 0.2),
+      },
+      warning: {
+        ...defaultTheme.palette.warning,
+        lighter: alpha(defaultTheme.palette.warning.main, 0.2),
+      },
+      error: {
+        ...defaultTheme.palette.error,
+        lighter: alpha(defaultTheme.palette.error.main, 0.2),
+      },
+      background: {
+        ...defaultTheme.palette.background,
+        default: "#333",
+      },
+    },
+  })
 );
 
 /**
@@ -72,19 +125,19 @@ export function customizeTheme(theme) {
       },
     },
     typography: {
-      // fontFamily: [
-      //   "Segoe UI",
-      //   "-apple-system",
-      //   "BlinkMacSystemFont",
-      //   "Roboto",
-      //   "Oxygen",
-      //   "Ubuntu",
-      //   "Cantarell",
-      //   "Fira Sans",
-      //   "Droid Sans",
-      //   "Helvetica Neue",
-      //   "sans-serif",
-      // ].join(),
+      fontFamily: [
+        "Segoe UI",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Roboto",
+        "Oxygen",
+        "Ubuntu",
+        "Cantarell",
+        "Fira Sans",
+        "Droid Sans",
+        "Helvetica Neue",
+        "sans-serif",
+      ].join(),
       fontSize: 12,
       color: "#000051",
       body1: {
@@ -215,6 +268,16 @@ export function customizeTheme(theme) {
           },
         },
       },
+      MuiTypography: {
+        // defaultProps: { variant: "soft" },
+        styleOverrides: {
+          root: ({ theme }) => {
+            return {
+              color: theme.palette.text.default,
+            };
+          },
+        },
+      },
       MuiContainer: {
         // defaultProps: { variant: "soft" },
         styleOverrides: {
@@ -253,11 +316,20 @@ export function customizeTheme(theme) {
           elevation: 0,
           borderRadius: "circular",
         },
-        // styleOverrides: {
-        //   root: {
-        //     padding: "16px",
-        //   },
-        // },
+        styleOverrides: {
+          root: ({ theme, ownerState }) => {
+            return {
+              boxShadow: `0px 2px 4px -1px  ${alpha(
+                theme.palette.success.main,
+                0.06
+              )}`,
+              color:
+                theme.palette[ownerState.color]?.main ||
+                theme.palette.grey[500],
+              backgroundColor: alpha(theme.palette.primary.lighter, 1),
+            };
+          },
+        },
         variants: [
           {
             props: { borderRadius: "default" },

@@ -9,7 +9,7 @@ import useThemeMode from "./hooks/useThemeMode";
  */
 export function AppThemeProvider(props) {
   const isSystemDark = useMediaQuery("(prefers-color-scheme: dark)");
-  const themeMode = useThemeMode();
+  const [themeMode, toogleThemeMode] = useThemeMode();
 
   const isDark =
     (themeMode === "media" && isSystemDark) || themeMode === "dark";
@@ -18,12 +18,10 @@ export function AppThemeProvider(props) {
 
   useEffect(() => {
     if (isDark) {
-      // document.documentElement.classList.add("dark");
       document.documentElement
         .getElementsByTagName("body")[0]
         .classList.add("dark");
     } else {
-      // document.documentElement.classList.remove("dark");
       document.documentElement
         .getElementsByTagName("body")[0]
         .classList.remove("dark");

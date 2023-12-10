@@ -1,19 +1,16 @@
 import React from "react";
 import {
   AppBar,
-  Avatar,
   ButtonBase,
-  Container,
-  Divider,
-  Icon,
-  IconButton,
   ListItemButton,
-  Popover,
-  Slide,
-  Toolbar,
   Typography,
   useMediaQuery,
 } from "@mui/material";
+
+import Container from "../libs/mui/Container";
+import Toolbar from "../libs/mui/Toolbar";
+import IconButton from "../libs/mui/IconButton";
+import Avatar from "../libs/mui/Avatar";
 import clsx from "clsx";
 import {
   APP_SIDE_MENU_WIDTH,
@@ -32,7 +29,8 @@ import { Iconly } from "react-iconly";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined";
-import SteexLogo from "../assets/steex.png";
+import Popover from "../libs/mui/Popover";
+import useThemeMode from "../hooks/useThemeMode";
 /**
  *
  * @param {PublicPageHeaderProps} props
@@ -48,6 +46,7 @@ function ProtectedPageHeader(props) {
   // const authUser = useAuthUser();
 
   const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
+  const [themeMode, toggleThemeMode] = useThemeMode();
 
   const infoPopover = usePopover();
 
@@ -74,7 +73,7 @@ function ProtectedPageHeader(props) {
       >
         <Container
           maxWidth="false"
-          className="py-1 bg-white border-b rounded-none text-black"
+          className="py-1 rounded-none text-mui-secondary-main bg-mui-background-default"
         >
           <Toolbar>
             {!islg && (
@@ -86,16 +85,23 @@ function ProtectedPageHeader(props) {
                 />
               </IconButton>
             )}
-            <div className="mx-auto w-32 lg:hidden">
-              <img src={SteexLogo} />
-            </div>
+
             <SearchTextField size="small" className="hidden lg:flex" />
             <div className="flex-1" />
             <div className="flex items-center gap-4">
               <IconButton variant="soft" size="medium">
                 <FullscreenExitOutlinedIcon />
               </IconButton>
-              <IconButton variant="soft" size="medium">
+
+              <IconButton
+                variant="soft"
+                size="medium"
+                onClick={() =>
+                  themeMode === "dark"
+                    ? toggleThemeMode("light")
+                    : toggleThemeMode("dark")
+                }
+              >
                 <WbSunnyOutlinedIcon />
               </IconButton>
               <IconButton
@@ -115,9 +121,7 @@ function ProtectedPageHeader(props) {
                     <Typography className="font-semibold ">
                       Richard Marshall
                     </Typography>
-                    <Typography className="text-mui-primary-tertiary">
-                      Student
-                    </Typography>
+                    <Typography className="">Student</Typography>
                   </div>
                 )}
               </ButtonBase>
