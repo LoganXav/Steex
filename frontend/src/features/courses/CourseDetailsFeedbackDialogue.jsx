@@ -1,16 +1,13 @@
 import React from "react";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  Rating,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Rating } from "@mui/material";
 import Slide from "@mui/material/Slide";
 import { Iconly } from "react-iconly";
+import Dialog from "../../libs/mui/Dialog";
+import DialogContent from "../../libs/mui/DialogContent";
+import Typography from "../../libs/mui/Typography";
+import DialogActions from "../../libs/mui/DialogActions";
+import Button from "../../libs/mui/Button";
+import TextField from "../../libs/mui/TextField";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -29,7 +26,7 @@ const CourseDetailsFeedbackDialogue = (props) => {
         keepMounted
         onClose={onClose}
         aria-describedby="alert-dialog-slide-description"
-        maxWidth="md"
+        // maxWidth="md"
         {...restProps}
       >
         {/* <DialogTitleXCloseButton onClose={onClose} /> */}
@@ -61,25 +58,12 @@ const CourseDetailsFeedbackDialogue = (props) => {
             />
           </div>
           <div className="my-4 flex flex-col gap-4">
-            {/* <Typography component="legend">Feedback Title *</Typography> */}
-            <TextField
-              id="outlined-basic"
-              label="Description"
-              placeholder="Feedback Description"
-              variant="outlined"
-              fullWidth
-            />
+            <Typography component="legend">Feedback Description *</Typography>
+            <TextField id="outlined-basic" variant="outlined" fullWidth />
           </div>
           <div className="my-4 flex flex-col gap-4">
-            {/* <Typography component="legend">Feedback *</Typography> */}
-            <TextField
-              id="outlined-textarea"
-              label="Feedback"
-              placeholder="Enter Feedback"
-              rows={4}
-              multiline
-              fullWidth
-            />
+            <Typography component="legend">Feedback *</Typography>
+            <TextField id="outlined-textarea" rows={4} multiline fullWidth />
           </div>
         </DialogContent>
         <DialogActions className="p-6 pt-0">

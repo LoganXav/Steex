@@ -118,7 +118,9 @@ function ProtectedPageHeader(props) {
                     <Typography className="font-semibold ">
                       Richard Marshall
                     </Typography>
-                    <Typography className="">Student</Typography>
+                    <Typography className="text-mui-primary-tertiary">
+                      Student
+                    </Typography>
                   </div>
                 )}
               </ButtonBase>

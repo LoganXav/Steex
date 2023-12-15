@@ -34,7 +34,7 @@ const CoursesListCard = ({
   rating,
 }) => {
   return (
-    <Card className="border-none bg-mui-secondary-lightAlt">
+    <Card className="border-none">
       <Container
         variant="soft"
         color={color}

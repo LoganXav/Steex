@@ -15,7 +15,6 @@ const SearchTextField = forwardRef(
     return (
       <TextField
         ref={ref}
-        className="!placeholder-mui-primary-tertiary"
         placeholder={label ? label : "Search"}
         InputProps={{
           ...InputProps,
@@ -27,7 +26,7 @@ const SearchTextField = forwardRef(
             ),
           }),
           style: {
-            color: "var(--color-mui-primary-contrastText)",
+            color: "var(--color-mui-text-default)",
             borderColor: "var(--color-mui-primary-contrastText)",
             outline: "none",
           },

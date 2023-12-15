@@ -85,9 +85,9 @@ function ProfileSettingsForm() {
   return (
     <>
       <div className="flex flex-col md:flex-row gap-4">
-        <Paper className="w-full md:w-1/4 flex flex-col gap-4 justify-center items-center p-4">
-          <div className="w-full flex flex-col items-center gap-2 border-dashed border-b pt-10 pb-5">
-            <div className="border border-[lightgray] p-1 rounded-full w-24 h-24">
+        <Paper className="w-full md:h-1/2 md:w-1/4 flex flex-col gap-4 justify-center items-center p-4">
+          <div className="w-full flex flex-col items-center gap-2 border-dashed border-b py-6">
+            <div className="border border-[lightgray] p-1 rounded-full w-24">
               <Avatar
                 src="https://themes.themesbrand.com/steex/react/default/static/media/avatar-1.8f473ed0f0cfa8c1df8a.jpg"
                 className="w-full h-full"
@@ -131,7 +131,7 @@ function ProfileSettingsForm() {
                   className="flex justify-between items-center gap-4"
                   key={index}
                 >
-                  <div className="rounded-full bg-mui-primary-lighter w-10 h-10"></div>
+                  {/* <div className="rounded-full bg-mui-primary-lighter w-10 h-10"></div> */}
                   <TextField
                     fullWidth
                     size="small"

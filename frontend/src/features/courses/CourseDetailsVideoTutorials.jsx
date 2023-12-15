@@ -18,9 +18,7 @@ const CourseDetailsVideoTutorials = () => {
         },
         {
           category: "Introduction to Javascript + Setup (4 Lessons)",
-          titles: [
-            "What Javascript framework should I learn?",
-          ],
+          titles: ["What Javascript framework should I learn?"],
         },
         {
           category: "Introduction to Javascript + Setup (4 Lessons)",
@@ -28,7 +26,6 @@ const CourseDetailsVideoTutorials = () => {
             "What Javascript framework should I learn?",
             "What Javascript framework should I learn?",
             "What Javascript framework should I learn?",
-
           ],
         },
       ].map(({ category, titles }, index) => (
@@ -45,9 +42,13 @@ const CourseDetailsVideoTutorials = () => {
               <div className="flex justify-between border p-2 sm:p-4 cursor-pointer">
                 <div className="flex items-center gap-2">
                   <Iconly size="medium" name="Play" />
-                  <Typography>{title}</Typography>
+                  <Typography className="text-mui-primary-tertiary">
+                    {title}
+                  </Typography>
                 </div>
-                <Typography noWrap>03:20 min</Typography>
+                <Typography noWrap className="text-mui-primary-tertiary">
+                  03:20 min
+                </Typography>
               </div>
             </AccordionDetails>
           ))}

@@ -1,14 +1,5 @@
 import { useState } from "react";
-import {
-  Card,
-  Container,
-  Tabs,
-  Tab,
-  CardContent,
-  Button,
-  Avatar,
-  Rating,
-} from "@mui/material";
+import { Card, CardContent, Rating } from "@mui/material";
 import ReactLogo from "../../assets/react.png";
 import CourseListChip from "../../features/courses/CourseListChip";
 import { CourseDetailsTabEnum } from "features/courses/CourseConstants";
@@ -23,6 +14,11 @@ import Typography from "../../libs/mui/Typography";
 import Paper from "../../libs/mui/Paper";
 
 import { RouteEnum } from "../../constants/RouterConstants";
+import Tab from "../../libs/mui/Tab";
+import Tabs from "../../libs/mui/Tabs";
+import Button from "../../libs/mui/Button";
+import Avatar from "../../libs/mui/Avatar";
+import Container from "../../libs/mui/Container";
 
 const CourseDetails = () => {
   const [activeTab, setActiveTab] = useState(CourseDetailsTabEnum.DESCRIPTION);
@@ -105,7 +101,7 @@ const CourseDetails = () => {
                   key={tab.label}
                   value={tab.value}
                   label={tab.label}
-                  className="text-[14px] text-mui-text-default"
+                  className="text-[14px]"
                 />
               ))}
             </Tabs>
@@ -126,7 +122,7 @@ const CourseDetails = () => {
         </Container>
 
         <Container disableGutters className="lg:w-1/4 flex flex-col gap-4">
-          <Card className="bg-white border-none">
+          <Card className="border-none">
             <Container variant="soft" color="info">
               <div className="relative p-5">
                 <img className="w-32 mx-auto opacity-20" src={ReactLogo} />
@@ -138,7 +134,10 @@ const CourseDetails = () => {
             </Container>
             <CardContent>
               <div className="flex gap-2 items-center">
-                <Typography variant="h5" className="font-semibold text-black">
+                <Typography
+                  variant="h5"
+                  className="font-semibold text-mui-text-default"
+                >
                   $249.95
                 </Typography>
                 <Typography className="text-mui-primary-tertiary line-through">
@@ -194,7 +193,7 @@ const CourseDetails = () => {
             <div className="flex text-start items-center my-4">
               <Avatar className="mr-2 w-10 h-10 rounded-md" src=""></Avatar>
               <div>
-                <Typography className="font-semibold text-black">
+                <Typography className="font-semibold text-mui-text-default">
                   Morgan Satterfield
                 </Typography>
                 <Typography className="text-mui-primary-tertiary">
@@ -202,10 +201,7 @@ const CourseDetails = () => {
                 </Typography>
               </div>
             </div>
-            <Button
-              size="large"
-              className="w-full text-mui-info-contrastText bg-mui-info-light hover:text-white hover:bg-mui-info-contrastText"
-            >
+            <Button size="large" className="w-full">
               Get in Touch
             </Button>
           </Paper>
@@ -216,10 +212,7 @@ const CourseDetails = () => {
             <Typography className="text-mui-primary-tertiary">
               Access all courses anywhere and any time
             </Typography>
-            <Button
-              size="large"
-              className="bg-mui-primary-lighter text-black font-semibold mt-8 max-w-sm"
-            >
+            <Button size="large" className="font-semibold mt-8 max-w-sm">
               Join Now
             </Button>
           </Card>

@@ -1,9 +1,7 @@
 import {
   Avatar,
-  Button,
   ButtonBase,
   Card,
-  Box,
   CardContent,
   CardActions,
   Typography,
@@ -33,7 +31,7 @@ const SubscriptionListCard = ({
   rating,
 }) => {
   return (
-    <Card className="bg-white border-none md:flex">
+    <Card className="border-none md:flex">
       <Container
         variant="soft"
         color={color}
@@ -49,7 +47,7 @@ const SubscriptionListCard = ({
           />
         </div>
       </Container>
-      <CardContent className="text-black flex-1 border-b-4 border-green-500 flex flex-col justify-between py-0 pt-3">
+      <CardContent className="flex-1 border-b-4 border-green-500 flex flex-col justify-between py-0 pt-3">
         <div className="flex items-center justify-between">
           <SubscriptionListChip
             size="small"
@@ -83,46 +81,22 @@ const SubscriptionListCard = ({
         </Typography>
         <div className="flex flex-wrap items-center gap-2 my-2 text-mui-primary-tertiary">
           <div className="flex gap-1">
-            <Iconly
-              size="small"
-              name="TimeCircle"
-              // onClick={() => toggleSideNavigation()}
-              // primaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-              // secondaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-            />
-            <Typography>{duration}</Typography>
+            <Iconly size="small" name="TimeCircle" />
+            <Typography className="text-mui-primary-tertiary">
+              {duration}
+            </Typography>
           </div>
           <div className="flex gap-1">
-            <Iconly
-              size="small"
-              name="People"
-              // onClick={() => toggleSideNavigation()}
-              // primaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-              // secondaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-            />
-            <Typography>{students}</Typography>
+            <Iconly size="small" name="People" />
+            <Typography className="text-mui-primary-tertiary">
+              {students}
+            </Typography>
           </div>
           <div className="flex gap-1">
-            <Iconly
-              size="small"
-              name="Bookmark"
-              // onClick={() => toggleSideNavigation()}
-              // primaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-              // secondaryColor={
-              //   resolvedTailwindConfig.theme.colors.primary.main
-              // }
-            />
-            <Typography>{lessons} Lessons</Typography>
+            <Iconly size="small" name="Bookmark" />
+            <Typography className="text-mui-primary-tertiary">
+              {lessons} Lessons
+            </Typography>
           </div>
         </div>
         <CardActions className="flex justify-between items-center border-t text-black px-0">

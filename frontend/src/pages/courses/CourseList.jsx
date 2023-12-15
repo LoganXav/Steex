@@ -40,7 +40,12 @@ const CoursesList = () => {
 
           <div className="flex-1" />
           <FormControl fullWidth className="md:w-28">
-            <InputLabel id="demo-simple-select-label">Status</InputLabel>
+            <InputLabel
+              id="demo-simple-select-label"
+              className="text-mui-primary-tertiary"
+            >
+              Status
+            </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"

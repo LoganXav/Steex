@@ -23,7 +23,7 @@ export const lightTheme = responsiveFontSizes(
         lightAlt: "#ffff",
         // lightAlt: "#222328",
         main: "#1E1A22",
-        dark: "#181A20",
+        dark: "#222328",
         contrastText: "#7C7F7B",
       },
       text: {
@@ -75,9 +75,9 @@ export const darkTheme = responsiveFontSizes(
         contrastText: "#F7F7F7",
       },
       secondary: {
-        lightAlt: "#222328",
+        lightAlt: "#181A20",
         main: "#fff",
-        dark: "#181A20",
+        dark: "#222328",
         contrastText: "#7C7F7B",
       },
       text: {
@@ -182,8 +182,8 @@ export function customizeTheme(theme) {
       MuiTabs: {
         defaultProps: {
           variant: "scrollable",
-          scrollButtons: "auto",
-          allowScrollButtonsMobile: true,
+          scrolls: "auto",
+          allowScrollsMobile: true,
         },
       },
       MuiLoadingButton: {
@@ -237,20 +237,19 @@ export function customizeTheme(theme) {
           }),
         },
       },
-      MuiInputBase: {
-        styleOverrides: {
-          root: ({ theme, ownerState }) => ({
-            "&.MuiInputBase-formControl": {
-              // borderRadius: 24,
-            },
-          }),
-        },
-      },
+      // MuiInputBase: {
+      //   styleOverrides: {
+      //     root: ({ theme, ownerState }) => {
+      //       return { color: theme.palette.text.default };
+      //     },
+      //   },
+      // },
       MuiDialog: {
         defaultProps: {
-          maxWidth: "xs",
+          maxWidth: "md",
         },
       },
+
       MuiChip: {
         defaultProps: { variant: "soft" },
         styleOverrides: {
@@ -270,11 +269,31 @@ export function customizeTheme(theme) {
         },
       },
       MuiTypography: {
-        // defaultProps: { variant: "soft" },
         styleOverrides: {
           root: ({ theme }) => {
             return {
               color: theme.palette.text.default,
+            };
+          },
+        },
+      },
+      MuiDateCalendar: {
+        styleOverrides: {
+          root: ({ theme }) => {
+            return {
+              color: theme.palette.text.default,
+            };
+          },
+        },
+      },
+      MuiTab: {
+        styleOverrides: {
+          root: ({ theme }) => {
+            return {
+              color: theme.palette.primary.tertiary,
+              "&.Mui-selected": {
+                color: theme.palette.text.default,
+              },
             };
           },
         },
@@ -301,11 +320,14 @@ export function customizeTheme(theme) {
         styleOverrides: {
           root: ({ theme, ownerState }) => {
             const mainColor =
-              theme.palette[ownerState.color]?.main || theme.palette.grey[500];
+              theme.palette[ownerState.color]?.main ||
+              theme.palette.secondary.lightAlt;
 
             return {
               color: mainColor,
-              backgroundColor: alpha(mainColor, 0.1),
+              backgroundColor: theme.palette[ownerState.color]
+                ? alpha(mainColor, 0.1)
+                : theme.palette.secondary.lightAlt,
               border: `1px solid ${alpha(mainColor, 0.3)}`, // Border color with alpha
               borderRadius: theme.shape.borderRadius, // Use the theme's border radius
             };

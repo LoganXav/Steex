@@ -2,10 +2,10 @@ import Paper from "../../libs/mui/Paper";
 import Typography from "../../libs/mui/Typography";
 import Divider from "../../libs/mui/Divider";
 
-const SubscriptionScheduleCard = () => {
+const SubscriptionScheduleCard = ({ key }) => {
   return (
     <>
-      <Paper className="w-full flex justify-between p-4">
+      <Paper key={key} className="w-full flex justify-between p-4">
         <div className="flex gap-3">
           <div className="text-mui-primary-tertiary">
             <Typography>16</Typography>

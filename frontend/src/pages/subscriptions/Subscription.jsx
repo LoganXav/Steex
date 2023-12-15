@@ -1,8 +1,5 @@
-import React from "react";
-import LoadingButton from "../../libs/mui/LoadingButton";
 import Paper from "../../libs/mui/Paper";
 import Typography from "../../libs/mui/Typography";
-import Button from "../../libs/mui/Button";
 import dayjs from "dayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -15,7 +12,6 @@ import SubscriptionScheduleCard from "../../features/subscriptions/SubscriptionS
 import ReactLogo from "../../assets/react.png";
 import ShopifyLogo from "../../assets/shopify.png";
 import LaravelLogo from "../../assets/laravel.png";
-import { Link } from "react-router-dom";
 
 const Subscriptions = () => {
   return (
@@ -26,7 +22,6 @@ const Subscriptions = () => {
             <Typography variant="h6" className="font-semibold">
               My Subscriptions
             </Typography>
-            <Button>Upgrade Courses</Button>
           </Paper>
           <div className="flex flex-col gap-4 mt-5">
             {[
@@ -176,7 +171,7 @@ const Subscriptions = () => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DateCalendar"]}>
                 <DateCalendar
-                  referenceDate={dayjs("2022-04-17")}
+                  referenceDate={dayjs("2023-12-15")}
                   views={["year", "month", "day"]}
                 />
               </DemoContainer>
@@ -186,8 +181,8 @@ const Subscriptions = () => {
             Course Schedule
           </Typography>
 
-          {[1, 2, 3].map(() => (
-            <SubscriptionScheduleCard />
+          {[1, 2, 3].map((index) => (
+            <SubscriptionScheduleCard key={index} />
           ))}
         </div>
       </div>

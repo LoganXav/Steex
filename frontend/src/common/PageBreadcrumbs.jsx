@@ -9,10 +9,14 @@ function PageBreadcrumbs(props) {
   const { breadcrumbs, ...rest } = props;
 
   return (
-    <Breadcrumbs {...rest}>
+    <Breadcrumbs {...rest} className="text-mui-primary-tertiary">
       {breadcrumbs.map(({ name, ...restProps }, index) => {
         return index !== breadcrumbs?.length - 1 ? (
-          <RouterLink key={index} {...restProps}>
+          <RouterLink
+            key={index}
+            {...restProps}
+            className="text-mui-primary-tertiary underline"
+          >
             {name}
           </RouterLink>
         ) : (
