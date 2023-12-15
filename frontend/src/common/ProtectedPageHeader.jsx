@@ -30,6 +30,7 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined";
 import Popover from "../libs/mui/Popover";
 import useThemeMode from "../hooks/useThemeMode";
+import GreetingMessage from "./GreetingMessage";
 /**
  *
  * @param {PublicPageHeaderProps} props
@@ -83,7 +84,9 @@ function ProtectedPageHeader(props) {
               </IconButton>
             )}
 
-            <SearchTextField size="small" className="hidden lg:flex" />
+            <div className="hidden md:flex">
+              <GreetingMessage name="Richard" />
+            </div>
             <div className="flex-1" />
             <div className="flex items-center gap-4">
               <IconButton variant="soft" size="medium">
