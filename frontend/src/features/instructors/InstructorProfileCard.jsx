@@ -33,15 +33,30 @@ const InstructorProfileCard = () => {
             <div className="flex flex-wrap items-center gap-2 my-2 text-mui-primary-tertiary">
               <div className="flex gap-1">
                 <Iconly size="small" name="TimeCircle" />
-                <Typography variant="body2">Pheonix, USA</Typography>
+                <Typography
+                  variant="body2"
+                  className="text-mui-primary-tertiary"
+                >
+                  Pheonix, USA
+                </Typography>
               </div>
               <div className="flex gap-1">
                 <Iconly size="small" name="People" />
-                <Typography variant="body2">874 Students</Typography>
+                <Typography
+                  variant="body2"
+                  className="text-mui-primary-tertiary"
+                >
+                  874 Students
+                </Typography>
               </div>
               <div className="flex gap-1">
                 <Iconly size="small" name="Bookmark" />
-                <Typography variant="body2">231 Courses</Typography>
+                <Typography
+                  variant="body2"
+                  className="text-mui-primary-tertiary"
+                >
+                  231 Courses
+                </Typography>
               </div>
             </div>
           </div>
@@ -55,35 +70,29 @@ const InstructorProfileCard = () => {
           <div>
             <div className="flex gap-3 items-center">
               <Iconly size="small" name="Folder" />
-              <Typography>
+              <Typography className="text-mui-primary-tertiary">
                 Master of Engineering in California State University System
               </Typography>
             </div>
             <div className="flex gap-3 items-center mt-4">
               <Button>Connect</Button>
               <InstructorProfileChip
-                size="small"
                 label={
                   <MessageOutlinedIcon
                     style={{ width: "15px", color: "grey" }}
                   />
                 }
-                className="!rounded-sm h-8 cursor-pointer"
               />
               <InstructorProfileChip
-                size="small"
                 type="option"
                 label={<MoreVertIcon style={{ width: "15px" }} />}
-                className="!rounded-sm h-8 cursor-pointer"
               />
             </div>
           </div>
         </div>
         <div>
           <div>
-            <Typography className="text-mui-primary-tertiary">
-              Languages
-            </Typography>
+            <Typography className="text-mui-text-default">Languages</Typography>
 
             <div className="flex gap-2 mt-2">
               {[1, 2, 3].map((i) => (
@@ -98,7 +107,7 @@ const InstructorProfileCard = () => {
           </div>
 
           <div className="mt-4 max-w-xs">
-            <Typography className="text-mui-primary-tertiary">
+            <Typography className="text-mui-text-default">
               Featured Skills
             </Typography>
             <div className="flex gap-2 mt-2 flex-wrap">

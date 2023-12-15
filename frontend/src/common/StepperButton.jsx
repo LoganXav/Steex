@@ -13,7 +13,7 @@ export default function StepperButton(props) {
   return (
     <Button
       {...props}
-      color={clsx(selected ? "primary" : "inherit")}
+      color={clsx(selected ? "info" : "inherit")}
       rounded="circular"
       variant="soft"
       className={clsx(

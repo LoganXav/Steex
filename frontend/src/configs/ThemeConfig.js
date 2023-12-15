@@ -237,13 +237,13 @@ export function customizeTheme(theme) {
           }),
         },
       },
-      // MuiInputBase: {
-      //   styleOverrides: {
-      //     root: ({ theme, ownerState }) => {
-      //       return { color: theme.palette.text.default };
-      //     },
-      //   },
-      // },
+      MuiInputBase: {
+        styleOverrides: {
+          root: ({ theme, ownerState }) => {
+            return { color: theme.palette.text.default };
+          },
+        },
+      },
       MuiDialog: {
         defaultProps: {
           maxWidth: "md",

@@ -15,6 +15,8 @@ const InstructorListAction = ({ data }) => {
       <InstructorProfileChip
         size="small"
         type="option"
+        variant="soft"
+        color="info"
         label={<Iconly size="small" name="Show" />}
         className="!rounded-full h-8 cursor-pointer"
       />

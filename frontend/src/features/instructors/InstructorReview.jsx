@@ -117,7 +117,9 @@ const InstructorReview = () => {
                 </div>
               </div>
               <Typography className="font-semibold">{desc}</Typography>
-              <Typography className="mt-2">{comment}</Typography>
+              <Typography className="mt-2 text-mui-primary-tertiary">
+                {comment}
+              </Typography>
             </div>
           ))}
         </div>
