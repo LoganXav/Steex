@@ -146,7 +146,7 @@ const CourseCategories = () => {
             <Paper className="rounded-md">
               <img className="w-16 h-16 p-2" src={logo} />
             </Paper>
-            <Typography className="font-semibold text-black">
+            <Typography className="font-semibold text-mui-text-default">
               {category}
             </Typography>
             <Typography variant="body2" className="text-mui-primary-tertiary">

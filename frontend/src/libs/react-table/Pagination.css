@@ -25,9 +25,7 @@
 }
 
 .Pagination__button {
-  background-color: white;
-  border: 1px solid lightgray;
-  color: #3762ea;
+  @apply bg-mui-primary-main text-mui-primary-contrastText;
 }
 
 .Pagination__button:hover {
@@ -35,6 +33,6 @@
 }
 
 .Pagination__button:disabled {
-  background-color: white;
-  color: lightgray;
+  background-color: lightgray;
+  color: white;
 }

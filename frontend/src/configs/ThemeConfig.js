@@ -17,10 +17,11 @@ export const lightTheme = responsiveFontSizes(
         // darkAlt: "#193F7C",
         lightAlt: "#F7F7F7",
         tertiary: "#98A6Ad",
-        // contrastText: "#F7F7F7",
+        contrastText: "#F7F7F7",
       },
       secondary: {
-        lightAlt: "#222328",
+        lightAlt: "#ffff",
+        // lightAlt: "#222328",
         main: "#1E1A22",
         dark: "#181A20",
         contrastText: "#7C7F7B",
@@ -61,8 +62,8 @@ export const darkTheme = responsiveFontSizes(
     palette: {
       mode: "dark",
       primary: {
-        main: "#3762EA",
-        dark: "#3258D3",
+        main: "#181A20",
+        dark: "#222328",
 
         lighter: "#181A20",
         light: "#fff",

@@ -34,7 +34,7 @@ const CoursesListCard = ({
   rating,
 }) => {
   return (
-    <Card className="bg-white border-none">
+    <Card className="border-none bg-mui-secondary-lightAlt">
       <Container
         variant="soft"
         color={color}
@@ -84,15 +84,21 @@ const CoursesListCard = ({
         <div className="flex flex-wrap items-center gap-2 my-2 text-mui-primary-tertiary">
           <div className="flex gap-1">
             <Iconly size="small" name="TimeCircle" />
-            <Typography>{duration}</Typography>
+            <Typography className="text-mui-primary-tertiary">
+              {duration}
+            </Typography>
           </div>
           <div className="flex gap-1">
             <Iconly size="small" name="People" />
-            <Typography>{students}</Typography>
+            <Typography className="text-mui-primary-tertiary">
+              {students}
+            </Typography>
           </div>
           <div className="flex gap-1">
             <Iconly size="small" name="Bookmark" />
-            <Typography>{lessons} Lessons</Typography>
+            <Typography className="text-mui-primary-tertiary">
+              {lessons} Lessons
+            </Typography>
           </div>
         </div>
       </CardContent>

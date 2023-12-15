@@ -18,7 +18,6 @@ import {
 } from "../constants/Global";
 import { Link } from "react-router-dom";
 import { RouteEnum } from "../constants/RouterConstants";
-// import useAuthUser from "../hooks/useAuthUser";
 import useLogout from "../hooks/useLogout";
 import usePopover from "../hooks/usePopover";
 import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
@@ -42,8 +41,6 @@ function ProtectedPageHeader(props) {
   const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
 
   const { logout } = useLogout();
-
-  // const authUser = useAuthUser();
 
   const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
   const [themeMode, toggleThemeMode] = useThemeMode();

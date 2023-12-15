@@ -245,9 +245,13 @@ const Dashboard = () => {
             >
               <div className="">
                 <Typography className="">{title}</Typography>
-                <div className="flex flex-wrap items-center gap-2 text-mui-primary-tertiary">
-                  <Typography>{date}</Typography>
-                  <Typography>{time}</Typography>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Typography className="text-mui-primary-tertiary">
+                    {date}
+                  </Typography>
+                  <Typography className="text-mui-primary-tertiary">
+                    {time}
+                  </Typography>
                 </div>
               </div>
             </Paper>

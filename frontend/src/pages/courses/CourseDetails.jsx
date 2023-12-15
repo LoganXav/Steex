@@ -105,7 +105,7 @@ const CourseDetails = () => {
                   key={tab.label}
                   value={tab.value}
                   label={tab.label}
-                  className="text-[14px]"
+                  className="text-[14px] text-mui-text-default"
                 />
               ))}
             </Tabs>

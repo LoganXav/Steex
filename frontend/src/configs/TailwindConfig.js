@@ -21,6 +21,9 @@ export default {
             main: "var(--color-primary-main)",
             contrastText: "var(--color-primary-contrastText)",
           },
+          text: {
+            default: "var(--color-mui-text-default)",
+          },
           secondary: {
             main: "var(--color-secondary-main)",
             light: "var(--color-secondary-light)",
