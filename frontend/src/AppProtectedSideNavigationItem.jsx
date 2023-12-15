@@ -1,10 +1,11 @@
-import { Icon, ListItemButton, Typography, IconButton } from "@mui/material";
+import { ListItemButton } from "@mui/material";
 import clsx from "clsx";
 import { NavLink, useMatch } from "react-router-dom";
 import { Iconly } from "react-iconly";
+import Typography from "./libs/mui/Typography";
+import IconButton from "./libs/mui/IconButton";
 
 function AppProtectedSideNavigationItem({ item, index }) {
-  // const { {name, to, end, icon}, {index}, ...restProps } = props;
   const { name, to, end, icon } = item;
 
   const match = useMatch({ path: to, end });
@@ -20,16 +21,9 @@ function AppProtectedSideNavigationItem({ item, index }) {
           ? "bg-mui-secondary-dark"
           : "text-mui-primary-tertiary hover:text-mui-primary-contrastText transition ease duration-150 "
       )}
-      // {...restProps}
     >
-      {/* <IconButton variant="soft" size="small">{icon}</IconButton> */}
       <IconButton variant="soft" color="inherit" size="small">
-        <Iconly
-          size="small"
-          name={icon}
-          // primaryColor="black"
-          // secondaryColor="black"
-        />
+        <Iconly size="small" name={icon} />
       </IconButton>
       <Typography
         className={clsx(

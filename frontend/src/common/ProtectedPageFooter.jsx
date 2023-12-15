@@ -1,13 +1,6 @@
 import {
   AppBar,
-  Avatar,
-  ButtonBase,
   Container,
-  Divider,
-  Icon,
-  IconButton,
-  ListItemButton,
-  Popover,
   Toolbar,
   Typography,
   useMediaQuery,
@@ -17,40 +10,12 @@ import {
   APP_SIDE_MENU_WIDTH,
   MediaQueryBreakpointEnum,
 } from "../constants/Global";
-import { Link } from "react-router-dom";
-import { RouteEnum } from "../constants/RouterConstants";
-// import useAuthUser from "../hooks/useAuthUser";
-// import useLogout from "../hooks/useLogout";
-import usePopover from "../hooks/usePopover";
-import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
+
 import "./ProtectedPageFooter.css";
-import SearchTextField from "./SearchTextField";
-import { resolvedTailwindConfig } from "constants/Global";
-import { Iconly } from "react-iconly";
-import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined";
-/**
- *
- * @param {PublicPageHeaderProps} props
- */
+
 function ProtectedPageFooter(props) {
   const { className, position, ...rest } = props;
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
-  const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
-  // const { logout } = useLogout();
-
-  // const authUser = useAuthUser();
-
-  const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
-
-  const infoPopover = usePopover();
-
-  function handleLogout() {
-    infoPopover.togglePopover();
-    // logout();
-    alert("Logout successful");
-  }
 
   return (
     <div className="bg-transparent">

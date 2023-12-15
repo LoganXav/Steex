@@ -19,10 +19,6 @@ function getRoutes() {
         path: "*",
         element: <Navigate to={RouteEnum.INSTRUCTORS} replace />,
       },
-      // {
-      //   index: true,
-      //   element: lazy(() => import("./CourseCategories")),
-      // },
       {
         path: RouteEnum.INSTRUCTORS,
         element: lazy(() => import("./InstructorList")),

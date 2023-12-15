@@ -1,12 +1,4 @@
-import {
-  Button,
-  Drawer,
-  IconButton,
-  List,
-  Toolbar,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Drawer, List, useMediaQuery } from "@mui/material";
 import AppProtectedSideNavigationItem from "./AppProtectedSideNavigationItem";
 import {
   APP_SIDE_MENU_WIDTH,
@@ -19,10 +11,13 @@ import SteexLogo from "./assets/steex.png";
 // import useAuthUser from "hooks/useAuthUser";
 import useSideNavigationToggle from "./hooks/useSideNavigationToggle";
 import useLogout from "./hooks/useLogout";
+import Toolbar from "./libs/mui/Toolbar";
+import Typography from "./libs/mui/Typography";
+import Button from "./libs/mui/Button";
+import IconButton from "./libs/mui/IconButton";
 
 function AppProtectedSideNavigation() {
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
-  const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
   const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
   const { logout } = useLogout();
 

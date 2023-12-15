@@ -22,8 +22,6 @@ import useLogout from "../hooks/useLogout";
 import usePopover from "../hooks/usePopover";
 import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
 import "./ProtectedPageHeader.css";
-import SearchTextField from "./SearchTextField";
-import { resolvedTailwindConfig } from "constants/Global";
 import { Iconly } from "react-iconly";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";

@@ -1,4 +1,4 @@
-import { lazy, useMemo } from "react";
+import { lazy, useMemo, useState } from "react";
 import { Container, useMediaQuery } from "@mui/material";
 import {
   APP_SIDE_MENU_WIDTH,
@@ -10,22 +10,16 @@ import { configureRoutes } from "./utils/RouterUtils";
 import { RouteEnum } from "./constants/RouterConstants";
 import ProtectedPageHeader from "./common/ProtectedPageHeader";
 import ProtectedPageFooter from "./common/ProtectedPageFooter";
-// import useAuthUser from "hooks/useAuthUser";
 import AppProtectedSideNavigation from "./AppProtectedSideNavigation";
-// import useAuthUser from "./hooks/useAuthUser";
-// import LoadingContent from "common/LoadingContent";
-// import { SelfUserApi } from "apis/SelfUserApi";
-// import { SelfClientApi } from "apis/SelfClientApi";
 
 function AppProtected() {
   const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl);
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
 
-  //   const authUser = useAuthUser();
-  const authUser = {
+  const [authUser, setAuthUser] = useState({
     name: "Segun",
     desc: "Rich",
-  };
+  });
 
   const routes = useRoutes(
     useMemo(
@@ -35,32 +29,6 @@ function AppProtected() {
   );
 
   return (
-    // <LoadingContent
-    //   loading={
-    //     userQueryResult.isLoading ||
-    //     clientQueryResult.isLoading ||
-    //     clientImageQueryResult.isLoading
-    //   }
-    //   error={
-    //     userQueryResult.isError ||
-    //     clientQueryResult.isError ||
-    //     clientImageQueryResult.isError
-    //   }
-    //   onRetry={() => {
-    //     if (userQueryResult.isError) {
-    //       userQueryResult.refetch();
-    //     }
-
-    //     if (clientQueryResult.isError) {
-    //       clientQueryResult.refetch();
-    //     }
-
-    //     if (clientImageQueryResult.isError) {
-    //       clientImageQueryResult.refetch();
-    //     }
-    //   }}
-    // >
-    //   {() => (
     <>
       <ProtectedPageHeader elevation={0} position="fixed" />
       <AppProtectedSideNavigation />
@@ -78,14 +46,7 @@ function AppProtected() {
         </Container>
       </div>
       <ProtectedPageFooter elevation={0} position="sticky" />
-      {/* <Suspense>
-            <ProfileChangePasswordDialog
-              open={authUser.firstTimeLoginRemaining}
-            />
-          </Suspense> */}
     </>
-    //   )}
-    // </LoadingContent>
   );
 }
 
