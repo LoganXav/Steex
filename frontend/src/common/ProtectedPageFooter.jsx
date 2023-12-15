@@ -53,7 +53,7 @@ function ProtectedPageFooter(props) {
   }
 
   return (
-    <div className="border-t border-dashed bg-transparent">
+    <div className="bg-transparent">
       <AppBar
         className={clsx("ProtectedPageFooter", className)}
         position={position}
@@ -64,7 +64,10 @@ function ProtectedPageFooter(props) {
         }}
         {...rest}
       >
-        <Container maxWidth="false" className="bg-inherit">
+        <Container
+          maxWidth="false"
+          className="py-1 rounded-none text-mui-secondary-main bg-mui-background-default"
+        >
           <Toolbar>
             <Typography className="text-mui-primary-tertiary">
               {`${new Date().getFullYear()}`} @ Steex

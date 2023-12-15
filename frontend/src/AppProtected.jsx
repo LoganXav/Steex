@@ -73,7 +73,7 @@ function AppProtected() {
             : 0,
         }}
       >
-        <Container maxWidth="2xl" className="p-4 mt-16">
+        <Container maxWidth="2xl" className="p-4 mt-16 min-h-screen">
           <Suspense>{routes}</Suspense>
         </Container>
       </div>
