@@ -28,14 +28,14 @@ function Signin() {
 
   const formik = useFormik({
     initialValues: {
-      username: "test@email.com",
+      email: "test@email.com",
       password: "password",
-      rememberMe: false,
+      // rememberMe: false,
     },
     validateOnChange: false,
     validateOnBlur: false,
     validationSchema: yup.object({
-      username: yup.string().label("Email").trim().email().max(40).required(),
+      email: yup.string().label("Email").trim().email().max(40).required(),
       password: yup.string().label("Password").trim().min(6).required(),
     }),
     onSubmit: async (values) => {
@@ -72,9 +72,9 @@ function Signin() {
           fullWidth
           size="small"
           margin="normal"
-          label="Username"
+          label="Email"
           placeholder="Enter your username or Email"
-          {...getTextFieldFormikProps(formik, "username")}
+          {...getTextFieldFormikProps(formik, "email")}
         />
         <PasswordTextField
           required
@@ -87,8 +87,8 @@ function Signin() {
         />
         <div className="flex justify-between items-center mb-4">
           <Typography>
-            <Checkbox {...getCheckFieldFormikProps(formik, "rememberMe")} />{" "}
-            Remember me
+            {/* <Checkbox {...getCheckFieldFormikProps(formik, "rememberMe")} />{" "}
+            Remember me */}
           </Typography>
           <MuiRouterLink
             className="text-mui-primary-tertiary no-underline"

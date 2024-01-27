@@ -1,32 +1,24 @@
-import React from "react";
-import { useFormik } from "formik";
-import * as yup from "yup";
-// import { useSnackbar } from "notistack";
-import { LoadingButton } from "@mui/lab";
-import PasswordTextField from "../../common/PasswordTextField";
-import { getTextFieldFormikProps } from "../../utils/FormikUtils";
-import {
-  Button,
-  Checkbox,
-  Divider,
-  TextField,
-  Typography,
-} from "@mui/material";
-import MuiRouterLink from "../../common/MuiRouterLink";
-import { RouteEnum } from "../../constants/RouterConstants";
-import AuthScaffold from "../../features/auth/AuthScaffold";
-import AuthTitle from "features/auth/AuthTitle";
-import AuthCaption from "features/auth/AuthCaption";
-import CoreAuthenticationApi from "../../apis/CoreAuthenticationApi";
-import { useNavigate } from "react-router-dom";
-
+import { useFormik } from "formik"
+import * as yup from "yup"
+import { useSnackbar } from "notistack"
+import { LoadingButton } from "@mui/lab"
+import PasswordTextField from "../../common/PasswordTextField"
+import { getTextFieldFormikProps } from "../../utils/FormikUtils"
+import { Button, Checkbox, Divider, TextField, Typography } from "@mui/material"
+import MuiRouterLink from "../../common/MuiRouterLink"
+import { RouteEnum } from "../../constants/RouterConstants"
+import AuthScaffold from "../../features/auth/AuthScaffold"
+import AuthTitle from "features/auth/AuthTitle"
+import AuthCaption from "features/auth/AuthCaption"
+import CoreAuthenticationApi from "../../apis/CoreAuthenticationApi"
+import { useNavigate } from "react-router-dom"
 
 const Signup = () => {
-  // const { enqueueSnackbar } = useSnackbar();
-  const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar()
+  const navigate = useNavigate()
 
   const [registerMutation, registerMutationMutationResult] =
-    CoreAuthenticationApi.useRegisterMutation();
+    CoreAuthenticationApi.useRegisterMutation()
 
   const formik = useFormik({
     initialValues: {
@@ -43,26 +35,24 @@ const Signup = () => {
     }),
     onSubmit: async (values) => {
       try {
-        // const data = await authenticationMutation({
-        //   data: values,
-        // }).unwrap();
-        // enqueueSnackbar(data?.message || "Logged In Successful", {
-        //   variant: "success",
-        // });
-        console.log(values);
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        navigate(RouteEnum.SIGNIN);
+        const data = await registerMutation({
+          data: values,
+        }).unwrap()
+        enqueueSnackbar(data?.message || "Registered Successfully", {
+          variant: "success",
+        })
+        console.log(values)
+        navigate(RouteEnum.DASHBOARD)
       } catch (error) {
         enqueueSnackbar(
           error?.data?.errors?.[0]?.defaultUserMessage ||
             error?.data?.defaultUserMessage ||
             "Invalid Crendentials",
           { variant: "error" }
-        );
+        )
       }
     },
-  });
-
+  })
 
   return (
     <AuthScaffold>
@@ -142,7 +132,7 @@ const Signup = () => {
         </Typography>
       </form>
     </AuthScaffold>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

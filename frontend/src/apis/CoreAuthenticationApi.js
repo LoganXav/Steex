@@ -7,15 +7,15 @@ export const CoreAuthenticationApi = CoreApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (config) => ({
-        url: `${BASE_URL}/status`,
+        url: `${BASE_URL}/signin`,
         method: "POST",
         ...config,
       }),
-      // invalidatesTags: () => [{ type: StoreQueryTagEnum.USER }],
+      invalidatesTags: () => [{ type: StoreQueryTagEnum.USER }],
     }),
     register: builder.mutation({
       query: (config) => ({
-        url: `${BASE_URL}/register`,
+        url: `${BASE_URL}/signup`,
         method: "POST",
         ...config,
       }),
