@@ -16,9 +16,25 @@ route.post('/signup', validate, async (req: Request, res: Response, next: NextFu
   logger.debug('Calling Sign-up endpoint with body: %o', req.body);
   try {
     const authServiceInstance = Container.get(AuthService);
-    const { token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
+    const { username, token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
 
-    return res.status(201).json({ token });
+    return res.status(201).json({ username, token });
+  } catch (e) {
+    logger.error('🔥 error: %o', e);
+    return next(e);
+  }
+});
+
+route.post('/signin', validate, async (req: Request, res: Response, next: NextFunction) => {
+  const logger: Logger = Container.get('logger');
+  logger.debug('Calling Sign-in endpoint with body: %o', req.body);
+  try {
+    const { email, password } = req.body;
+
+    const authServiceInstance = Container.get(AuthService);
+    const { username, token } = await authServiceInstance.SignIn(email, password);
+
+    return res.status(200).json({ username, token });
   } catch (e) {
     logger.error('🔥 error: %o', e);
     return next(e);

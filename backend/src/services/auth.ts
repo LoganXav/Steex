@@ -14,7 +14,7 @@ export default class AuthService {
     @EventDispatcher() private eventDispatcher: EventDispatcherInterface,
   ) {}
 
-  public async SignUp(userInputDTO: IUserInputDTO): Promise<{ token: string }> {
+  public async SignUp(userInputDTO: IUserInputDTO): Promise<{ username: string; token: string }> {
     try {
       this.logger.silly('Hashing password');
 
@@ -34,12 +34,40 @@ export default class AuthService {
         throw new Error('User cannot be created');
       }
 
+      const { username } = userRecord;
+
       this.eventDispatcher.dispatch(events.user.signUp, { user: userRecord });
 
-      return { token };
+      return { username, token };
     } catch (e) {
       this.logger.error(e);
       throw e;
+    }
+  }
+
+  public async SignIn(email: string, password: string): Promise<{ username: string; token: string }> {
+    const userRecord = await this.userModel.findOne({ email });
+
+    if (!userRecord) {
+      throw new Error('User not registered');
+    }
+
+    this.logger.silly('Checking password');
+
+    const validPassword = await bcrypt.compare(password, userRecord.password);
+
+    if (!validPassword) {
+      throw new Error('Invalid password');
+    } else {
+      this.logger.silly('Password is valid');
+      this.logger.silly('Generating JWT');
+
+      const token = this.generateToken(userRecord);
+
+      this.eventDispatcher.dispatch(events.user.signIn, { user: userRecord });
+
+      const { username } = userRecord;
+      return { username, token };
     }
   }
 
