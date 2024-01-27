@@ -1,17 +1,17 @@
-import { CoreApi } from "configs/StoreQueryConfig";
-import { StoreQueryTagEnum } from "constants/StoreConstants";
+import { CoreApi } from "configs/StoreQueryConfig"
+import { StoreQueryTagEnum } from "constants/StoreConstants"
 
-export const BASE_URL = "/authentication";
+export const BASE_URL = "/auth"
 
 export const CoreAuthenticationApi = CoreApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (config) => ({
-        url: `${BASE_URL}/login`,
+        url: `${BASE_URL}/status`,
         method: "POST",
         ...config,
       }),
-      invalidatesTags: () => [{ type: StoreQueryTagEnum.USER }],
+      // invalidatesTags: () => [{ type: StoreQueryTagEnum.USER }],
     }),
     register: builder.mutation({
       query: (config) => ({
@@ -29,7 +29,6 @@ export const CoreAuthenticationApi = CoreApi.injectEndpoints({
       }),
     }),
   }),
-});
+})
 
-export default CoreAuthenticationApi;
-
+export default CoreAuthenticationApi

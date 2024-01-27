@@ -1,13 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query/react";
-import { throttle } from "utils/FunctionUtils";
-import { isObjectEmpty, deepMerge } from "utils/ObjectUtils";
-import { logoutAction } from "./StoreActionConfig";
-import { CoreApi } from "./StoreQueryConfig";
+import { configureStore } from "@reduxjs/toolkit"
+import { setupListeners } from "@reduxjs/toolkit/query/react"
+import { throttle } from "utils/FunctionUtils"
+import { isObjectEmpty, deepMerge } from "utils/ObjectUtils"
+import { logoutAction } from "./StoreActionConfig"
+import { CoreApi } from "./StoreQueryConfig"
 import globalSlice, {
   getGlobalSliceStorageState,
   globalInitialState,
-} from "./StoreSliceConfig";
+} from "./StoreSliceConfig"
 
 const store = configureStore({
   reducer: {
@@ -22,56 +22,60 @@ const store = configureStore({
       CoreApi.middleware,
       rtkqOnResetMiddleware(CoreApi)
     ),
-});
+})
 
-setupListeners(store.dispatch);
+setupListeners(store.dispatch)
 
 store.subscribe(
   throttle(() => {
-    const state = store.getState();
+    const state = store.getState()
     saveState({
       [globalSlice.name]: getGlobalSliceStorageState(state[globalSlice.name]),
-    });
+    })
   }, 1000)
-);
+)
 
-export default store;
+export default store
 
 function saveState(state) {
   try {
-    const serializedState = JSON.stringify(state);
-    localStorage.setItem("@state", serializedState);
-  } catch (error) {}
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem("@state", serializedState)
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 function loadState(initialState = {}) {
   try {
-    const newState = Object.assign({}, initialState);
-    const storageState = getLocalStorageState();
+    const newState = Object.assign({}, initialState)
+    const storageState = getLocalStorageState()
     if (storageState && !isObjectEmpty(storageState)) {
-      Object.assign(newState, deepMerge(newState, storageState));
+      Object.assign(newState, deepMerge(newState, storageState))
     }
-    return newState;
-  } catch (error) {}
-  return undefined;
+    return newState
+  } catch (error) {
+    console.log(error)
+  }
+  return undefined
 }
 
 function getLocalStorageState() {
-  const serializedState = localStorage.getItem("@state");
+  const serializedState = localStorage.getItem("@state")
   if (serializedState) {
-    return JSON.parse(serializedState);
+    return JSON.parse(serializedState)
   }
-  return null;
+  return null
 }
 
 export function rtkqOnResetMiddleware(...apis) {
   return (store) => (next) => (action) => {
-    const result = next(action);
+    const result = next(action)
     if (logoutAction.match(action)) {
       for (const api of apis) {
-        store.dispatch(api.util.resetApiState());
+        store.dispatch(api.util.resetApiState())
       }
     }
-    return result;
-  };
+    return result
+  }
 }

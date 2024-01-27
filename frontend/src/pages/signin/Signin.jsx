@@ -1,32 +1,30 @@
-import { useFormik } from "formik";
-import * as yup from "yup";
-import { useSnackbar } from "notistack";
-import { useNavigate } from "react-router-dom";
-import { LoadingButton } from "@mui/lab";
-import PasswordTextField from "../../common/PasswordTextField";
+import { useFormik } from "formik"
+import * as yup from "yup"
+import { useSnackbar } from "notistack"
+import { useNavigate } from "react-router-dom"
+import { LoadingButton } from "@mui/lab"
+import PasswordTextField from "common/PasswordTextField"
 import {
   getTextFieldFormikProps,
   getCheckFieldFormikProps,
-} from "../../utils/FormikUtils";
-import {
-  Button,
-  Checkbox,
-  Divider,
-  TextField,
-  Typography,
-} from "@mui/material";
-import MuiRouterLink from "../../common/MuiRouterLink";
-import { RouteEnum } from "../../constants/RouterConstants";
-import AuthScaffold from "../../features/auth/AuthScaffold";
-import AuthTitle from "features/auth/AuthTitle";
-import AuthCaption from "features/auth/AuthCaption";
-import { useDispatch } from "react-redux";
-import { loginAction } from "../../configs/StoreActionConfig";
+} from "utils/FormikUtils"
+import { Button, Checkbox, Divider, TextField, Typography } from "@mui/material"
+import MuiRouterLink from "common/MuiRouterLink"
+import { RouteEnum } from "constants/RouterConstants"
+import AuthScaffold from "features/auth/AuthScaffold"
+import AuthTitle from "features/auth/AuthTitle"
+import AuthCaption from "features/auth/AuthCaption"
+import { useDispatch } from "react-redux"
+import { loginAction } from "configs/StoreActionConfig"
+import CoreAuthenticationApi from "apis/CoreAuthenticationApi"
 
 function Signin() {
-  const { enqueueSnackbar } = useSnackbar();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const [loginMutation, loginMutationMutationResult] =
+    CoreAuthenticationApi.useLoginMutation()
 
   const formik = useFormik({
     initialValues: {
@@ -42,26 +40,25 @@ function Signin() {
     }),
     onSubmit: async (values) => {
       try {
-        // const data = await authenticationMutation({
-        //   data: values,
-        // }).unwrap();
-        console.log(values);
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        dispatch(loginAction());
+        const data = await loginMutation({
+          data: values,
+        }).unwrap()
+        // await new Promise((resolve) => setTimeout(resolve, 2000))
+        dispatch(loginAction())
         enqueueSnackbar("Logged In Successfully", {
           variant: "success",
-        });
-        navigate(RouteEnum.DASHBOARD);
+        })
+        navigate(RouteEnum.DASHBOARD)
       } catch (error) {
         enqueueSnackbar(
           error?.data?.errors?.[0]?.defaultUserMessage ||
             error?.data?.defaultUserMessage ||
             "Invalid Crendentials",
           { variant: "error" }
-        );
+        )
       }
     },
-  });
+  })
 
   return (
     <AuthScaffold>
@@ -135,7 +132,7 @@ function Signin() {
         </Typography>
       </form>
     </AuthScaffold>
-  );
+  )
 }
 
-export default Signin;
+export default Signin

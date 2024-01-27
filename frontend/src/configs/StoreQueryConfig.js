@@ -1,25 +1,24 @@
-import { createApi } from "@reduxjs/toolkit/query/react";
-import axios from "axios";
-import { StoreQueryTagEnum } from "constants/StoreConstants";
-import CoreHttp from "./HttpConfig";
-import { EnvVarEnum } from "constants/Global";
+import { createApi } from "@reduxjs/toolkit/query/react"
+import axios from "axios"
+import { StoreQueryTagEnum } from "constants/StoreConstants"
+import CoreHttp from "./HttpConfig"
+import { EnvVarEnum } from "constants/Global"
 
 export const CoreApi = createApi({
   reducerPath: "steex",
-  baseQuery: axiosBaseQuery({ url: "" }, CoreHttp),
+  baseQuery: axiosBaseQuery({ url: "/api/v1", method: "post" }, CoreHttp),
   endpoints: () => ({}),
-});
-
-[CoreApi].forEach((api) => {
-  api.enhanceEndpoints({ addTagTypes: Object.values(StoreQueryTagEnum) });
-});
+})
+;[CoreApi].forEach((api) => {
+  api.enhanceEndpoints({ addTagTypes: Object.values(StoreQueryTagEnum) })
+})
 
 /**
  *
  * @param {import("axios").AxiosRequestConfig} baseConfig
  */
 export function axiosBaseQuery(baseConfig = {}, http = axios) {
-  return request;
+  return request
 
   /**
    *
@@ -28,15 +27,15 @@ export function axiosBaseQuery(baseConfig = {}, http = axios) {
   async function request(config = {}) {
     const url = config.url
       ? (baseConfig.url || "") + config.url
-      : baseConfig.url;
-    const data = config.body || config.data || baseConfig.data;
+      : baseConfig.url
+    const data = config.body || config.data || baseConfig.data
     try {
       const response = await http.request({
         ...baseConfig,
         ...config,
         url,
         data,
-      });
+      })
 
       return {
         ...response,
@@ -45,7 +44,7 @@ export function axiosBaseQuery(baseConfig = {}, http = axios) {
         defaultUserMessage: response.data?.defaultUserMessage || null,
         status: response.status || 200,
         meta: { request: response.request, response },
-      };
+      }
     } catch (error) {
       return {
         error: error.response
@@ -63,7 +62,7 @@ export function axiosBaseQuery(baseConfig = {}, http = axios) {
               defaultUserMessage: "Something went wrong",
               data: { defaultUserMessage: "Something went wrong" },
             },
-      };
+      }
     }
   }
 }

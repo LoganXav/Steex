@@ -1,9 +1,9 @@
-import { IUser } from '~/interfaces/IUser';
 import mongoose from 'mongoose';
+import { IUser } from '~/interfaces/schema';
 
 const User = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       required: [true, 'Please enter a full name'],
       index: true,
@@ -17,8 +17,6 @@ const User = new mongoose.Schema(
     },
 
     password: String,
-
-    salt: String,
 
     role: {
       type: String,

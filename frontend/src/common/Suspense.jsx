@@ -1,13 +1,13 @@
-import React, { Suspense as ReactSuspense } from "react";
+import React, { Suspense as ReactSuspense } from "react"
 // import { Suspense as ReactSuspense } from "react";
-import LoadingIndicator from "./LoadingIndicator";
+import LoadingIndicator from "./LoadingIndicator"
 
 /**
  *
  * @param {import('react').SuspenseProps} props
  */
 function Suspense(props) {
-  return <ReactSuspense {...props} />;
+  return <ReactSuspense {...props} />
 }
 
 Suspense.defaultProps = {
@@ -16,6 +16,6 @@ Suspense.defaultProps = {
       <LoadingIndicator />
     </div>
   ),
-};
+}
 
-export default Suspense;
+export default Suspense

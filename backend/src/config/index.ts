@@ -19,10 +19,16 @@ export default {
     level: process.env.LOG_LEVEL || 'silly',
   },
 
+  api: {
+    prefix: '/api/v1',
+  },
+
   agenda: {
     mongoConnectionString: process.env.MONGO_CONNECTION_STRING,
     dbCollection: process.env.AGENDA_DB_COLLECTION,
     pooltime: process.env.AGENDA_POOL_TIME,
     concurrency: parseInt(process.env.AGENDA_CONCURRENCY, 10),
   },
+
+  jwtSecret: process.env.JWT_SECRET,
 };
