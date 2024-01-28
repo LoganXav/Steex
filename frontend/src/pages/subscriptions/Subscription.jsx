@@ -1,17 +1,17 @@
-import Paper from "../../libs/mui/Paper";
-import Typography from "../../libs/mui/Typography";
-import dayjs from "dayjs";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import Paper from "../../libs/mui/Paper"
+import Typography from "../../libs/mui/Typography"
+import dayjs from "dayjs"
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo"
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar"
 
-import SubscriptionListCard from "../../features/subscriptions/SubscriptionListCard";
-import SubscriptionScheduleCard from "../../features/subscriptions/SubscriptionScheduleCard";
+import SubscriptionListCard from "../../features/subscriptions/SubscriptionListCard"
+import SubscriptionScheduleCard from "../../features/subscriptions/SubscriptionScheduleCard"
 
-import ReactLogo from "../../assets/react.png";
-import ShopifyLogo from "../../assets/shopify.png";
-import LaravelLogo from "../../assets/laravel.png";
+import ReactLogo from "../../assets/react.png"
+import ShopifyLogo from "../../assets/shopify.png"
+import LaravelLogo from "../../assets/laravel.png"
 
 const Subscriptions = () => {
   return (
@@ -167,16 +167,17 @@ const Subscriptions = () => {
           </div>
         </div>
         <div className="flex flex-col gap-4 lg:w-1/4">
-          <Paper>
+          {/* <Paper>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DemoContainer components={["DateCalendar"]}>
                 <DateCalendar
+                  className="text-mui-primary-tertiary"
                   referenceDate={dayjs("2023-12-15")}
                   views={["year", "month", "day"]}
                 />
               </DemoContainer>
             </LocalizationProvider>
-          </Paper>
+          </Paper> */}
           <Typography variant="h6" className="font-semibold">
             Course Schedule
           </Typography>
@@ -187,7 +188,7 @@ const Subscriptions = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Subscriptions;
+export default Subscriptions
