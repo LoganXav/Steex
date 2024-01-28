@@ -1,9 +1,12 @@
-import Paper from "../../libs/mui/Paper";
-import Avatar from "../../libs/mui/Avatar";
-import Typography from "../../libs/mui/Typography";
-import Button from "../../libs/mui/Button";
+import Paper from "../../libs/mui/Paper"
+import Avatar from "../../libs/mui/Avatar"
+import Typography from "../../libs/mui/Typography"
+import Button from "../../libs/mui/Button"
+import useAuthUser from "hooks/useAuthUser"
 
 const ProfileContactCard = () => {
+  const authUser = useAuthUser()
+
   return (
     <Paper className="w-full md:w-1/4 flex flex-col gap-4 justify-center items-center p-4">
       <div className="w-full flex flex-col items-center gap-2 border-dashed border-b pt-10 pb-5">
@@ -13,7 +16,7 @@ const ProfileContactCard = () => {
             className="w-full h-full"
           ></Avatar>
         </div>
-        <Typography variant="h6">Richard Marshall</Typography>
+        <Typography variant="h6">{authUser.username}</Typography>
         <Typography className="text-mui-primary-tertiary">
           Web Developer
         </Typography>
@@ -69,7 +72,7 @@ const ProfileContactCard = () => {
         </div>
       </div>
     </Paper>
-  );
-};
+  )
+}
 
-export default ProfileContactCard;
+export default ProfileContactCard

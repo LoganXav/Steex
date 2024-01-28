@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import config from '~/config';
 import routes from '~/api';
+import cookieParser from 'cookie-parser';
 
 export default ({ app }: { app: express.Application }) => {
   /**
@@ -15,6 +16,7 @@ export default ({ app }: { app: express.Application }) => {
     res.status(200).end();
   });
 
+  app.use(cookieParser());
   app.use(cors());
   app.use(express.json());
 
@@ -33,7 +35,7 @@ export default ({ app }: { app: express.Application }) => {
      * Handle 401 thrown by express-jwt library
      */
     if (err.name === 'UnauthorizedError') {
-      return res.status(err.status).send({ message: err.message }).end();
+      return res.status(err.status).send({ response: err.message }).end();
     }
     return next(err);
   });
@@ -41,8 +43,11 @@ export default ({ app }: { app: express.Application }) => {
   app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.json({
-      errors: {
-        message: err.message,
+      error: {
+        defaultUserMessage: err.message || 'Something went wrong',
+        message: err.message || 'Something went wrong',
+        status: err.status || 500,
+        data: err.data || null,
       },
     });
   });

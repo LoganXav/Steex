@@ -1,54 +1,57 @@
-import React from "react";
+import React from "react"
 import {
   AppBar,
   ButtonBase,
   ListItemButton,
   Typography,
   useMediaQuery,
-} from "@mui/material";
+} from "@mui/material"
 
-import Container from "../libs/mui/Container";
-import Toolbar from "../libs/mui/Toolbar";
-import IconButton from "../libs/mui/IconButton";
-import Avatar from "../libs/mui/Avatar";
-import clsx from "clsx";
+import Container from "../libs/mui/Container"
+import Toolbar from "../libs/mui/Toolbar"
+import IconButton from "../libs/mui/IconButton"
+import Avatar from "../libs/mui/Avatar"
+import clsx from "clsx"
 import {
   APP_SIDE_MENU_WIDTH,
   MediaQueryBreakpointEnum,
-} from "../constants/Global";
-import { Link } from "react-router-dom";
-import { RouteEnum } from "../constants/RouterConstants";
-import useLogout from "../hooks/useLogout";
-import usePopover from "../hooks/usePopover";
-import useSideNavigationToggle from "../hooks/useSideNavigationToggle";
-import "./ProtectedPageHeader.css";
-import { Iconly } from "react-iconly";
-import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined";
-import Popover from "../libs/mui/Popover";
-import useThemeMode from "../hooks/useThemeMode";
-import GreetingMessage from "./GreetingMessage";
+} from "../constants/Global"
+import { Link } from "react-router-dom"
+import { RouteEnum } from "../constants/RouterConstants"
+import useLogout from "../hooks/useLogout"
+import usePopover from "../hooks/usePopover"
+import useSideNavigationToggle from "../hooks/useSideNavigationToggle"
+import "./ProtectedPageHeader.css"
+import { Iconly } from "react-iconly"
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined"
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined"
+import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined"
+import Popover from "../libs/mui/Popover"
+import useThemeMode from "../hooks/useThemeMode"
+import GreetingMessage from "./GreetingMessage"
+import useAuthUser from "hooks/useAuthUser"
 /**
  *
  * @param {PublicPageHeaderProps} props
  */
 function ProtectedPageHeader(props) {
-  const { className, position, ...rest } = props;
-  const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl);
-  const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
-  const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
+  const authUser = useAuthUser()
 
-  const { logout } = useLogout();
+  const { className, position, ...rest } = props
+  const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl)
+  const islg = useMediaQuery(MediaQueryBreakpointEnum.lg)
+  const ismd = useMediaQuery(MediaQueryBreakpointEnum.md)
 
-  const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
-  const [themeMode, toggleThemeMode] = useThemeMode();
+  const { logout } = useLogout()
 
-  const infoPopover = usePopover();
+  const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle()
+  const [themeMode, toggleThemeMode] = useThemeMode()
+
+  const infoPopover = usePopover()
 
   function handleLogout() {
-    infoPopover.togglePopover();
-    logout();
+    infoPopover.togglePopover()
+    logout()
   }
 
   return (
@@ -83,7 +86,7 @@ function ProtectedPageHeader(props) {
             )}
 
             <div className="hidden md:flex">
-              <GreetingMessage name="Richard" />
+              <GreetingMessage name={authUser.username.split(" ")[0]} />
             </div>
             <div className="flex-1" />
             <div className="flex items-center gap-4">
@@ -117,7 +120,7 @@ function ProtectedPageHeader(props) {
                 {ismd && (
                   <div>
                     <Typography className="font-semibold ">
-                      Richard Marshall
+                      {authUser.username}
                     </Typography>
                     <Typography className="text-mui-primary-tertiary">
                       Student
@@ -140,7 +143,7 @@ function ProtectedPageHeader(props) {
                   variant="subtitle2"
                   className="font-semibold pt-4 pl-4"
                 >
-                  Welcome Richard!
+                  Welcome {authUser.username}!
                 </Typography>
                 {/* <div className="py-2">
                   {[
@@ -216,8 +219,8 @@ function ProtectedPageHeader(props) {
                         disableGutters
                         dense="false"
                         onClick={() => {
-                          infoPopover.togglePopover();
-                          onClick?.();
+                          infoPopover.togglePopover()
+                          onClick?.()
                         }}
                         {...rest}
                       >
@@ -240,10 +243,10 @@ function ProtectedPageHeader(props) {
         </Container>
       </AppBar>
     </div>
-  );
+  )
 }
 
-export default ProtectedPageHeader;
+export default ProtectedPageHeader
 
 /**
  * @typedef {{

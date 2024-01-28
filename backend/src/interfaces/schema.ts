@@ -11,6 +11,7 @@ export const UserInputDTO = z.object({
   username: z.string().min(1).max(255),
   email: z.string().email(),
   password: z.string(),
+  remember: z.boolean().optional(),
 });
 
 export type IUserInputDTO = z.infer<typeof UserInputDTO>;

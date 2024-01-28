@@ -31,11 +31,17 @@ const slice = createSlice({
       .addCase(logoutAction, () => ({ ...globalInitialState }))
 
       // auth bypass
-      .addCase(loginAction, () => ({ ...globalInitialState, authUser: true }))
+      // .addCase(loginAction, () => ({ ...globalInitialState, authUser: true }))
       // --------------
 
       .addMatcher(
         CoreAuthenticationApi.endpoints.login.matchFulfilled,
+        (state, { payload }) => {
+          state.authUser = { ...payload }
+        }
+      )
+      .addMatcher(
+        CoreAuthenticationApi.endpoints.register.matchFulfilled,
         (state, { payload }) => {
           state.authUser = { ...payload }
         }

@@ -55,7 +55,7 @@ export function axiosBaseQuery(baseConfig = {}, http = axios) {
               message:
                 error.response.data?.errors?.[0]?.defaultUserMessage ||
                 error.response.data?.defaultUserMessage,
-              status: error.response.status,
+              status: error.response.status || error.response.data?.status,
               data: error.response.data,
             }
           : {

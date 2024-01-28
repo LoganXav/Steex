@@ -1,7 +1,5 @@
-import React from "react";
-import { Typography } from "@mui/material";
-import { Paper } from "@mui/material";
-import { clsx } from "clsx";
+import { Typography } from "@mui/material"
+import { Paper } from "@mui/material"
 
 function AuthScaffold(props) {
   return (
@@ -11,9 +9,8 @@ function AuthScaffold(props) {
           <div className="w-full flex flex-col items-center justify-between gap-12 text-center p-9 bg-mui-secondary-main xl:rounded-s-lg">
             <div>
               <Typography
-                color="white"
                 variant="h4"
-                className="font-semibold mb-2"
+                className="font-semibold mb-2 text-white"
               >
                 Start your journey.
               </Typography>
@@ -27,14 +24,17 @@ function AuthScaffold(props) {
                 <div className="w-[396px] h-[396px] lg:w-[348px] lg:h-[348px] rounded-full border border-[#e1ffe11a] relative flex items-center justify-center mx-auto">
                   <div className="w-[348px] h-[348px] lg:w-[300px] lg:h-[300px] rounded-full border border-[#e1ffe11a] relative flex items-center justify-center mx-auto">
                     <div className="w-[300px] h-[300px] lg:w-[252px] lg:h-[252px] rounded-full border border-[#e1ffe11a] relative flex items-center justify-center mx-auto">
-                      <Typography variant="h5" color="white">Welcome to <span className="text-mui-primary-main">Steex</span></Typography>
+                      <Typography variant="h5" className="text-white">
+                        Welcome to{" "}
+                        <span className="text-mui-primary-main">Steex</span>
+                      </Typography>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             <Typography variant="body2" className="text-white opacity-75">
-              2023 Steex. Crafted with love by Logan
+              2023 Steex.
             </Typography>
           </div>
         </div>
@@ -45,7 +45,7 @@ function AuthScaffold(props) {
         </Paper>
       </div>
     </div>
-  );
+  )
 }
 
-export default AuthScaffold;
+export default AuthScaffold

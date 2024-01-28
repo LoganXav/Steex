@@ -30,7 +30,7 @@ function Signin() {
     initialValues: {
       email: "test@email.com",
       password: "password",
-      // rememberMe: false,
+      remember: false,
     },
     validateOnChange: false,
     validateOnBlur: false,
@@ -52,6 +52,7 @@ function Signin() {
       } catch (error) {
         enqueueSnackbar(
           error?.data?.errors?.[0]?.defaultUserMessage ||
+            error?.data?.error?.defaultUserMessage ||
             error?.data?.defaultUserMessage ||
             "Invalid Crendentials",
           { variant: "error" }
@@ -87,8 +88,8 @@ function Signin() {
         />
         <div className="flex justify-between items-center mb-4">
           <Typography>
-            {/* <Checkbox {...getCheckFieldFormikProps(formik, "rememberMe")} />{" "}
-            Remember me */}
+            <Checkbox {...getCheckFieldFormikProps(formik, "remember")} />{" "}
+            Remember me
           </Typography>
           <MuiRouterLink
             className="text-mui-primary-tertiary no-underline"

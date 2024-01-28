@@ -16,6 +16,12 @@ export default class AuthService {
 
   public async SignUp(userInputDTO: IUserInputDTO): Promise<{ username: string; token: string }> {
     try {
+      const { email } = userInputDTO;
+      const existingUser = await this.userModel.findOne({ email });
+
+      if (existingUser) {
+        throw new Error('This user already exists');
+      }
       this.logger.silly('Hashing password');
 
       const hashedPassword = await bcrypt.hash(userInputDTO.password, 10);
@@ -45,7 +51,11 @@ export default class AuthService {
     }
   }
 
-  public async SignIn(email: string, password: string): Promise<{ username: string; token: string }> {
+  public async SignIn(
+    email: string,
+    password: string,
+    remember: boolean,
+  ): Promise<{ username: string; token: string }> {
     const userRecord = await this.userModel.findOne({ email });
 
     if (!userRecord) {
@@ -62,7 +72,7 @@ export default class AuthService {
       this.logger.silly('Password is valid');
       this.logger.silly('Generating JWT');
 
-      const token = this.generateToken(userRecord);
+      const token = this.generateToken(userRecord, remember);
 
       this.eventDispatcher.dispatch(events.user.signIn, { user: userRecord });
 
@@ -71,11 +81,7 @@ export default class AuthService {
     }
   }
 
-  private generateToken(user) {
-    const today = new Date();
-    const exp = new Date(today);
-    exp.setDate(today.getDate() + 60);
-
+  private generateToken(user: IUser, remember = false): string {
     /**
      * A JWT means JSON Web Token, so basically it's a json that is _hashed_ into a string
      * The cool thing is that you can add custom properties a.k.a metadata
@@ -89,11 +95,11 @@ export default class AuthService {
     return jwt.sign(
       {
         _id: user._id, // We are gonna use this in the middleware 'isAuth'
-        role: user.role,
+        // role: user.role,
         name: user.username,
-        exp: exp.getTime() / 1000,
       },
       config.jwtSecret,
+      { expiresIn: remember ? 365 * 24 + 'h' : '24h' },
     );
   }
 }

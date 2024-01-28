@@ -46,6 +46,7 @@ const Signup = () => {
       } catch (error) {
         enqueueSnackbar(
           error?.data?.errors?.[0]?.defaultUserMessage ||
+            error?.data?.error?.defaultUserMessage ||
             error?.data?.defaultUserMessage ||
             "Invalid Crendentials",
           { variant: "error" }
@@ -98,14 +99,14 @@ const Signup = () => {
         </div>
 
         <LoadingButton
-          // loading={selfAuthenticationLoginMutationResult.isLoading}
-          loadingPosition="start"
-          type="submit"
-          // className="my-6"
           fullWidth
-          size="large"
           borderRadius="circular"
+          size="large"
           color="primary"
+          onClick={formik.handleSubmit}
+          loading={formik.isSubmitting}
+          loadingPosition="end"
+          endIcon={<></>}
         >
           Sign up
         </LoadingButton>

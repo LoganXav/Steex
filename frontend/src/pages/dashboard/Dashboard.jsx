@@ -1,17 +1,20 @@
-import { RouteEnum } from "../../constants/RouterConstants";
-import { Avatar, Paper, Typography } from "@mui/material";
-import DashboardChip from "../../features/dashboard/DashboardChip";
-import ShopifyLogo from "../../assets/shopify.png";
-import WebpackLogo from "../../assets/webpack.png";
-import LaravelLogo from "../../assets/laravel.png";
-import ReactLogo from "../../assets/react.png";
-import DashboardInstructorCard from "../../features/dashboard/DashboardInstructorCard";
-import DashboardPieChart from "../../features/dashboard/DashboardPieChart";
-import DashboardDailyProgressChart from "../../features/dashboard/DashboardDailyProgressChart";
-import DashboardRecentCoursesTable from "../../features/dashboard/DashboardRecentCoursesTable";
-import { Link } from "react-router-dom";
+import { RouteEnum } from "../../constants/RouterConstants"
+import { Avatar, Paper, Typography } from "@mui/material"
+import DashboardChip from "../../features/dashboard/DashboardChip"
+import ShopifyLogo from "../../assets/shopify.png"
+import WebpackLogo from "../../assets/webpack.png"
+import LaravelLogo from "../../assets/laravel.png"
+import ReactLogo from "../../assets/react.png"
+import DashboardInstructorCard from "../../features/dashboard/DashboardInstructorCard"
+import DashboardPieChart from "../../features/dashboard/DashboardPieChart"
+import DashboardDailyProgressChart from "../../features/dashboard/DashboardDailyProgressChart"
+import DashboardRecentCoursesTable from "../../features/dashboard/DashboardRecentCoursesTable"
+import { Link } from "react-router-dom"
+import useAuthUser from "hooks/useAuthUser"
 
 const Dashboard = () => {
+  const authUser = useAuthUser()
+
   return (
     <div className="flex flex-col lg:flex-row gap-5 mt-4">
       <div className="w-full lg:w-3/4">
@@ -191,7 +194,7 @@ const Dashboard = () => {
         <div className="flex flex-col text-center items-center gap-1 mb-6">
           <Avatar className="w-20 h-20 mb-2" src=""></Avatar>
           <Typography variant="h6" className="font-semibold">
-            Richard Marshall
+            {authUser.username}
           </Typography>
           <Typography className="text-mui-primary-tertiary">
             Web Engineer
@@ -259,7 +262,7 @@ const Dashboard = () => {
         </div>
       </Paper>
     </div>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

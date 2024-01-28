@@ -18,7 +18,15 @@ route.post('/signup', validate, async (req: Request, res: Response, next: NextFu
     const authServiceInstance = Container.get(AuthService);
     const { username, token } = await authServiceInstance.SignUp(req.body as IUserInputDTO);
 
-    return res.status(201).json({ username, token });
+    return res
+      .status(201)
+      .cookie('token', token, {
+        httpOnly: true,
+        maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
+        secure: true,
+        // sameSite: 'None',
+      })
+      .json({ username, token });
   } catch (e) {
     logger.error('🔥 error: %o', e);
     return next(e);
@@ -29,12 +37,20 @@ route.post('/signin', validate, async (req: Request, res: Response, next: NextFu
   const logger: Logger = Container.get('logger');
   logger.debug('Calling Sign-in endpoint with body: %o', req.body);
   try {
-    const { email, password } = req.body;
+    const { email, password, remember } = req.body as IUserInputDTO;
 
     const authServiceInstance = Container.get(AuthService);
-    const { username, token } = await authServiceInstance.SignIn(email, password);
+    const { username, token } = await authServiceInstance.SignIn(email, password, remember);
 
-    return res.status(200).json({ username, token });
+    return res
+      .status(200)
+      .cookie('token', token, {
+        httpOnly: true,
+        maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
+        secure: true,
+        // sameSite: 'None',
+      })
+      .json({ username });
   } catch (e) {
     logger.error('🔥 error: %o', e);
     return next(e);
