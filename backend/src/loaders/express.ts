@@ -10,10 +10,7 @@ export default ({ app }: { app: express.Application }) => {
    */
   app.use(cors());
 
-  app.get('/', (req, res) => {
-    res.status(200).json({ name: 'Hello World!' });
-  });
-  app.post('/status', (req, res) => {
+  app.get('/status', (req, res) => {
     res.status(200).json({ name: 'Healthy!' });
   });
   app.head('/status', (req, res) => {
