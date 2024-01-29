@@ -1,5 +1,5 @@
 import { Document, Model } from 'mongoose';
-import { IUser } from '../interfaces/schema';
+import { IUser } from '../../interfaces/schema';
 
 declare global {
   namespace Models {
