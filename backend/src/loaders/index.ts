@@ -21,6 +21,7 @@ export default async ({ expressApp }) => {
       // whateverModel
     ],
   });
+  Logger.info(agenda);
 
   await expressLoader({ app: expressApp });
   Logger.info('✌️ Express loaded');

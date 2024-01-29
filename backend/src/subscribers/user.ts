@@ -34,7 +34,7 @@ export default class UserSubscriber {
   }
 
   @On(events.user.signUp)
-  public onUserSignUp({ username, email, _id }: Partial<IUser>) {
+  public onUserSignUp({}: Partial<IUser>) {
     const Logger: Logger = Container.get('logger');
 
     try {
