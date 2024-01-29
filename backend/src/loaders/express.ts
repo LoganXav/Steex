@@ -9,6 +9,9 @@ export default ({ app }: { app: express.Application }) => {
    * Health Check endpoints
    */
 
+  app.use('/', (req, res) => {
+    res.status(200).json({ name: 'Home!' });
+  });
   app.post('/status', (req, res) => {
     res.status(200).json({ name: 'Healthy!' });
   });
