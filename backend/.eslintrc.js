@@ -15,5 +15,6 @@ module.exports = {
     '@typescript-eslint/no-parameter-properties': 0,
     '@typescript-eslint/interface-name-prefix': 0,
     'no-unused-vars': 'off', // Disable warnings for unused variables
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };
