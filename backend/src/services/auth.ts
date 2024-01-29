@@ -1,8 +1,8 @@
 import { Inject, Service } from 'typedi';
-import { IUser, IUserInputDTO } from '~/interfaces/schema';
+import { IUser, IUserInputDTO } from '../interfaces/schema';
 import bcrypt from 'bcryptjs';
-import { EventDispatcher, EventDispatcherInterface } from '~/decorators/eventDispatcher';
-import events from '~/subscribers/events';
+import { EventDispatcher, EventDispatcherInterface } from '../decorators/eventDispatcher';
+import events from '../subscribers/events';
 import jwt from 'jsonwebtoken';
 import config from '../config';
 

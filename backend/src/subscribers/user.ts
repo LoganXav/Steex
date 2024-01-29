@@ -1,7 +1,7 @@
 import { Container } from 'typedi';
 import { EventSubscriber, On } from 'event-dispatch';
 import events from './events';
-import { IUser } from '~/interfaces/schema';
+import { IUser } from '../interfaces/schema';
 import mongoose from 'mongoose';
 import { Logger } from 'winston';
 

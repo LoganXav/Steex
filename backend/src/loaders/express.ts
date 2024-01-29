@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import config from '~/config';
-import routes from '~/api';
+import config from '../config';
+import routes from '../api';
 import cookieParser from 'cookie-parser';
 
 export default ({ app }: { app: express.Application }) => {
