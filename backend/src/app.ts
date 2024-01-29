@@ -12,9 +12,9 @@ async function startServer() {
   app.listen(config.port, () => {
     Logger.info(
       `
-    ################################################
+    ################################################1
     🛡️  Server listening on port: ${config.port} 🛡️
-    ################################################
+    ################################################1
     `,
     ).on('error', err => {
       Logger.error(err);
@@ -22,5 +22,4 @@ async function startServer() {
     });
   });
 }
-
-export default startServer;
+startServer();
