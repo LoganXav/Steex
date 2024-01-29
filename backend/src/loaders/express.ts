@@ -8,9 +8,10 @@ export default ({ app }: { app: express.Application }) => {
   /**
    * Health Check endpoints
    */
+  app.use(cors());
 
   app.get('/', (req, res) => {
-    res.status(200).json({ name: 'Home!' });
+    res.status(200).json({ name: 'Hello World!' });
   });
   app.post('/status', (req, res) => {
     res.status(200).json({ name: 'Healthy!' });
@@ -20,7 +21,6 @@ export default ({ app }: { app: express.Application }) => {
   });
 
   app.use(cookieParser());
-  app.use(cors());
   app.use(express.json());
 
   app.use(config.api.prefix, routes());
