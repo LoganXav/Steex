@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import { EventDispatcher, EventDispatcherInterface } from '~/decorators/eventDispatcher';
 import events from '~/subscribers/events';
 import jwt from 'jsonwebtoken';
-import config from '~/config';
+import config from '../config';
 
 @Service()
 export default class AuthService {
