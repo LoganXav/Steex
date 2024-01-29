@@ -2,8 +2,8 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { validate } from '../middlewares/validator';
 import { Logger } from 'winston';
 import Container from 'typedi';
-import AuthService from '~/services/auth';
-import { IUserInputDTO } from '~/interfaces/schema';
+import AuthService from '../../services/auth';
+import { IUserInputDTO } from '../../interfaces/schema';
 
 const route = Router();
 

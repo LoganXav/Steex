@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
-import { UserInputDTO } from '~/interfaces/schema';
+import { UserInputDTO } from '../../interfaces/schema';
 
 export const validate = async (req: Request, res: Response, next: NextFunction) => {
   try {

@@ -21,10 +21,6 @@
     "allowJs": true,
     "noEmit": false,
     "esModuleInterop": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./src/*"]
-    }
   },
   "include": [
     "./src/**/*",
