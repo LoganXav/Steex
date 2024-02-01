@@ -24,7 +24,7 @@ route.post('/signup', validate, async (req: Request, res: Response, next: NextFu
         httpOnly: true,
         maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
         secure: true,
-        // sameSite: 'None',
+        sameSite: 'none',
       })
       .json({ username, token });
   } catch (e) {
@@ -48,7 +48,7 @@ route.post('/signin', validate, async (req: Request, res: Response, next: NextFu
         httpOnly: true,
         maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
         secure: true,
-        // sameSite: 'None',
+        sameSite: 'none',
       })
       .json({ username });
   } catch (e) {
