@@ -1,57 +1,47 @@
-import React from "react"
-import {
-  AppBar,
-  ButtonBase,
-  ListItemButton,
-  Typography,
-  useMediaQuery,
-} from "@mui/material"
+import { AppBar, ButtonBase, ListItemButton, Typography, useMediaQuery } from "@mui/material";
 
-import Container from "../libs/mui/Container"
-import Toolbar from "../libs/mui/Toolbar"
-import IconButton from "../libs/mui/IconButton"
-import Avatar from "../libs/mui/Avatar"
-import clsx from "clsx"
-import {
-  APP_SIDE_MENU_WIDTH,
-  MediaQueryBreakpointEnum,
-} from "../constants/Global"
-import { Link } from "react-router-dom"
-import { RouteEnum } from "../constants/RouterConstants"
-import useLogout from "../hooks/useLogout"
-import usePopover from "../hooks/usePopover"
-import useSideNavigationToggle from "../hooks/useSideNavigationToggle"
-import "./ProtectedPageHeader.css"
-import { Iconly } from "react-iconly"
-import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined"
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined"
-import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined"
-import Popover from "../libs/mui/Popover"
-import useThemeMode from "../hooks/useThemeMode"
-import GreetingMessage from "./GreetingMessage"
-import useAuthUser from "hooks/useAuthUser"
+import Container from "libs/mui/Container";
+import Toolbar from "libs/mui/Toolbar";
+import IconButton from "libs/mui/IconButton";
+import Avatar from "libs/mui/Avatar";
+import clsx from "clsx";
+import { APP_SIDE_MENU_WIDTH, MediaQueryBreakpointEnum } from "constants/Global";
+import { Link } from "react-router-dom";
+import { RouteEnum } from "constants/RouterConstants";
+import useLogout from "hooks/useLogout";
+import usePopover from "hooks/usePopover";
+import useSideNavigationToggle from "hooks/useSideNavigationToggle";
+import "./ProtectedPageHeader.css";
+import { Iconly } from "react-iconly";
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import FullscreenExitOutlinedIcon from "@mui/icons-material/FullscreenExitOutlined";
+import Popover from "libs/mui/Popover";
+import useThemeMode from "hooks/useThemeMode";
+import GreetingMessage from "./GreetingMessage";
+import useAuthUser from "hooks/useAuthUser";
 /**
  *
  * @param {PublicPageHeaderProps} props
  */
 function ProtectedPageHeader(props) {
-  const authUser = useAuthUser()
+  const authUser = useAuthUser();
 
-  const { className, position, ...rest } = props
-  const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl)
-  const islg = useMediaQuery(MediaQueryBreakpointEnum.lg)
-  const ismd = useMediaQuery(MediaQueryBreakpointEnum.md)
+  const { className, position, ...rest } = props;
+  const isxl = useMediaQuery(MediaQueryBreakpointEnum.xl);
+  const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
+  const ismd = useMediaQuery(MediaQueryBreakpointEnum.md);
 
-  const { logout } = useLogout()
+  const { logout } = useLogout();
 
-  const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle()
-  const [themeMode, toggleThemeMode] = useThemeMode()
+  const [isSideNavigation, toggleSideNavigation] = useSideNavigationToggle();
+  const [themeMode, toggleThemeMode] = useThemeMode();
 
-  const infoPopover = usePopover()
+  const infoPopover = usePopover();
 
   function handleLogout() {
-    infoPopover.togglePopover()
-    logout()
+    infoPopover.togglePopover();
+    logout();
   }
 
   return (
@@ -61,27 +51,16 @@ function ProtectedPageHeader(props) {
         position={position}
         style={{
           left: isxl ? 0 : islg ? APP_SIDE_MENU_WIDTH : 0,
-          width: isxl
-            ? "100%"
-            : islg
-            ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)`
-            : "100%",
+          width: isxl ? "100%" : islg ? `calc(100% - ${APP_SIDE_MENU_WIDTH}px)` : "100%",
           ...rest,
         }}
         {...rest}
       >
-        <Container
-          maxWidth="false"
-          className="py-1 rounded-none text-mui-secondary-main bg-mui-background-default"
-        >
+        <Container maxWidth="false" className="py-1 rounded-none text-mui-secondary-main bg-mui-background-default">
           <Toolbar>
             {!islg && (
               <IconButton variant="soft" size="medium">
-                <Iconly
-                  size="medium"
-                  name="ArrowRight"
-                  onClick={() => toggleSideNavigation()}
-                />
+                <Iconly size="medium" name="ArrowRight" onClick={() => toggleSideNavigation()} />
               </IconButton>
             )}
 
@@ -94,15 +73,7 @@ function ProtectedPageHeader(props) {
                 <FullscreenExitOutlinedIcon />
               </IconButton>
 
-              <IconButton
-                variant="soft"
-                size="medium"
-                onClick={() =>
-                  themeMode === "dark"
-                    ? toggleThemeMode("light")
-                    : toggleThemeMode("dark")
-                }
-              >
+              <IconButton variant="soft" size="medium" onClick={() => (themeMode === "dark" ? toggleThemeMode("light") : toggleThemeMode("dark"))}>
                 <WbSunnyOutlinedIcon />
               </IconButton>
               <IconButton
@@ -112,37 +83,19 @@ function ProtectedPageHeader(props) {
               >
                 <NotificationsOutlinedIcon />
               </IconButton>
-              <ButtonBase
-                className="flex text-start items-center px-3 rounded-md"
-                onClick={infoPopover.togglePopover}
-              >
+              <ButtonBase className="flex text-start items-center px-3 rounded-md" onClick={infoPopover.togglePopover}>
                 <Avatar className="md:mr-2 w-7 h-7" src=""></Avatar>
                 {ismd && (
                   <div>
-                    <Typography className="font-semibold ">
-                      {authUser.username}
-                    </Typography>
-                    <Typography className="text-mui-primary-tertiary">
-                      Student
-                    </Typography>
+                    <Typography className="font-semibold ">{authUser.username}</Typography>
+                    <Typography className="text-mui-primary-tertiary">Student</Typography>
                   </div>
                 )}
               </ButtonBase>
             </div>
-            <Popover
-              open={infoPopover.isOpen}
-              anchorEl={infoPopover.anchorEl}
-              onClose={infoPopover.togglePopover}
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-              PaperProps={{ className: "w-[12rem] mt-1" }}
-              elevation="3"
-            >
+            <Popover open={infoPopover.isOpen} anchorEl={infoPopover.anchorEl} onClose={infoPopover.togglePopover} anchorOrigin={{ vertical: "bottom", horizontal: "right" }} transformOrigin={{ vertical: "top", horizontal: "right" }} PaperProps={{ className: "w-[12rem] mt-1" }} elevation="3">
               <div className="flex flex-col">
-                <Typography
-                  variant="subtitle2"
-                  className="font-semibold pt-4 pl-4"
-                >
+                <Typography variant="subtitle2" className="font-semibold pt-4 pl-4">
                   Welcome {authUser.username}!
                 </Typography>
                 {/* <div className="py-2">
@@ -219,18 +172,15 @@ function ProtectedPageHeader(props) {
                         disableGutters
                         dense="false"
                         onClick={() => {
-                          infoPopover.togglePopover()
-                          onClick?.()
+                          infoPopover.togglePopover();
+                          onClick?.();
                         }}
                         {...rest}
                       >
                         <IconButton variant="soft" size="small">
                           <Iconly size="small" name={icon} />
                         </IconButton>
-                        <Typography
-                          variant="body2"
-                          className="text-mui-secondary-contrastText"
-                        >
+                        <Typography variant="body2" className="text-mui-secondary-contrastText">
                           {children}
                         </Typography>
                       </ListItemButton>
@@ -243,10 +193,10 @@ function ProtectedPageHeader(props) {
         </Container>
       </AppBar>
     </div>
-  )
+  );
 }
 
-export default ProtectedPageHeader
+export default ProtectedPageHeader;
 
 /**
  * @typedef {{

@@ -15,12 +15,11 @@ const DashboardRecentCoursesTable = () => {
             Recent Courses
           </Typography>
           <Typography className="flex items-center">
-            SORT BY:{" "}
-            <span className="text-mui-primary-tertiary ml-1">Course Title</span>
+            SORT BY: <span className="text-mui-primary-tertiary ml-1">Course Title</span>
           </Typography>
         </div>
       </Paper>
-      <Table instance={tableInstance} />;
+      <Table instance={tableInstance} />
     </>
   );
 };
@@ -93,8 +92,6 @@ const columns = [
   {
     header: "Status",
     accessorKey: "status",
-    cell: ({ getValue }) => (
-      <DashboardStatusChip size="small" status={getValue()} />
-    ),
+    cell: ({ getValue }) => <DashboardStatusChip size="small" status={getValue()} />,
   },
 ];

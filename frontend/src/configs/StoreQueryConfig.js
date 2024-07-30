@@ -2,7 +2,6 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 import axios from "axios";
 import { StoreQueryTagEnum } from "constants/StoreConstants";
 import CoreHttp from "./HttpConfig";
-import { EnvVarEnum } from "constants/Global";
 
 export const CoreApi = createApi({
   reducerPath: "steex",
@@ -44,7 +43,6 @@ export function axiosBaseQuery(baseConfig = {}, http = axios) {
         meta: { request: response.request, response },
       };
     } catch (error) {
-      console.log(error);
       return {
         error: error.response
           ? {

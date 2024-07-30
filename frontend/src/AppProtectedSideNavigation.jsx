@@ -1,20 +1,17 @@
 import { Drawer, List, useMediaQuery } from "@mui/material";
 import AppProtectedSideNavigationItem from "./AppProtectedSideNavigationItem";
-import {
-  APP_SIDE_MENU_WIDTH,
-  MediaQueryBreakpointEnum,
-} from "constants/Global";
+import { APP_SIDE_MENU_WIDTH, MediaQueryBreakpointEnum } from "constants/Global";
 import { RouteEnum } from "constants/RouterConstants";
 import { Iconly } from "react-iconly";
 import SteexLogo from "./assets/steex.png";
 
 // import useAuthUser from "hooks/useAuthUser";
-import useSideNavigationToggle from "./hooks/useSideNavigationToggle";
-import useLogout from "./hooks/useLogout";
-import Toolbar from "./libs/mui/Toolbar";
-import Typography from "./libs/mui/Typography";
-import Button from "./libs/mui/Button";
-import IconButton from "./libs/mui/IconButton";
+import useSideNavigationToggle from "hooks/useSideNavigationToggle";
+import useLogout from "hooks/useLogout";
+import Toolbar from "libs/mui/Toolbar";
+import Typography from "libs/mui/Typography";
+import Button from "libs/mui/Button";
+import IconButton from "libs/mui/IconButton";
 
 function AppProtectedSideNavigation() {
   const islg = useMediaQuery(MediaQueryBreakpointEnum.lg);
@@ -27,8 +24,7 @@ function AppProtectedSideNavigation() {
       variant={islg ? "permanent" : "temporary"}
       PaperProps={{
         style: { width: APP_SIDE_MENU_WIDTH },
-        className:
-          "flex flex-col bg-mui-secondary-dark !bg-opacity-0 px-3 rounded-md xl:h-[85%] xl:ml-5 xl:translate-y-24 max-h-full",
+        className: "flex flex-col bg-mui-secondary-dark !bg-opacity-0 px-3 rounded-md xl:h-[85%] xl:ml-5 xl:translate-y-24 max-h-full",
       }}
       onClose={() => toggleSideNavigation()}
     >
