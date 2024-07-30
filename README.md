@@ -23,9 +23,11 @@ Steex is built with the following technologies:
 - **Express**: Backend framework
 - **Typescript**: Static typing
 - **TypeDI**: Dependency injection
-- **MongoDB**: Database provider
-- **Mongoose**: Database ORM
+- **MongoDB**: Database
+- **Mongoose**: ORM
 - **Agenda**: Job scheduling
+- **Winston**: Logging
+- **Zod**: Validation
 
 ## Getting Started
 
