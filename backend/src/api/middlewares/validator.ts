@@ -4,7 +4,7 @@ import { UserInputDTO } from '../../interfaces/schema';
 
 export const validate = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    await UserInputDTO.safeParse(req.body);
+    UserInputDTO.safeParse(req.body);
     next();
   } catch (err) {
     if (err instanceof z.ZodError) {

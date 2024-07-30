@@ -37,7 +37,7 @@ export default class AuthService {
       const token = this.generateToken(userRecord);
 
       if (!userRecord) {
-        throw new Error('User cannot be created');
+        throw new Error('Error creating user.');
       }
 
       const { username } = userRecord;
@@ -59,7 +59,7 @@ export default class AuthService {
     const userRecord = await this.userModel.findOne({ email });
 
     if (!userRecord) {
-      throw new Error('User not registered');
+      throw new Error('Invalid Credentials');
     }
 
     this.logger.silly('Checking password');
@@ -67,7 +67,7 @@ export default class AuthService {
     const validPassword = await bcrypt.compare(password, userRecord.password);
 
     if (!validPassword) {
-      throw new Error('Invalid password');
+      throw new Error('Invalid Credentials');
     } else {
       this.logger.silly('Password is valid');
       this.logger.silly('Generating JWT');
@@ -82,20 +82,10 @@ export default class AuthService {
   }
 
   private generateToken(user: IUser, remember = false): string {
-    /**
-     * A JWT means JSON Web Token, so basically it's a json that is _hashed_ into a string
-     * The cool thing is that you can add custom properties a.k.a metadata
-     * Here we are adding the userId, role and name
-     * Beware that the metadata is public and can be decoded without _the secret_
-     * but the client cannot craft a JWT to fake a userId
-     * because it doesn't have _the secret_ to sign it
-     * more information here: https://softwareontheroad.com/you-dont-need-passport
-     */
     this.logger.silly(`Sign JWT for userId: ${user._id}`);
     return jwt.sign(
       {
-        _id: user._id, // We are gonna use this in the middleware 'isAuth'
-        // role: user.role,
+        _id: user._id,
         name: user.username,
       },
       config.jwtSecret,

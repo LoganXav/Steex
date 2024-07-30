@@ -13,9 +13,7 @@ export const MediaQueryBreakpointEnum = {
 };
 
 export const EnvVarEnum = {
-  PROD: import.meta.env.PROD,
-  DEV: import.meta.env.DEV,
-  CORE_API_BASE_URL: import.meta.env.VITE_CORE_API_BASE_URL,
+  CORE_API_BASE_URL: import.meta.env.VITE_ENV === "dev" ? import.meta.env.VITE_DEV_API_BASE_URL : import.meta.env.VITE_CORE_API_BASE_URL,
   AES_ENCRYPTION_KEY: import.meta.env.VITE_AES_ENCRYPTION_KEY,
 };
 

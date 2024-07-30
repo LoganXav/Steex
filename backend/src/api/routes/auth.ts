@@ -45,8 +45,8 @@ route.post('/signin', validate, async (req: Request, res: Response, next: NextFu
     return res
       .status(200)
       .cookie('token', token, {
-        // httpOnly: true,   Return this to true
-        maxAge: req.body.remember ? 365 * 24 * 60 * 60 * 1000 : null,
+        httpOnly: true,
+        maxAge: req.body.remember ? 2 * 24 * 60 * 60 * 1000 : null,
         secure: true,
         sameSite: 'none',
       })
