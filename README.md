@@ -32,7 +32,6 @@ Steex is built with the following technologies:
 ## Getting Started
 
 To set up Steex locally, follow these steps:
-Set environment variables in .env file based on both .env.example.
 
 1. **Clone the repository**:
 
@@ -70,8 +69,10 @@ Set environment variables in .env file based on both .env.example.
    yarn
    ```
 
-7. **Start backend server**:
+7. **Start frontend server**:
 
    ```bash
    yarn dev
    ```
+
+   Set environment variables in .env file based on both `.env.example`.
