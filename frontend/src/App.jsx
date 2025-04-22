@@ -9,8 +9,6 @@ import Suspense from "common/Suspense";
 function App() {
   const authUser = useAuthUser();
 
-  console.log(authUser, "jsncksnd");
-
   return (
     <AppThemeProvider>
       <SnackbarProvider
