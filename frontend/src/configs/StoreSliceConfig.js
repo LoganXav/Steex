@@ -14,27 +14,43 @@ const slice = createSlice({
   initialState: globalInitialState,
   reducers: {
     toggleLoadingModalAction: (state, { payload }) => {
-      state.isLoadingModal = payload !== undefined ? !!payload : !state.isLoadingModal;
+      state.isLoadingModal =
+        payload !== undefined ? !!payload : !state.isLoadingModal;
     },
     toggleSideNavigationAction: (state, { payload }) => {
-      state.isSideNavigation = payload !== undefined ? !!payload : !state.isSideNavigation;
+      state.isSideNavigation =
+        payload !== undefined ? !!payload : !state.isSideNavigation;
     },
     toggleThemeModeAction: (state, { payload }) => {
       state.themeMode = payload !== undefined ? payload : state.themeMode;
+    },
+    setAuthUserAction: (state, { payload }) => {
+      state.authUser = payload;
     },
   },
   extraReducers: (builder) =>
     builder
       .addCase(logoutAction, () => ({ ...globalInitialState }))
-      .addMatcher(CoreAuthenticationApi.endpoints.login.matchFulfilled, (state, { payload }) => {
-        state.authUser = { ...payload };
-      })
-      .addMatcher(CoreAuthenticationApi.endpoints.register.matchFulfilled, (state, { payload }) => {
-        state.authUser = { ...payload };
-      }),
+      .addMatcher(
+        CoreAuthenticationApi.endpoints.login.matchFulfilled,
+        (state, { payload }) => {
+          state.authUser = { ...payload };
+        },
+      )
+      .addMatcher(
+        CoreAuthenticationApi.endpoints.register.matchFulfilled,
+        (state, { payload }) => {
+          state.authUser = { ...payload };
+        },
+      ),
 });
 
-export const { toggleLoadingModalAction, toggleSideNavigationAction, toggleThemeModeAction } = slice.actions;
+export const {
+  toggleLoadingModalAction,
+  toggleSideNavigationAction,
+  toggleThemeModeAction,
+  setAuthUserAction,
+} = slice.actions;
 
 export default slice;
 
