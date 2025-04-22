@@ -6,20 +6,8 @@ import { RouteEnum } from "../../constants/RouterConstants";
 
 const InstructorListAction = ({ data }) => {
   return (
-    <IconButton
-      aria-label="view course details"
-      component={Link}
-      to={RouteEnum.INSTRUCTORS_DETAILS}
-      state={{ instructorId: data?.id }}
-    >
-      <InstructorProfileChip
-        size="small"
-        type="option"
-        variant="soft"
-        color="info"
-        label={<Iconly size="small" name="Show" />}
-        className="!rounded-full h-8 cursor-pointer"
-      />
+    <IconButton aria-label="view course details" component={Link} to={RouteEnum.MEMBER_DETAILS} state={{ instructorId: data?.id }}>
+      <InstructorProfileChip size="small" type="option" variant="soft" color="info" label={<Iconly size="small" name="Show" />} className="!rounded-full h-8 cursor-pointer" />
     </IconButton>
   );
 };

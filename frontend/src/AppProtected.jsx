@@ -49,24 +49,24 @@ const getRoutes = function getRoutes({ redirectTo }) {
       element: lazy(() => import("pages/dashboard/Dashboard")),
     },
     {
-      path: RouteEnum.COURSES.concat("/*"),
+      path: RouteEnum.MEMBERS.concat("/*"),
       element: lazy(() => import("pages/courses/Course")),
     },
     {
-      path: RouteEnum.SUBSCRIPTIONS.concat("/*"),
-      element: lazy(() => import("pages/subscriptions/Subscription")),
-    },
-    {
-      path: RouteEnum.INSTRUCTORS.concat("/*"),
+      path: RouteEnum.ALL_MEMBERS.concat("/*"),
       element: lazy(() => import("pages/instructors/Instructor")),
     },
     {
-      path: RouteEnum.PROFILE.concat("/*"),
-      element: lazy(() => import("pages/profile/Profile")),
+      path: RouteEnum.MEMBERSHIP_CLASS.concat("/*"),
+      element: lazy(() => import("pages/subscriptions/Subscription")),
     },
-    {
-      path: RouteEnum.CONTACT_US_FAQS.concat("/*"),
-      element: lazy(() => import("pages/contact-us/Faq")),
-    },
+    // {
+    //   path: RouteEnum.PROFILE.concat("/*"),
+    //   element: lazy(() => import("pages/profile/Profile")),
+    // },
+    // {
+    //   path: RouteEnum.CONTACT_US_FAQS.concat("/*"),
+    //   element: lazy(() => import("pages/contact-us/Faq")),
+    // },
   ]);
 };

@@ -8,18 +8,13 @@ function DashboardDailyProgressChart() {
       <Paper className="2xl:w-1/4 p-4 flex flex-col justify-between items-center">
         <div className="w-full flex justify-between items-center mb-5">
           <Typography variant="h6" className="font-semibold">
-            Daily Progress
+            Monthly Income Target
           </Typography>
-          <Typography className="text-mui-primary-tertiary">Today</Typography>
+          {/* <Typography className="text-mui-primary-tertiary">This Month</Typography> */}
         </div>
-        <ReactApexChart
-          options={DailyProgressOptions.options}
-          series={DailyProgressOptions.series}
-          type="radialBar"
-          height={350}
-        />
+        <ReactApexChart options={DailyProgressOptions.options} series={DailyProgressOptions.series} type="radialBar" height={350} />
         <Typography className="text-mui-primary-tertiary text-center">
-          Very good, keep improving the quality of your learning
+          Keep up the great work! Let{"'"}s reach this month{"'"}s target together.
         </Typography>
       </Paper>
     </>

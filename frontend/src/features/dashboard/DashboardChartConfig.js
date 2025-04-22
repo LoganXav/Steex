@@ -54,7 +54,7 @@ export const DailyProgressOptions = {
     stroke: {
       dashArray: 4,
     },
-    labels: ["Daily Progress"],
+    labels: ["Monthly Progress"],
   },
 };
 
@@ -92,17 +92,7 @@ export const LearningOverviewOptions = {
       },
     },
     xaxis: {
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-      ],
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
     },
   },
 };

@@ -17,19 +17,19 @@ function getRoutes() {
     [
       {
         path: "*",
-        element: <Navigate to={RouteEnum.INSTRUCTORS} replace />,
+        element: <Navigate to={RouteEnum.ALL_MEMBERS} replace />,
       },
       {
-        path: RouteEnum.INSTRUCTORS,
+        path: RouteEnum.ALL_MEMBERS,
         element: lazy(() => import("./InstructorList")),
       },
       {
-        path: RouteEnum.INSTRUCTORS_DETAILS,
+        path: RouteEnum.MEMBER_DETAILS,
         element: lazy(() => import("./InstructorDetails")),
       },
     ],
     {
-      parentPath: RouteEnum.INSTRUCTORS,
+      parentPath: RouteEnum.ALL_MEMBERS,
     }
   );
 }

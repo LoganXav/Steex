@@ -3,7 +3,7 @@ import AppProtectedSideNavigationItem from "./AppProtectedSideNavigationItem";
 import { APP_SIDE_MENU_WIDTH, MediaQueryBreakpointEnum } from "constants/Global";
 import { RouteEnum } from "constants/RouterConstants";
 import { Iconly } from "react-iconly";
-import SteexLogo from "./assets/steex.png";
+// import SteexLogo from "./assets/steex.png";
 
 // import useAuthUser from "hooks/useAuthUser";
 import useSideNavigationToggle from "hooks/useSideNavigationToggle";
@@ -29,8 +29,11 @@ function AppProtectedSideNavigation() {
       onClose={() => toggleSideNavigation()}
     >
       <Toolbar className="flex items-center justify-center mb-1">
-        <div className="mx-auto w-28">
-          <img src={SteexLogo} />
+        <div className="mx-auto">
+          {/* <img src={SteexLogo} /> */}
+          <Typography fontWeight={700} variant="h5" className="text-white">
+            GraceLife <span className="text-mui-primary-main">Admin</span>
+          </Typography>
         </div>
       </Toolbar>
       <Typography className="text-mui-primary-tertiary" variant="caption">
@@ -64,9 +67,10 @@ export default AppProtectedSideNavigation;
 
 const LINKS = [
   { name: "Dashboard", to: RouteEnum.DASHBOARD, icon: "Chart" },
-  { name: "Courses", to: RouteEnum.COURSES_CATEGORIES, icon: "Work" },
-  { name: "Subscriptions", to: RouteEnum.SUBSCRIPTIONS, icon: "Calendar" },
-  { name: "Instructors", to: RouteEnum.INSTRUCTORS, icon: "People" },
-  { name: "Profile", to: RouteEnum.PROFILE, icon: "User" },
-  { name: "FAQs", to: RouteEnum.CONTACT_US_FAQS, icon: "Discovery" },
+  { name: "Cell Groups", to: RouteEnum.MEMBERS_CELL_GROUPS, icon: "Work" },
+
+  { name: "Members", to: RouteEnum.ALL_MEMBERS, icon: "People" },
+  { name: "Membership Class", to: RouteEnum.MEMBERSHIP_CLASS, icon: "Calendar" },
+  // { name: "Profile", to: RouteEnum.PROFILE, icon: "User" },
+  // { name: "FAQs", to: RouteEnum.CONTACT_US_FAQS, icon: "Discovery" },
 ];

@@ -34,16 +34,11 @@ const InstructorDetails = () => {
         <Typography variant="body1" className="font-semibold">
           OVERVIEW
         </Typography>
-        <PageBreadcrumbs
-          breadcrumbs={[
-            { name: "Instructors", to: RouteEnum.INSTRUCTORS },
-            { name: "Overview" },
-          ]}
-        />
+        <PageBreadcrumbs breadcrumbs={[{ name: "All Members", to: RouteEnum.ALL_MEMBERS }, { name: "Overview" }]} />
       </Toolbar>
       <InstructorProfileCard />
 
-      <Paper className="flex flex-col md:flex-row justify-between md:items-center p-4 my-6 ">
+      {/* <Paper className="flex flex-col md:flex-row justify-between md:items-center p-4 my-6 ">
         <Typography variant="h6" className="font-semibold">
           Portfolio Overview
         </Typography>
@@ -76,7 +71,7 @@ const InstructorDetails = () => {
           [InstructorDetailsTabEnum.STUDENTS]: <InstructorStudentsTable />,
           [InstructorDetailsTabEnum.REVIEW]: <InstructorReview />,
         }[activeTab]
-      }
+      } */}
     </>
   );
 };

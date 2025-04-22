@@ -17,14 +17,14 @@ function getRoutes() {
     [
       {
         path: "*",
-        element: <Navigate to={RouteEnum.COURSES_CATEGORIES} replace />,
+        element: <Navigate to={RouteEnum.CELL_GROUPS} replace />,
       },
       {
-        path: RouteEnum.COURSES_CATEGORIES,
+        path: RouteEnum.MEMBERS_CELL_GROUPS,
         element: lazy(() => import("./CourseCategories")),
       },
       {
-        path: RouteEnum.COURSES,
+        path: RouteEnum.MEMBERS,
         element: lazy(() => import("./CourseList")),
       },
       {
@@ -33,7 +33,7 @@ function getRoutes() {
       },
     ],
     {
-      parentPath: RouteEnum.COURSES,
+      parentPath: RouteEnum.MEMBERS,
     }
   );
 }

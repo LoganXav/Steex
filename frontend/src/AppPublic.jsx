@@ -9,16 +9,7 @@ import Suspense from "./common/Suspense";
 function AppPublic() {
   const location = useLocation();
 
-  const routeConfig = useMemo(
-    () =>
-      [
-        { path: RouteEnum.SIGNIN },
-        { path: RouteEnum.SIGNUP },
-        { path: RouteEnum.FORGOT_PASSWORD },
-        { path: RouteEnum.FORGOT_PASSWORD_RESET },
-      ].find((route) => matchPath(route, location.pathname)),
-    [location.pathname]
-  );
+  const routeConfig = useMemo(() => [{ path: RouteEnum.SIGNIN }, { path: RouteEnum.SIGNUP }, { path: RouteEnum.FORGOT_PASSWORD }, { path: RouteEnum.FORGOT_PASSWORD_RESET }, { path: RouteEnum.HOME }].find((route) => matchPath(route, location.pathname)), [location.pathname]);
 
   const routes = useRoutes(ROUTES);
 
@@ -38,12 +29,12 @@ function AppPublic() {
 const ROUTES = configureRoutes([
   {
     path: "*",
-    element: <Navigate to={RouteEnum.SIGNIN} replace />,
+    element: <Navigate to={RouteEnum.HOME} replace />,
   },
-  // {
-  //   path: RouteEnum.HOME,
-  //   element: lazy(() => import("pages/home/Home")),
-  // },
+  {
+    path: RouteEnum.HOME,
+    element: lazy(() => import("pages/home/Home")),
+  },
   {
     path: RouteEnum.SIGNIN,
     element: lazy(() => import("pages/signin/Signin")),

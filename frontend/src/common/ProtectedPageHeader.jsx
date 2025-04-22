@@ -88,7 +88,7 @@ function ProtectedPageHeader(props) {
                 {ismd && (
                   <div>
                     <Typography className="font-semibold ">{authUser.username}</Typography>
-                    <Typography className="text-mui-primary-tertiary">Student</Typography>
+                    <Typography className="text-mui-primary-tertiary">Church Administrator</Typography>
                   </div>
                 )}
               </ButtonBase>

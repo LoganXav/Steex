@@ -15,12 +15,14 @@ export const RouteEnum = {
   CONTACT_US_SUPPORT: "/contact-us/support",
   SETTINGS: "/settings",
 
-  COURSES: "/courses",
-  COURSES_CATEGORIES: "/courses/categories",
+  MEMBERS: "/members",
+  MEMBERS_CELL_GROUPS: "/members/cell-groups",
+  ALL_MEMBERS: "/all-members",
+  MEMBER_DETAILS: "/all-members/:id",
+  MEMBERSHIP_CLASS: "/subscriptions",
+
   COURSES_DETAILS: "/courses/:id",
-  SUBSCRIPTIONS: "/subscriptions",
   INSTRUCTORS: "/instructors",
-  INSTRUCTORS_DETAILS: "/instructors/:id",
   PROFILE: "/profile:id",
   PROFILE_SETTINGS: "/profile:id/settings",
   CONTACT_US_FAQS: "/faqs",

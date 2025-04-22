@@ -4,6 +4,13 @@ export default {
   // important: "#app",
   // darkMode: "class",
   theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
       colors: {
         mui: {
@@ -86,19 +93,7 @@ export default {
 
         fontFamily: {
           inherit: ["inherit"],
-          segoeui: [
-            "Segoe UI",
-            "-apple-system",
-            "BlinkMacSystemFont",
-            "Roboto",
-            "Oxygen",
-            "Ubuntu",
-            "Cantarell",
-            "Fira Sans",
-            "Droid Sans",
-            "Helvetica Neue",
-            "sans-serif",
-          ],
+          segoeui: ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"],
         },
         zIndex: {
           mobileStepper: 1000,
